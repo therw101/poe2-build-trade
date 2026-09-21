@@ -6,8 +6,8 @@ import type { BaseMap, PlannerItem, StatMap } from '../src/core/types.ts';
 
 const read = (p: string) => JSON.parse(readFileSync(p, 'utf8'));
 const items: Record<string, PlannerItem> = JSON.parse(read('tests/fixtures/planner-z7coxn0y.json').data).items;
-const stats = indexStatMap(read('data/stat-map.json') as StatMap);
-const bases = read('data/base-map.json') as BaseMap;
+const stats = indexStatMap(read('public/data/stat-map.json') as StatMap);
+const bases = read('public/data/base-map.json') as BaseMap;
 const model = (id: string) => toItemModel(items[id]!, stats, bases);
 
 describe('toItemModel', () => {

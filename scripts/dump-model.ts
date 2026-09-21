@@ -6,8 +6,8 @@ import { toItemModel } from '../src/core/translate.ts';
 
 const read = (p: string) => JSON.parse(readFileSync(p, 'utf8'));
 const items = JSON.parse(read('tests/fixtures/planner-z7coxn0y.json').data).items;
-const stats = indexStatMap(read('data/stat-map.json'));
-const bases = read('data/base-map.json');
+const stats = indexStatMap(read('public/data/stat-map.json'));
+const bases = read('public/data/base-map.json');
 for (const id of process.argv.slice(2)) {
   const m = toItemModel(items[id], stats, bases);
   console.log(`${id} ${m.rarity} ${m.name} | ${m.baseName} (${m.category}) sockets=${m.sockets}`);

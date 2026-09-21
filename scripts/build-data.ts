@@ -1,5 +1,5 @@
-// Builds data/stat-map.json and data/base-map.json from RePoE and the trade2 data API.
-//   npm run build-data                 write to ./data
+// Builds public/data/stat-map.json and public/data/base-map.json from RePoE and the trade2 data API.
+//   npm run build-data                 write to ./public/data
 //   npm run build-data -- --out dir    write to another directory
 //   npm run build-data -- --check      exit 1 when fixture coverage < 95%
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
@@ -22,7 +22,7 @@ const headers = { 'User-Agent': `poe2-build-trade/${version} (+github)` };
 
 const args = process.argv.slice(2);
 const outIdx = args.indexOf('--out');
-const outDir = outIdx >= 0 ? args[outIdx + 1] ?? 'data' : 'data';
+const outDir = outIdx >= 0 ? args[outIdx + 1] ?? 'public/data' : 'public/data';
 const check = args.includes('--check');
 
 async function get<T>(url: string): Promise<T> {
