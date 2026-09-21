@@ -33,9 +33,19 @@ describe('toItemModel', () => {
     expect(toItemModel(unnamed, stats, bases).name).toBe('');
   });
 
-  it('marks stats that trade cannot search as unmapped', () => {
+  it('resolves anoint enchants to the trade option id', () => {
     const enchant = model('178').mods.find((r) => r.kind === 'enchant');
-    expect(enchant).toMatchObject({ tradeId: null, text: 'mod_granted_passive_hash' });
+    expect(enchant).toMatchObject({
+      tradeId: 'enchant.stat_2954116742|16790',
+      text: 'Allocates Efficient Casting',
+      numeric: false,
+    });
+  });
+
+  it('marks stats without a translation as unmapped', () => {
+    const item: PlannerItem = { ...items['32']!, stats: { explicit: { not_a_real_stat: 3 } } };
+    const [row] = toItemModel(item, stats, bases).mods;
+    expect(row).toMatchObject({ tradeId: null, text: 'not a real stat', value: 3 });
   });
 
   it('keeps unique name and base', () => {

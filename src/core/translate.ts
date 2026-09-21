@@ -13,6 +13,18 @@ function fill(template: string, values: number[]): string {
   });
 }
 
+function optionRow(kind: StatKind, entry: StatMapEntry, value: number, stats: StatIndex): ModRow {
+  const name = stats.options[entry.option!]?.[String(value)];
+  const base = entry.trade[kind];
+  return {
+    kind,
+    text: entry.text.replace(/\+?#/, name ?? String(value)),
+    value,
+    numeric: false,
+    tradeId: name && base ? `${base}|${value}` : null,
+  };
+}
+
 function rowForEntry(kind: StatKind, entry: StatMapEntry, group: Record<string, number>): ModRow {
   const shown: number[] = [];
   entry.ids.forEach((id, i) => {
@@ -39,14 +51,14 @@ export function toItemModel(item: PlannerItem, stats: StatIndex, bases: BaseMap)
     const group = item.stats[kind] ?? {};
     const done = new Set<StatMapEntry>();
     for (const [id, value] of Object.entries(group)) {
-      const entry = stats.get(id);
+      const entry = stats.byId.get(id);
       if (!entry) {
-        mods.push({ kind, text: id, value, numeric: true, tradeId: null });
+        mods.push({ kind, text: id.replace(/_/g, ' '), value, numeric: true, tradeId: null });
         continue;
       }
       if (done.has(entry)) continue;
       done.add(entry);
-      mods.push(rowForEntry(kind, entry, group));
+      mods.push(entry.option ? optionRow(kind, entry, value, stats) : rowForEntry(kind, entry, group));
     }
   }
 

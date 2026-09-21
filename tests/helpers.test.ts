@@ -44,5 +44,6 @@ describe('validation', () => {
   it('accepts the bundled stat map', () => {
     expect(isStatMap(read('public/data/stat-map.json'))).toBe(true);
     expect(isStatMap({ entries: 'x' })).toBe(false);
+    expect(isStatMap({ generatedAt: 'x', entries: [{ ids: 'a', text: 1 }] })).toBe(false);
   });
 });

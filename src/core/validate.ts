@@ -20,6 +20,17 @@ export function isPlannerItem(x: unknown): x is PlannerItem {
   );
 }
 
+const isStatMapEntry = (e: unknown) =>
+  isRecord(e) && Array.isArray(e.ids) && typeof e.text === 'string' && isRecord(e.trade);
+
+/** Validates remote data before it replaces the bundled snapshot. */
 export function isStatMap(x: unknown): x is StatMap {
-  return isRecord(x) && typeof x.generatedAt === 'string' && Array.isArray(x.entries);
+  return (
+    isRecord(x) &&
+    typeof x.generatedAt === 'string' &&
+    Array.isArray(x.entries) &&
+    x.entries.length > 0 &&
+    x.entries.every(isStatMapEntry) &&
+    (x.options === undefined || isRecord(x.options))
+  );
 }

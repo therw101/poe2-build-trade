@@ -45,6 +45,13 @@ describe('buildStatMap', () => {
     expect(entryFor('base_cast_speed_+%')?.negText).toContain('reduced Cast Speed');
   });
 
+  it('links option stats such as anoints to their trade option group', () => {
+    const e = entryFor('mod_granted_passive_hash');
+    expect(e?.trade.enchant).toBe('enchant.stat_2954116742');
+    expect(e?.option).toBe('stat_2954116742');
+    expect(statMap.options?.stat_2954116742?.['16790']).toBe('Efficient Casting');
+  });
+
   it('only emits the six supported kinds', () => {
     for (const e of statMap.entries) {
       for (const k of Object.keys(e.trade)) {

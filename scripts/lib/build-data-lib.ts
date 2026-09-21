@@ -75,12 +75,59 @@ function tradeTextIndex(tradeStats: TradeStatsResponse): Map<string, string> {
   for (const group of tradeStats.result) {
     for (const e of group.entries) {
       const kind = e.id.split('.')[0] ?? '';
-      if (!isKind(kind)) continue;
+      if (!isKind(kind) || e.id.includes('|')) continue;
       const key = `${kind}|${e.text.toLowerCase()}`;
       if (!index.has(key)) index.set(key, e.id);
     }
   }
   return index;
+}
+
+/** Trade stats with named options, listed as "<kind>.stat_N|<option>", e.g. anoints. */
+interface OptionGroup {
+  kind: StatKind;
+  baseId: string;
+  statKey: string;
+  options: { option: string; text: string }[];
+}
+
+function optionGroups(tradeStats: TradeStatsResponse): OptionGroup[] {
+  const groups = new Map<string, OptionGroup>();
+  for (const group of tradeStats.result) {
+    for (const e of group.entries) {
+      const [baseId, option] = e.id.split('|');
+      const kind = baseId?.split('.')[0] ?? '';
+      if (!baseId || !option || !isKind(kind)) continue;
+      let g = groups.get(baseId);
+      if (!g) groups.set(baseId, (g = { kind, baseId, statKey: baseId.slice(kind.length + 1), options: [] }));
+      g.options.push({ option, text: e.text });
+    }
+  }
+  return [...groups.values()];
+}
+
+const escapeRe = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+
+/** Regex capturing the option name for a single-placeholder template, e.g. /^Allocates (.+)$/i. */
+function optionPattern(t: RepoeTranslation): RegExp | null {
+  if (t.ids.length !== 1) return null;
+  for (const v of t.English) {
+    const parts = normalizeTemplate(v.string).split('#');
+    // A bare "#" template would match every option group; require literal text around it.
+    if (parts.length === 2 && parts.join('').trim()) return new RegExp(`^${escapeRe(parts[0]!)}(.+)${escapeRe(parts[1]!)}$`, 'i');
+  }
+  return null;
+}
+
+/** An option group matches when its sample texts fit the template with non-numeric names. */
+function matchOptionGroup(pattern: RegExp, g: OptionGroup): Record<string, string> | null {
+  const names: Record<string, string> = {};
+  for (const { option, text } of g.options) {
+    const name = pattern.exec(text)?.[1];
+    if (!name || /^[+-]?\d/.test(name)) return null;
+    names[option] = name;
+  }
+  return names;
 }
 
 function textCandidates(t: RepoeTranslation): string[] {
@@ -104,7 +151,10 @@ export function buildStatMap(
   generatedAt: string,
 ): StatMap {
   const byText = tradeTextIndex(tradeStats);
+  const groups = optionGroups(tradeStats);
   const entries: StatMapEntry[] = [];
+  const options: Record<string, Record<string, string>> = {};
+  const linked = new Set<OptionGroup>();
 
   for (const t of translations) {
     if (!t.English.length) continue;
@@ -124,6 +174,19 @@ export function buildStatMap(
         }
       }
     }
+    let option: string | undefined;
+    const pattern = Object.keys(trade).length ? null : optionPattern(t);
+    if (pattern) {
+      for (const g of groups) {
+        if (trade[g.kind] || linked.has(g)) continue;
+        const names = matchOptionGroup(pattern, g);
+        if (!names) continue;
+        linked.add(g);
+        trade[g.kind] = g.baseId;
+        option = g.statKey;
+        options[g.statKey] = { ...options[g.statKey], ...names };
+      }
+    }
     if (!Object.keys(trade).length) continue;
 
     const positive = t.English.find((v) => !isNegating(v)) ?? t.English[0]!;
@@ -134,9 +197,10 @@ export function buildStatMap(
     if (transform) entry.transform = transform;
     const hidden = positive.format.flatMap((f, i) => (f === 'ignore' ? [i] : []));
     if (hidden.length) entry.hidden = hidden;
+    if (option) entry.option = option;
     entries.push(entry);
   }
-  return { generatedAt, entries };
+  return { generatedAt, entries, options };
 }
 
 export function buildBaseMap(baseItems: Record<string, RepoeBase>): BaseMap {
@@ -162,7 +226,10 @@ export function coverage(
     for (const kind of KINDS) {
       for (const id of Object.keys(item.stats[kind] ?? {})) {
         total++;
-        if (byId.get(id)?.trade[kind]) mapped++;
+        const e = byId.get(id);
+        const value = String(item.stats[kind]?.[id]);
+        const ok = e?.trade[kind] && (!e.option || statMap.options?.[e.option]?.[value]);
+        if (ok) mapped++;
         else misses.add(`${kind}:${id}`);
       }
     }

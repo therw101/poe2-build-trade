@@ -37,11 +37,18 @@ export interface StatMapEntry {
   transform?: { f: number; a: number }[];
   /** Indices of `ids` that the template does not display (format "ignore"). */
   hidden?: number[];
+  /**
+   * Set for option stats (e.g. anoints: "Allocates #"), whose value picks a named option.
+   * Key into `StatMap.options`; the trade filter id is `${trade[kind]}|${value}`.
+   */
+  option?: string;
 }
 
 export interface StatMap {
   generatedAt: string;
   entries: StatMapEntry[];
+  /** Option names per trade stat key, e.g. { stat_2954116742: { "16790": "Efficient Casting" } }. */
+  options?: Record<string, Record<string, string>>;
 }
 
 export type BaseMap = Record<string, { name: string; itemClass: string }>;

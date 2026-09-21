@@ -26,8 +26,24 @@ describe('defaultRowStates', () => {
   });
 
   it('never checks unmapped rows', () => {
+    const m = model('32');
+    const unmapped: ItemModel = { ...m, mods: [{ ...m.mods[0]!, tradeId: null }] };
+    expect(defaultRowStates(unmapped, 0.8)[0]?.checked).toBe(false);
+  });
+
+  it('searches anoints by option id without a value', () => {
     const rows = defaultRowStates(model('178'), 0.8);
-    expect(rows.find((r) => r.row.tradeId === null)?.checked).toBe(false);
+    const anoint = rows.find((r) => r.row.kind === 'enchant')!;
+    expect(anoint).toMatchObject({ checked: false, min: null, max: null });
+    anoint.checked = true;
+    const q = buildQuery(model('178'), {
+      baseMode: 'category',
+      mods: selectionFromRows([anoint]),
+      match: { type: 'and' },
+      runeSockets: null,
+      status: 'available',
+    });
+    expect(q.stats[0]?.filters).toEqual([{ id: 'enchant.stat_2954116742|16790' }]);
   });
 
   it('uses max for negative values', () => {

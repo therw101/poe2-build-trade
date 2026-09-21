@@ -177,6 +177,8 @@ async function handle(req: Request, sender: Browser.runtime.MessageSender): Prom
       return { ok: true, data: await context() };
     case 'openTab':
       return openTab(req.url, sender);
+    default:
+      return { ok: false, error: 'format' };
   }
 }
 

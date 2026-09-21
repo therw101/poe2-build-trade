@@ -85,7 +85,8 @@ search that matches the item.
 - **Mapping coverage on the reference build:** 571 of 583 stats map to a trade id
   (152 through `trade_stats`, 419 through normalized text match). The misses are the
   amulet enchant `Allocates {passive}`, unique-only "Legacy of" stats, and one
-  implicit.
+  implicit. Linking option stats (see section 7) raised coverage to 576 of 583
+  (98.8%). The anoint is now searchable.
 - **Multi-id stats exist.** For example, `attack_minimum_added_physical_damage` and
   `attack_maximum_added_physical_damage` share one translation ("Adds # to #"). Trade
   represents them as one stat whose value is the average of the two.
@@ -268,6 +269,7 @@ popup shows a small banner that links to the release.
 | Implicit, rune, and enchant mods | Shown unchecked |
 | Multi-id stats | One row. The value is the average of the component values. |
 | Negative values | `value.max = ceil(value × minPct)` instead of `min` |
+| Option stats (anoints `Allocates #`, unique "Legacy of #") | Trade lists them as `<kind>.stat_N|<option>`. The filter is `{ id: "enchant.stat_2954116742|16790" }` with no value, verified live on 2026-09-21. `build-data` links a single-placeholder template to an option group when every option text fits it, and stores option names in `StatMap.options`. |
 | Unmapped stats | Greyed row labelled "not on trade" and excluded from the query |
 | Match = All | stat group `{ type: "and", filters }` |
 | Match = At least N | stat group `{ type: "count", value: { min: N }, filters }` |
