@@ -2,7 +2,7 @@
  * GitHub repository that hosts releases and the refreshed data files, in
  * "owner/repo" form. Leave empty to disable remote data refresh and update checks.
  */
-export const GITHUB_REPO = '';
+export const GITHUB_REPO = 'therw101/poe2-build-trade';
 
 export const MAXROLL_PLANNER_URL = 'https://planners.maxroll.gg/profiles/poe2/';
 export const TRADE_BASE_URL = 'https://www.pathofexile.com';
