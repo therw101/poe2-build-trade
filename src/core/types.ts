@@ -34,6 +34,8 @@ export interface StatMapEntry {
    * (displayed = raw * f + a), aligned with `ids`. Omitted when every id is identity.
    */
   transform?: { f: number; a: number }[];
+  /** Indices of `ids` that the template does not display (format "ignore"). */
+  hidden?: number[];
 }
 
 export interface StatMap {
@@ -49,6 +51,8 @@ export interface ModRow {
   text: string;
   /** Value used for trade: mean of the component stat values. */
   value: number;
+  /** False for flag-like mods whose text has no number (searched by presence only). */
+  numeric: boolean;
   tradeId: string | null;
 }
 

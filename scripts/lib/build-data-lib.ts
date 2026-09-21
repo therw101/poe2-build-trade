@@ -132,6 +132,8 @@ export function buildStatMap(
     if (negative) entry.negText = displayTemplate(negative);
     const transform = transformFor(positive, handlers);
     if (transform) entry.transform = transform;
+    const hidden = positive.format.flatMap((f, i) => (f === 'ignore' ? [i] : []));
+    if (hidden.length) entry.hidden = hidden;
     entries.push(entry);
   }
   return { generatedAt, entries };
