@@ -35,6 +35,12 @@ describe('validation', () => {
     expect(isPlannerItem({ ...items['32'], rarity: 'legendary' })).toBe(false);
   });
 
+  it('accepts items without a name (magic charms in the paperdoll have none)', () => {
+    const { name: _name, ...unnamed } = items['32'];
+    expect(isPlannerItem(unnamed)).toBe(true);
+    expect(isPlannerItem({ ...items['32'], name: 5 })).toBe(false);
+  });
+
   it('accepts the bundled stat map', () => {
     expect(isStatMap(read('public/data/stat-map.json'))).toBe(true);
     expect(isStatMap({ entries: 'x' })).toBe(false);

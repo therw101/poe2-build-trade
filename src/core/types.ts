@@ -15,7 +15,8 @@ export type TradeStatus = 'online' | 'available' | 'any';
 export interface PlannerItem {
   base: string;
   rarity: Rarity;
-  name: string;
+  /** Missing on some magic/normal items in the paperdoll. */
+  name?: string;
   sockets?: string[];
   stats: Partial<Record<StatKind, Record<string, number>>>;
 }

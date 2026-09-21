@@ -52,7 +52,7 @@ export function toItemModel(item: PlannerItem, stats: StatIndex, bases: BaseMap)
 
   return {
     rarity: item.rarity,
-    name: item.name,
+    name: item.name ?? '',
     baseName: base?.name ?? null,
     itemClass,
     category: categoryFor(itemClass),

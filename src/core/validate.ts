@@ -12,7 +12,7 @@ export function isPlannerItem(x: unknown): x is PlannerItem {
     typeof x.base === 'string' &&
     typeof x.rarity === 'string' &&
     RARITIES.has(x.rarity) &&
-    typeof x.name === 'string' &&
+    (x.name === undefined || typeof x.name === 'string') &&
     isRecord(x.stats) &&
     Object.values(x.stats).every(
       (group) => isRecord(group) && Object.values(group).every((v) => typeof v === 'number'),

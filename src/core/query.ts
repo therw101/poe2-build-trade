@@ -79,7 +79,7 @@ export function buildQuery(model: ItemModel, sel: SearchSelection): TradeQuery {
 /** One-click search for uniques (by name) and normal items (by base). */
 export function buildDirectQuery(model: ItemModel, status: TradeStatus): TradeQuery {
   const q: TradeQuery = { status: { option: status }, stats: [{ type: 'and', filters: [] }] };
-  if (model.rarity === 'unique') q.name = model.name;
+  if (model.rarity === 'unique' && model.name) q.name = model.name;
   if (model.baseName) q.type = model.baseName;
   return q;
 }

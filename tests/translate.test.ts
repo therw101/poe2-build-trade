@@ -28,6 +28,11 @@ describe('toItemModel', () => {
     expect(m.mods.at(-1)?.kind).toBe('rune');
   });
 
+  it('handles items without a name', () => {
+    const { name: _name, ...unnamed } = items['32']!;
+    expect(toItemModel(unnamed, stats, bases).name).toBe('');
+  });
+
   it('marks stats that trade cannot search as unmapped', () => {
     const enchant = model('178').mods.find((r) => r.kind === 'enchant');
     expect(enchant).toMatchObject({ tradeId: null, text: 'mod_granted_passive_hash' });
