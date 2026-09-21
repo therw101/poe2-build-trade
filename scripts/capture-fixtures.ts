@@ -36,6 +36,12 @@ out(
   translations.filter((t) => t.ids.some((id: string) => usedStats.has(id))),
 );
 
+const handlers: Record<string, any> = await get('https://repoe-fork.github.io/poe2/stat_value_handlers.min.json');
+out(
+  'stat-value-handlers.json',
+  Object.fromEntries(Object.entries(handlers).filter(([, h]) => h.type === 'int')),
+);
+
 const bases: Record<string, any> = await get('https://repoe-fork.github.io/poe2/base_items.min.json');
 out(
   'base-items.subset.json',

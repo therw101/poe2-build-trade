@@ -29,6 +29,11 @@ export interface StatMapEntry {
   negText?: string;
   /** Trade stat id per kind, e.g. { explicit: "explicit.stat_3299347043" }. */
   trade: Partial<Record<StatKind, string>>;
+  /**
+   * Per-id conversion from the raw game value to the displayed value
+   * (displayed = raw * f + a), aligned with `ids`. Omitted when every id is identity.
+   */
+  transform?: { f: number; a: number }[];
 }
 
 export interface StatMap {

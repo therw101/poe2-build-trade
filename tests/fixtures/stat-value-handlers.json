@@ -1,0 +1,256 @@
+{
+ "30%_of_value": {
+  "divisor": 100,
+  "multiplier": 30,
+  "type": "int"
+ },
+ "60%_of_value": {
+  "divisor": 100,
+  "multiplier": 60,
+  "type": "int"
+ },
+ "deciseconds_to_seconds": {
+  "divisor": 10,
+  "type": "int"
+ },
+ "divide_by_three": {
+  "divisor": 3,
+  "type": "int"
+ },
+ "divide_by_five": {
+  "divisor": 5,
+  "type": "int"
+ },
+ "divide_by_one_hundred": {
+  "divisor": 100,
+  "type": "int"
+ },
+ "divide_by_one_hundred_and_negate": {
+  "divisor": -100,
+  "type": "int"
+ },
+ "divide_by_one_hundred_0dp": {
+  "divisor": 100,
+  "precision": 0,
+  "type": "int"
+ },
+ "divide_by_one_hundred_1dp": {
+  "divisor": 100,
+  "precision": 1,
+  "fixed": true,
+  "type": "int"
+ },
+ "divide_by_one_hundred_2dp": {
+  "divisor": 100,
+  "precision": 2,
+  "fixed": true,
+  "type": "int"
+ },
+ "divide_by_one_hundred_2dp_if_required": {
+  "divisor": 100,
+  "precision": 2,
+  "type": "int"
+ },
+ "divide_by_two_0dp": {
+  "divisor": 2,
+  "precision": 0,
+  "type": "int"
+ },
+ "divide_by_six": {
+  "divisor": 6,
+  "type": "int"
+ },
+ "divide_by_ten_0dp": {
+  "divisor": 10,
+  "precision": 0,
+  "type": "int"
+ },
+ "divide_by_ten_1dp": {
+  "divisor": 10,
+  "precision": 1,
+  "fixed": true,
+  "type": "int"
+ },
+ "divide_by_twelve": {
+  "divisor": 12,
+  "type": "int"
+ },
+ "divide_by_fifteen_0dp": {
+  "divisor": 15,
+  "precision": 0,
+  "type": "int"
+ },
+ "divide_by_twenty_then_double_0dp": {
+  "divisor": 20,
+  "multiplier": 2,
+  "precision": 0,
+  "type": "int"
+ },
+ "milliseconds_to_seconds": {
+  "divisor": 1000,
+  "type": "int"
+ },
+ "milliseconds_to_seconds_halved": {
+  "divisor": 500,
+  "type": "int"
+ },
+ "milliseconds_to_seconds_0dp": {
+  "divisor": 1000,
+  "precision": 0,
+  "type": "int"
+ },
+ "milliseconds_to_seconds_1dp": {
+  "divisor": 1000,
+  "precision": 1,
+  "fixed": true,
+  "type": "int"
+ },
+ "milliseconds_to_seconds_2dp": {
+  "divisor": 1000,
+  "precision": 2,
+  "fixed": true,
+  "type": "int"
+ },
+ "milliseconds_to_seconds_2dp_if_required": {
+  "divisor": 1000,
+  "precision": 2,
+  "type": "int"
+ },
+ "multiplicative_damage_modifier": {
+  "addend": 100,
+  "type": "int"
+ },
+ "multiplicative_permyriad_damage_modifier": {
+  "addend": 100,
+  "divisor": 100,
+  "type": "int"
+ },
+ "multiply_by_four": {
+  "multiplier": 4,
+  "type": "int"
+ },
+ "multiply_by_four_and_": {
+  "multiplier": 4,
+  "type": "int"
+ },
+ "negate": {
+  "multiplier": -1,
+  "type": "int"
+ },
+ "old_leech_percent": {
+  "divisor": 5,
+  "type": "int"
+ },
+ "old_leech_permyriad": {
+  "divisor": 500,
+  "type": "int"
+ },
+ "per_minute_to_per_second": {
+  "divisor": 60,
+  "precision": 1,
+  "type": "int"
+ },
+ "per_minute_to_per_second_0dp": {
+  "divisor": 60,
+  "precision": 0,
+  "type": "int"
+ },
+ "per_minute_to_per_second_1dp": {
+  "divisor": 60,
+  "precision": 1,
+  "fixed": true,
+  "type": "int"
+ },
+ "per_minute_to_per_second_2dp": {
+  "divisor": 60,
+  "precision": 2,
+  "fixed": true,
+  "type": "int"
+ },
+ "per_minute_to_per_second_2dp_if_required": {
+  "divisor": 60,
+  "precision": 2,
+  "type": "int"
+ },
+ "permyriad_per_minute_to_%_per_second": {
+  "divisor": 6000,
+  "precision": 1,
+  "type": "int"
+ },
+ "times_twenty": {
+  "multiplier": 20,
+  "type": "int"
+ },
+ "times_one_point_five": {
+  "multiplier": 1.5,
+  "type": "int"
+ },
+ "double": {
+  "multiplier": 2,
+  "type": "int"
+ },
+ "negate_and_double": {
+  "multiplier": -2,
+  "type": "int"
+ },
+ "divide_by_four": {
+  "divisor": 4,
+  "type": "int"
+ },
+ "divide_by_ten_1dp_if_required": {
+  "divisor": 10,
+  "precision": 1,
+  "type": "int"
+ },
+ "divide_by_fifty": {
+  "divisor": 50,
+  "type": "int"
+ },
+ "multiply_by_ten": {
+  "multiplier": 10,
+  "type": "int"
+ },
+ "multiply_by_one_hundred": {
+  "multiplier": 100,
+  "type": "int"
+ },
+ "divide_by_one_thousand": {
+  "divisor": 1000,
+  "type": "int"
+ },
+ "plus_two_hundred": {
+  "addend": 200,
+  "type": "int"
+ },
+ "divide_by_twenty": {
+  "divisor": 20,
+  "type": "int"
+ },
+ "locations_to_metres": {
+  "divisor": 10,
+  "type": "int"
+ },
+ "invert_chance": {
+  "addend": 100,
+  "multiplier": -1,
+  "type": "int"
+ },
+ "one_hundred_divide_by_value": {
+  "multiplier": 100,
+  "precision": 2,
+  "type": "int"
+ },
+ "add_one": {
+  "addend": 1,
+  "type": "int"
+ },
+ "subtract_one": {
+  "addend": -1,
+  "type": "int"
+ },
+ "divide_by_ten_thousand_1dp": {
+  "divisor": 10000,
+  "precision": 1,
+  "type": "int"
+ }
+}
