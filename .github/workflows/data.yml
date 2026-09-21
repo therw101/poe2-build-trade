@@ -1,0 +1,42 @@
+name: Refresh mod data
+
+# Rebuilds the stat/base maps daily and publishes them to GitHub Pages under /data/.
+# Installed extensions fetch these files at most once a day (see src/config.ts GITHUB_REPO).
+on:
+  schedule:
+    - cron: '17 3 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      # --check fails the job (and skips deploy) if fixture coverage drops below 95%.
+      - run: npm run build-data -- --check --out site/data
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
