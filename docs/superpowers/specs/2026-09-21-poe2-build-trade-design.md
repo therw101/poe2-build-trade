@@ -89,13 +89,32 @@ search that matches the item.
 - **Multi-id stats exist.** For example, `attack_minimum_added_physical_damage` and
   `attack_maximum_added_physical_damage` share one translation ("Adds # to #"). Trade
   represents them as one stat whose value is the average of the two.
+- **Paperdoll embed (verified live in Chrome):** the `plannerEquipment` embed renders
+  lazily when scrolled into view. Each slot is
+  `div.poe2-PaperdollSlot.poe2-slot-<Slot>.poe2-item-<rarity>`, with slots such as
+  Weapon, Offhand, Helm, BodyArmour, Gloves, Boots, Belt, Amulet, Ring, Ring2,
+  Flask1–2, and Charm1–3. The slot DOM has **no item id**. Its React fiber (the
+  `__reactFiber$*` key, 2 levels up) has `memoizedProps.item`, which is the full
+  planner item object with the same shape as the API. The item reflects the currently
+  selected set and Act tab.
+- **Trade URL spike (verified live in Chrome):** the trade page accepted an inner-query
+  payload containing `type`, a `count` stat group with `value.min`, `min` and `max` stat
+  values, `filters.type_filters.filters.{category,rarity}`, and
+  `filters.equipment_filters.filters.rune_sockets.min`. After loading, it re-encoded
+  the URL with the same query. `status: available` shows as "Instant Buyout and In
+  Person". Headless Chromium is blocked by Cloudflare, so any E2E test must use a
+  headed browser.
+- **Leagues:** `GET /api/trade2/data/leagues` returns
+  `{ result: [{ id, realm, text }] }`. On 2026-09-21 it listed Forbidden Rites,
+  HC Forbidden Rites, Runes of Aldur, HC Runes of Aldur, Standard, and Hardcore.
 
 ## 5. Architecture
 
 ```
 poe2-build-trade/
 ├─ entrypoints/
-│  ├─ maxroll.content.ts   content script on https://maxroll.gg/poe2/*
+│  ├─ maxroll.content.ts   content script on https://maxroll.gg/poe2/* (isolated world)
+│  ├─ item-reader.content.ts  MAIN-world script: reads paperdoll item from React props
 │  ├─ background.ts        service worker; all cross-origin fetches
 │  └─ options/             options page
 ├─ src/
@@ -134,12 +153,19 @@ poe2-build-trade/
 
 ### Data flow
 
-1. The content script finds `span.poe2-item[data-poe2-profile]` whose
-   `data-poe2-id` is numeric, and injects a 🔍 button. It marks each element
-   `data-b2t-injected` and watches for new items with a `MutationObserver`.
-2. On click, the content script sends `{profileId, itemId}` to background.
-   Background returns the planner item JSON, cached per profile in
-   `chrome.storage.session`.
+1. The content script injects a 🔍 button into two kinds of targets:
+   - paperdoll slots (`.poe2-PaperdollSlot` that have an item rarity class)
+   - inline `span.poe2-item[data-poe2-profile]` whose `data-poe2-id` is numeric
+   It marks each element `data-b2t-injected` and watches for new targets with a
+   `MutationObserver`.
+2. On click, the content script gets the planner item JSON:
+   - **Paperdoll slot:** it tags the slot with a unique `data-b2t-key` and dispatches
+     a `b2t:read-item` CustomEvent. `item-reader` (MAIN world) finds the slot, walks
+     up to 6 fiber levels looking for `memoizedProps.item` with a `base` field, and
+     replies with a `b2t:item` CustomEvent whose detail is the item as a JSON string.
+   - **Inline span:** it sends `{profileId, itemId}` to background. Background
+     returns the item from the planner API, cached per profile in
+     `chrome.storage.session`.
 3. The content script loads the maps through `data/store`, and `core/translate`
    produces an `ItemModel`.
 4. Unique and normal items go straight to step 6. Rare and magic items open the
@@ -238,7 +264,7 @@ popup shows a small banner that links to the release.
 | Base = category (default) | `filters.type_filters.filters.category.option = <category>` |
 | Base = exact | `type = "<base name>"` |
 | Rare or magic | `filters.type_filters.filters.rarity.option = "nonunique"` |
-| Explicit mods | Checked by default. `value.min = floor(value × minPct)` |
+| Explicit mods | Checked by default. `value.min = floor(value × minPct)`. When `|value| ≤ 5` (skill levels, small flat values), `min` is the exact value, so +2 does not become +1. |
 | Implicit, rune, and enchant mods | Shown unchecked |
 | Multi-id stats | One row. The value is the average of the component values. |
 | Negative values | `value.max = ceil(value × minPct)` instead of `min` |
@@ -327,11 +353,11 @@ All console output uses the `[b2t]` prefix.
 2. **Coverage gate.** `build-data --check` computes mapping coverage over the fixture
    build. CI fails below 95%. The `data.yml` cron refuses to publish below 95% and
    keeps the previous data instead.
-3. **E2E (Playwright + Chromium with the extension loaded).** Opens the live maxroll
-   guide, asserts 🔍 buttons exist, opens a rare item popup, clicks Search, and
-   asserts the new tab URL decodes to the expected query and that the trade page shows
-   the filters. It depends on live sites, so it runs manually or nightly, not on every
-   PR.
+3. **E2E (Playwright + headed Chromium with the extension loaded).** Opens the live
+   maxroll guide, asserts 🔍 buttons exist, opens a rare item popup, clicks Search, and
+   asserts that the new tab URL decodes to the expected query. The browser must be
+   headed because Cloudflare blocks headless browsers on pathofexile.com. The test
+   depends on live sites, so it runs manually, not on every PR.
 4. **Release smoke checklist (README).** Install unpacked, open 2–3 guides, and test a
    unique, a rare, a jewel, and a charm.
 
@@ -349,20 +375,15 @@ All console output uses the `[b2t]` prefix.
 | Risk | Mitigation |
 |---|---|
 | The maxroll planner API is private and may change or be blocked | Isolated in `adapters/maxroll`. Schema validation surfaces the failure clearly. |
+| Paperdoll item reading depends on React internals (`__reactFiber$`, the `item` prop) | Isolated in `item-reader`. If no item is found, the extension shows "Couldn't read this item" instead of guessing. |
 | The trade URL payload format is undocumented | Verified first (section 13). Fallbacks are `?q=` or a background POST to `/api/trade2/search`. |
 | RePoE fork lags behind game patches | Text matching against live trade stats covers entries without `trade_stats`. The coverage gate stops bad data from being published. |
 | GGG changes trade stat ids | The daily regeneration picks up the new ids |
 
-## 13. First implementation task: trade URL spike
+## 13. Trade URL spike (done 2026-09-21)
 
-Before building features, confirm the following by opening generated URLs in
-Chromium:
-
-1. The URL payload accepts `type`, `name`, `filters.type_filters` (category and
-   rarity), `filters.equipment_filters.rune_sockets`, a `count` stat group, and both
-   `min` and `max` values.
-2. What sort order the trade page applies when the payload has no `sort`.
-3. `/api/trade2/data/leagues` exists and what it returns.
-
-If (1) fails, switch `core/encode` to the fallback and update this spec before
-continuing.
+1. The URL payload accepts `type`, `filters.type_filters` (category and rarity),
+   `filters.equipment_filters.rune_sockets`, a `count` stat group, and both `min` and
+   `max` values. **Confirmed.** No fallback is needed.
+2. With no `sort`, results came back in ascending price order.
+3. `/api/trade2/data/leagues` exists (see section 4).
