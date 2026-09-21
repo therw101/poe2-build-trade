@@ -1,6 +1,6 @@
 {
   "name": "poe2-build-trade",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "type": "module",
   "description": "Search items from PoE2 build guides on the official trade site.",
