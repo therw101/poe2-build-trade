@@ -6,6 +6,7 @@ export const GITHUB_REPO = '';
 
 export const MAXROLL_PLANNER_URL = 'https://planners.maxroll.gg/profiles/poe2/';
 export const TRADE_BASE_URL = 'https://www.pathofexile.com';
+export const TRADE_SEARCH_URL = `${TRADE_BASE_URL}/trade2/search/poe2/`;
 export const TRADE_LEAGUES_URL = `${TRADE_BASE_URL}/api/trade2/data/leagues`;
 export const REFRESH_INTERVAL_MS = 24 * 60 * 60 * 1000;
 

@@ -1,8 +1,9 @@
-import { browser } from 'wxt/browser';
+import { browser, type Browser } from 'wxt/browser';
 import {
   MAXROLL_PLANNER_URL,
   REFRESH_INTERVAL_MS,
   TRADE_LEAGUES_URL,
+  TRADE_SEARCH_URL,
   dataBaseUrl,
   releasesApiUrl,
 } from '../src/config.ts';
@@ -151,7 +152,19 @@ async function context(): Promise<Context> {
   return { league: league ?? 'Standard', leagueChanged, update, dataGeneratedAt: maps.statMap.generatedAt };
 }
 
-async function handle(req: Request): Promise<Response<unknown>> {
+/** Opens trade in a tab next to the build page; avoids popup blockers after async work. */
+async function openTab(url: string, sender: Browser.runtime.MessageSender): Promise<Response<null>> {
+  if (!url.startsWith(TRADE_SEARCH_URL)) return { ok: false, error: 'format' };
+  const tab = sender.tab;
+  await browser.tabs.create({
+    url,
+    ...(tab?.index !== undefined ? { index: tab.index + 1 } : {}),
+    ...(tab?.id !== undefined ? { openerTabId: tab.id } : {}),
+  });
+  return { ok: true, data: null };
+}
+
+async function handle(req: Request, sender: Browser.runtime.MessageSender): Promise<Response<unknown>> {
   switch (req.type) {
     case 'plannerItem':
       return plannerItem(req.profileId, req.itemId);
@@ -162,12 +175,14 @@ async function handle(req: Request): Promise<Response<unknown>> {
     }
     case 'context':
       return { ok: true, data: await context() };
+    case 'openTab':
+      return openTab(req.url, sender);
   }
 }
 
 export default defineBackground(() => {
-  browser.runtime.onMessage.addListener((req: Request, _sender, sendResponse) => {
-    handle(req).then(sendResponse, (err: unknown) => {
+  browser.runtime.onMessage.addListener((req: Request, sender, sendResponse) => {
+    handle(req, sender).then(sendResponse, (err: unknown) => {
       console.error('[b2t] request failed', req.type, err);
       sendResponse({ ok: false, error: 'network' });
     });

@@ -1,0 +1,145 @@
+{
+  "extName": {
+    "message": "Build → Trade (PoE2)"
+  },
+  "extDescription": {
+    "message": "ค้นหาไอเทมจาก build guide ของ maxroll บนเว็บเทรด PoE2 อย่างเป็นทางการ"
+  },
+  "searchOnTrade": {
+    "message": "ค้นหาบน Trade"
+  },
+  "anyClass": {
+    "message": "$v$ แบบไหนก็ได้",
+    "placeholders": {
+      "v": {
+        "content": "$1"
+      }
+    }
+  },
+  "baseLabel": {
+    "message": "Base"
+  },
+  "explicitMods": {
+    "message": "ม็อด Explicit"
+  },
+  "otherMods": {
+    "message": "Implicit / Rune / Enchant"
+  },
+  "notOnTrade": {
+    "message": "ค้นบน trade ไม่ได้"
+  },
+  "match": {
+    "message": "ต้องตรง"
+  },
+  "matchAll": {
+    "message": "ทุกม็อด"
+  },
+  "matchAtLeast": {
+    "message": "อย่างน้อย"
+  },
+  "runeSockets": {
+    "message": "ช่อง rune ≥ $v$",
+    "placeholders": {
+      "v": {
+        "content": "$1"
+      }
+    }
+  },
+  "minPlaceholder": {
+    "message": "ต่ำสุด"
+  },
+  "maxPlaceholder": {
+    "message": "สูงสุด"
+  },
+  "close": {
+    "message": "ปิด"
+  },
+  "leagueLabel": {
+    "message": "League: $v$",
+    "placeholders": {
+      "v": {
+        "content": "$1"
+      }
+    }
+  },
+  "loadError": {
+    "message": "โหลดข้อมูล build ไม่สำเร็จ"
+  },
+  "retry": {
+    "message": "ลองใหม่"
+  },
+  "formatChanged": {
+    "message": "maxroll เปลี่ยนรูปแบบข้อมูล กรุณาอัปเดต extension"
+  },
+  "readError": {
+    "message": "อ่านข้อมูลไอเทมนี้ไม่ได้"
+  },
+  "updateAvailable": {
+    "message": "มีเวอร์ชัน $v$ แล้ว",
+    "placeholders": {
+      "v": {
+        "content": "$1"
+      }
+    }
+  },
+  "download": {
+    "message": "ดาวน์โหลด"
+  },
+  "leagueChanged": {
+    "message": "League เดิมจบแล้ว เปลี่ยนเป็น $v$ ให้แล้ว",
+    "placeholders": {
+      "v": {
+        "content": "$1"
+      }
+    }
+  },
+  "optTitle": {
+    "message": "ตั้งค่า Build → Trade"
+  },
+  "optLeague": {
+    "message": "League ที่ใช้ค้นหา"
+  },
+  "optLeagueAuto": {
+    "message": "League ปัจจุบัน (อัตโนมัติ)"
+  },
+  "optMinPct": {
+    "message": "ค่าต่ำสุดเริ่มต้น (% ของค่าใน build)"
+  },
+  "optStatus": {
+    "message": "สถานะผู้ขาย"
+  },
+  "statusOnline": {
+    "message": "ออนไลน์"
+  },
+  "statusAvailable": {
+    "message": "ซื้อทันทีและนัดเทรด"
+  },
+  "statusAny": {
+    "message": "ทั้งหมด"
+  },
+  "optData": {
+    "message": "ข้อมูลม็อดอัปเดตเมื่อ $v$",
+    "placeholders": {
+      "v": {
+        "content": "$1"
+      }
+    }
+  },
+  "optVersion": {
+    "message": "เวอร์ชัน $v$",
+    "placeholders": {
+      "v": {
+        "content": "$1"
+      }
+    }
+  },
+  "optLeagueError": {
+    "message": "โหลดรายชื่อ league ไม่ได้ พิมพ์ชื่อ league เองได้เลย"
+  },
+  "saved": {
+    "message": "บันทึกแล้ว"
+  },
+  "disclaimer": {
+    "message": "ไม่มีส่วนเกี่ยวข้องกับ Grinding Gear Games หรือ Maxroll"
+  }
+}

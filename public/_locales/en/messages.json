@@ -1,0 +1,145 @@
+{
+  "extName": {
+    "message": "Build → Trade (PoE2)"
+  },
+  "extDescription": {
+    "message": "Search items from maxroll PoE2 build guides on the official trade site."
+  },
+  "searchOnTrade": {
+    "message": "Search on Trade"
+  },
+  "anyClass": {
+    "message": "Any $v$",
+    "placeholders": {
+      "v": {
+        "content": "$1"
+      }
+    }
+  },
+  "baseLabel": {
+    "message": "Base"
+  },
+  "explicitMods": {
+    "message": "Explicit mods"
+  },
+  "otherMods": {
+    "message": "Implicit / Rune / Enchant"
+  },
+  "notOnTrade": {
+    "message": "not on trade"
+  },
+  "match": {
+    "message": "Match"
+  },
+  "matchAll": {
+    "message": "All"
+  },
+  "matchAtLeast": {
+    "message": "At least"
+  },
+  "runeSockets": {
+    "message": "Rune sockets ≥ $v$",
+    "placeholders": {
+      "v": {
+        "content": "$1"
+      }
+    }
+  },
+  "minPlaceholder": {
+    "message": "min"
+  },
+  "maxPlaceholder": {
+    "message": "max"
+  },
+  "close": {
+    "message": "Close"
+  },
+  "leagueLabel": {
+    "message": "League: $v$",
+    "placeholders": {
+      "v": {
+        "content": "$1"
+      }
+    }
+  },
+  "loadError": {
+    "message": "Couldn't load build data."
+  },
+  "retry": {
+    "message": "Retry"
+  },
+  "formatChanged": {
+    "message": "Maxroll's data format changed. Please update the extension."
+  },
+  "readError": {
+    "message": "Couldn't read this item."
+  },
+  "updateAvailable": {
+    "message": "Version $v$ is available.",
+    "placeholders": {
+      "v": {
+        "content": "$1"
+      }
+    }
+  },
+  "download": {
+    "message": "Download"
+  },
+  "leagueChanged": {
+    "message": "Your league ended. Switched to $v$.",
+    "placeholders": {
+      "v": {
+        "content": "$1"
+      }
+    }
+  },
+  "optTitle": {
+    "message": "Build → Trade settings"
+  },
+  "optLeague": {
+    "message": "Trade league"
+  },
+  "optLeagueAuto": {
+    "message": "Current league (automatic)"
+  },
+  "optMinPct": {
+    "message": "Default minimum (% of build value)"
+  },
+  "optStatus": {
+    "message": "Listing status"
+  },
+  "statusOnline": {
+    "message": "Online"
+  },
+  "statusAvailable": {
+    "message": "Instant buyout and in person"
+  },
+  "statusAny": {
+    "message": "Any"
+  },
+  "optData": {
+    "message": "Mod data updated: $v$",
+    "placeholders": {
+      "v": {
+        "content": "$1"
+      }
+    }
+  },
+  "optVersion": {
+    "message": "Version $v$",
+    "placeholders": {
+      "v": {
+        "content": "$1"
+      }
+    }
+  },
+  "optLeagueError": {
+    "message": "Couldn't load leagues. Type the league name instead."
+  },
+  "saved": {
+    "message": "Saved"
+  },
+  "disclaimer": {
+    "message": "Not affiliated with or endorsed by Grinding Gear Games or Maxroll."
+  }
+}

@@ -1,4 +1,4 @@
-import { TRADE_BASE_URL } from '../config.ts';
+import { TRADE_SEARCH_URL } from '../config.ts';
 import type { TradeQuery } from './types.ts';
 
 async function pipeThrough(
@@ -32,5 +32,5 @@ export async function decodeQuery(payload: string): Promise<unknown> {
 }
 
 export async function tradeUrl(league: string, q: TradeQuery): Promise<string> {
-  return `${TRADE_BASE_URL}/trade2/search/poe2/${encodeURIComponent(league)}/${await encodeQuery(q)}`;
+  return `${TRADE_SEARCH_URL}${encodeURIComponent(league)}/${await encodeQuery(q)}`;
 }

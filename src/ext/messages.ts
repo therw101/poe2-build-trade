@@ -4,7 +4,8 @@ import type { ItemModel, PlannerItem } from '../core/types.ts';
 export type Request =
   | { type: 'plannerItem'; profileId: string; itemId: string }
   | { type: 'toModel'; item: PlannerItem }
-  | { type: 'context' };
+  | { type: 'context' }
+  | { type: 'openTab'; url: string };
 
 export type ErrorCode = 'network' | 'format' | 'notFound';
 export type Response<T> = { ok: true; data: T } | { ok: false; error: ErrorCode };
@@ -21,6 +22,7 @@ export interface ResponseFor {
   plannerItem: PlannerItem;
   toModel: ItemModel;
   context: Context;
+  openTab: null;
 }
 
 export async function sendMessage<R extends Request>(req: R): Promise<Response<ResponseFor[R['type']]>> {
