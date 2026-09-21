@@ -85,6 +85,26 @@ try {
     check('inline item button present', false);
   }
 
+  // Inline guide links: hover shows the floating button; gems search by type, currency uses bulk exchange.
+  for (const [name, expectPath, valid] of [
+    ['Grim Pillars', '/trade2/search/poe2/', (q) => q.type === 'Grim Pillars'],
+    ['Exalted Orb', '/trade2/exchange/poe2/', (q) => q.want?.[0] === 'exalted' && q.have?.length === 0],
+  ]) {
+    const link = page.locator(`span.poe2-item[data-b2t-link][data-poe2-text="${name}"]`).first();
+    await link.waitFor({ timeout: 15000 });
+    await link.scrollIntoViewIfNeeded();
+    await link.hover();
+    const hoverBtn = page.locator('.b2t-btn--hover:not([hidden])');
+    const visible = await hoverBtn.waitFor({ timeout: 5000 }).then(() => true, () => false);
+    check(`hover shows a button on "${name}"`, visible);
+    if (!visible) continue;
+    const url = await nextTradeTab(ctx, () => hoverBtn.click());
+    const q = url.includes(expectPath) ? decodeTradeUrl(url) : null;
+    check(`"${name}" opens ${expectPath}`, !!q && valid(q), q ? JSON.stringify(q) : url);
+  }
+  const unsearchable = await page.locator('span.poe2-item[data-poe2-text="Purity of Fire"][data-b2t-link]').count();
+  check('unsearchable links get no hover target', unsearchable === 0);
+
   if (logs.length) console.log(`[b2t] console:\n  ${logs.join('\n  ')}`);
 } finally {
   await ctx.close();

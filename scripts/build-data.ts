@@ -1,4 +1,4 @@
-// Builds public/data/stat-map.json and public/data/base-map.json from RePoE and the trade2 data API.
+// Builds public/data/{stat-map,base-map,trade-items}.json from RePoE and the trade2 data API.
 //   npm run build-data                 write to ./public/data
 //   npm run build-data -- --out dir    write to another directory
 //   npm run build-data -- --check      exit 1 when fixture coverage < 95%
@@ -7,9 +7,12 @@ import { join } from 'node:path';
 import {
   buildBaseMap,
   buildStatMap,
+  buildTradeItems,
   coverage,
   type RepoeBase,
   type RepoeTranslation,
+  type TradeItemsResponse,
+  type TradeStaticResponse,
   type TradeStatsResponse,
   type ValueHandlers,
 } from './lib/build-data-lib.ts';
@@ -31,21 +34,27 @@ async function get<T>(url: string): Promise<T> {
   return (await res.json()) as T;
 }
 
-const [translations, handlers, bases, tradeStats] = await Promise.all([
+const TRADE_DATA = 'https://www.pathofexile.com/api/trade2/data';
+const [translations, handlers, bases, tradeStats, tradeItemList, tradeStatic] = await Promise.all([
   get<RepoeTranslation[]>(`${REPOE}/stat_translations/stat_descriptions.min.json`),
   get<ValueHandlers>(`${REPOE}/stat_value_handlers.min.json`),
   get<Record<string, RepoeBase>>(`${REPOE}/base_items.min.json`),
-  get<TradeStatsResponse>('https://www.pathofexile.com/api/trade2/data/stats'),
+  get<TradeStatsResponse>(`${TRADE_DATA}/stats`),
+  get<TradeItemsResponse>(`${TRADE_DATA}/items`),
+  get<TradeStaticResponse>(`${TRADE_DATA}/static`),
 ]);
 
-const statMap = buildStatMap(translations, tradeStats, handlers, new Date().toISOString());
+const generatedAt = new Date().toISOString();
+const statMap = buildStatMap(translations, tradeStats, handlers, generatedAt);
 const baseMap = buildBaseMap(bases);
+const tradeItems = buildTradeItems(tradeItemList, tradeStatic, generatedAt);
 
 const planner = JSON.parse(readFileSync('tests/fixtures/planner-z7coxn0y.json', 'utf8'));
 const items: PlannerItem[] = Object.values(JSON.parse(planner.data).items);
 const cov = coverage(items, statMap);
 console.log(
   `[b2t] stat entries: ${statMap.entries.length}, bases: ${Object.keys(baseMap).length}, ` +
+    `link names: ${Object.keys(tradeItems.byName).length}, ` +
     `fixture coverage: ${cov.mapped}/${cov.total} (${(cov.ratio * 100).toFixed(1)}%)`,
 );
 if (cov.misses.length) console.log(`[b2t] unmapped: ${cov.misses.join(', ')}`);
@@ -58,4 +67,5 @@ if (check && cov.ratio < MIN_COVERAGE) {
 mkdirSync(outDir, { recursive: true });
 writeFileSync(join(outDir, 'stat-map.json'), JSON.stringify(statMap));
 writeFileSync(join(outDir, 'base-map.json'), JSON.stringify(baseMap));
-console.log(`[b2t] wrote ${outDir}/stat-map.json and ${outDir}/base-map.json`);
+writeFileSync(join(outDir, 'trade-items.json'), JSON.stringify(tradeItems));
+console.log(`[b2t] wrote stat-map.json, base-map.json and trade-items.json to ${outDir}`);

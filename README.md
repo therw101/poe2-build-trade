@@ -7,6 +7,9 @@ click opens the official trade site with a search that matches the item.
 - **Unique items** open a trade search by name.
 - **Rare and magic items** open a picker where you choose mods and minimum values
   before searching.
+- **Gems, currency, and other items linked in the guide text** show a search button
+  when you hover them. Currency opens the bulk exchange; gems and bases open a normal
+  search.
 - Works on the equipment paperdoll (any set or Act tab) and on "New Item" links in the
   guide text.
 
@@ -64,6 +67,8 @@ guide ของ maxroll (PoE2) กดแล้วจะเปิดเว็บ�
 
 - **Unique**: กดครั้งเดียวก็ค้นด้วยชื่อ
 - **Rare/Magic**: มีหน้าต่างให้เลือกม็อดกับค่าต่ำสุดก่อน (ค่าเริ่มต้น 80% ของค่าใน build)
+- **หินสกิล / currency / ไอเทมที่ลิงก์ในเนื้อหา guide**: เอาเมาส์ชี้แล้วจะมีปุ่มค้นหาโผล่ท้ายลิงก์
+  currency จะเปิดหน้า exchange ส่วนหินสกิลกับ base จะเปิดหน้าค้นหาปกติ
 
 **วิธีติดตั้ง**
 
@@ -115,6 +120,8 @@ The design is in `docs/superpowers/specs/`.
 2. Open 2–3 different guides.
 3. Test a unique (one click), a rare weapon, a rare jewel, and a charm, and check that
    the trade tab shows the expected filters.
-4. Switch the set and the Act tab on the paperdoll, and check that the searched item
+4. Hover a gem link and a currency link in the guide text, click the button, and check
+   that the gem opens a search and the currency opens the exchange.
+5. Switch the set and the Act tab on the paperdoll, and check that the searched item
    follows the selection.
-5. Check that changes on the options page affect the next search.
+6. Check that changes on the options page affect the next search.

@@ -1,11 +1,12 @@
 import { browser } from 'wxt/browser';
-import type { ItemModel, PlannerItem } from '../core/types.ts';
+import type { ItemModel, LinkTarget, PlannerItem } from '../core/types.ts';
 
 export type Request =
   | { type: 'plannerItem'; profileId: string; itemId: string }
   | { type: 'toModel'; item: PlannerItem }
   | { type: 'context' }
-  | { type: 'openTab'; url: string };
+  | { type: 'openTab'; url: string }
+  | { type: 'resolveLinks'; names: string[] };
 
 export type ErrorCode = 'network' | 'format' | 'notFound';
 export type Response<T> = { ok: true; data: T } | { ok: false; error: ErrorCode };
@@ -23,6 +24,8 @@ export interface ResponseFor {
   toModel: ItemModel;
   context: Context;
   openTab: null;
+  /** Only names that trade can search are present. */
+  resolveLinks: Record<string, LinkTarget>;
 }
 
 export async function sendMessage<R extends Request>(req: R): Promise<Response<ResponseFor[R['type']]>> {

@@ -1,4 +1,4 @@
-import type { PlannerItem, StatMap } from './types.ts';
+import type { PlannerItem, StatMap, TradeItemsMap } from './types.ts';
 
 const RARITIES = new Set(['normal', 'magic', 'rare', 'unique']);
 
@@ -33,4 +33,12 @@ export function isStatMap(x: unknown): x is StatMap {
     x.entries.every(isStatMapEntry) &&
     (x.options === undefined || isRecord(x.options))
   );
+}
+
+const LINK_KINDS = new Set(['exchange', 'unique', 'type', 'base']);
+
+export function isTradeItemsMap(x: unknown): x is TradeItemsMap {
+  if (!isRecord(x) || typeof x.generatedAt !== 'string' || !isRecord(x.byName)) return false;
+  const values = Object.values(x.byName);
+  return values.length > 0 && values.every((t) => isRecord(t) && typeof t.kind === 'string' && LINK_KINDS.has(t.kind));
 }

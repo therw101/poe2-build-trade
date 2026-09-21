@@ -36,7 +36,8 @@ search that matches the item.
 - Pseudo stats (for example total resistance), max-value inputs, and roll-range
   filters for uniques.
 - Calling the GGG trade search API or showing prices inside the extension.
-- Skill gems and passive tree nodes.
+- Passive tree nodes. Skill gems, currency, and other items linked in the guide
+  text became searchable in v0.2 (see "Inline links" in section 7).
 - A language switcher inside the UI.
 
 ## 3. Decisions log
@@ -52,6 +53,7 @@ search that matches the item.
 | D7 | UI in English and Thai through `chrome.i18n` | The audience is both Thai and international players. Mod text stays in English because trade uses English. |
 | D8 | Built with WXT (TypeScript + Vite) | Good developer experience and manifest generation, and keeps a Firefox build possible |
 | D9 | The extension only builds a URL and opens a tab. It never calls the trade search API. | Avoids GGG rate limits and User-Agent requirements |
+| D10 | Inline links (gems, currency, uniques in the text) get one shared button that appears on hover | A button after every link would clutter the guide text. Chosen by the user in v0.2. |
 
 ## 4. Verified facts (from investigation on 2026-09-21)
 
@@ -276,6 +278,26 @@ popup shows a small banner that links to the release.
 | Rune sockets checkbox | `filters.equipment_filters.filters.rune_sockets.min = sockets.length` |
 | Status | `status.option` from options (`online` / `available` / `any`) |
 | Not emitted | ilvl (planner uses 99 as a placeholder), quality, corrupted |
+
+### Inline links (v0.2)
+
+Guide text links gems, currency, and other items as
+`span.poe2-item[data-poe2-text]` with no `data-poe2-profile`. Hovering one shows a
+single shared 🔍 button at the link's right edge. Clicking it searches right away,
+with no popup.
+
+`build-data` writes `trade-items.json`, which maps each name from the trade
+`items` and `static` data to a target. Earlier rules win:
+
+| Name found in | Target | Opens |
+|---|---|---|
+| `static` (currency, fragments, runes, …) | `exchange` id | `/trade2/exchange/poe2/{league}/{payload}` with `want: [id]`, `have: []` (want-only verified live) |
+| `items` with a unique name | `unique` | search with `name` + `type` |
+| `items` in an equipment group (accessory, armour, weapon, flask, jewel) | `base` | search with `type` and `rarity: nonunique` |
+| any other `items` entry (gems, etc.) | `type` | search with `type` |
+
+Names with no match, for example Purity of Fire, get no button. The map is bundled
+and refreshed daily from GitHub Pages, the same way as the stat map.
 
 ### Item class to trade category
 

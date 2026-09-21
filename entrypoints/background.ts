@@ -2,6 +2,7 @@ import { browser, type Browser } from 'wxt/browser';
 import {
   MAXROLL_PLANNER_URL,
   REFRESH_INTERVAL_MS,
+  TRADE_EXCHANGE_URL,
   TRADE_LEAGUES_URL,
   TRADE_SEARCH_URL,
   dataBaseUrl,
@@ -10,8 +11,8 @@ import {
 import { compareVersions, pickDefaultLeague, type League } from '../src/core/leagues.ts';
 import { indexStatMap, type StatIndex } from '../src/core/statmap.ts';
 import { toItemModel } from '../src/core/translate.ts';
-import type { BaseMap, PlannerItem, StatMap } from '../src/core/types.ts';
-import { isPlannerItem, isStatMap } from '../src/core/validate.ts';
+import type { BaseMap, LinkTarget, PlannerItem, StatMap, TradeItemsMap } from '../src/core/types.ts';
+import { isPlannerItem, isStatMap, isTradeItemsMap } from '../src/core/validate.ts';
 import type { Context, Request, Response } from '../src/ext/messages.ts';
 import { getSettings, saveSettings } from '../src/ext/settings.ts';
 
@@ -71,6 +72,49 @@ async function getMaps(): Promise<{ maps: Maps; index: StatIndex }> {
     remoteMaps && remoteMaps.value.statMap.generatedAt > bundled.statMap.generatedAt ? remoteMaps.value : bundled;
   loaded = { maps, index: indexStatMap(maps.statMap) };
   return loaded;
+}
+
+// ---- trade item names for inline guide links (same refresh model as the maps) ----
+
+let tradeItemsLoaded: TradeItemsMap | null = null;
+
+async function refreshRemoteTradeItems(): Promise<void> {
+  const base = dataBaseUrl();
+  if (!base) return;
+  const { remoteTradeItems } = (await browser.storage.local.get('remoteTradeItems')) as {
+    remoteTradeItems?: Cached<TradeItemsMap>;
+  };
+  if (fresh(remoteTradeItems)) return;
+  try {
+    const value = await fetchJson<unknown>(`${base}/trade-items.json`);
+    if (!isTradeItemsMap(value)) throw new Error('remote trade items have an unexpected shape');
+    await browser.storage.local.set({ remoteTradeItems: { value, fetchedAt: Date.now() } });
+    tradeItemsLoaded = null;
+  } catch (err) {
+    console.warn('[b2t] trade items refresh failed, keeping current data', err);
+  }
+}
+
+async function getTradeItems(): Promise<TradeItemsMap> {
+  void refreshRemoteTradeItems();
+  if (tradeItemsLoaded) return tradeItemsLoaded;
+  const bundled = await fetchJson<TradeItemsMap>(browser.runtime.getURL('/data/trade-items.json'));
+  const { remoteTradeItems } = (await browser.storage.local.get('remoteTradeItems')) as {
+    remoteTradeItems?: Cached<TradeItemsMap>;
+  };
+  tradeItemsLoaded =
+    remoteTradeItems && remoteTradeItems.value.generatedAt > bundled.generatedAt ? remoteTradeItems.value : bundled;
+  return tradeItemsLoaded;
+}
+
+async function resolveLinks(names: string[]): Promise<Response<Record<string, LinkTarget>>> {
+  const { byName } = await getTradeItems();
+  const out: Record<string, LinkTarget> = {};
+  for (const name of names) {
+    const t = typeof name === 'string' ? byName[name] : undefined;
+    if (t) out[name] = t;
+  }
+  return { ok: true, data: out };
 }
 
 // ---- maxroll planner ----
@@ -154,7 +198,7 @@ async function context(): Promise<Context> {
 
 /** Opens trade in a tab next to the build page; avoids popup blockers after async work. */
 async function openTab(url: string, sender: Browser.runtime.MessageSender): Promise<Response<null>> {
-  if (!url.startsWith(TRADE_SEARCH_URL)) return { ok: false, error: 'format' };
+  if (!url.startsWith(TRADE_SEARCH_URL) && !url.startsWith(TRADE_EXCHANGE_URL)) return { ok: false, error: 'format' };
   const tab = sender.tab;
   await browser.tabs.create({
     url,
@@ -177,6 +221,8 @@ async function handle(req: Request, sender: Browser.runtime.MessageSender): Prom
       return { ok: true, data: await context() };
     case 'openTab':
       return openTab(req.url, sender);
+    case 'resolveLinks':
+      return Array.isArray(req.names) ? resolveLinks(req.names) : { ok: false, error: 'format' };
     default:
       return { ok: false, error: 'format' };
   }

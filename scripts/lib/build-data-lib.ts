@@ -1,5 +1,13 @@
 import { CATEGORY_BY_CLASS } from '../../src/core/categories.ts';
-import type { BaseMap, PlannerItem, StatKind, StatMap, StatMapEntry } from '../../src/core/types.ts';
+import type {
+  BaseMap,
+  LinkTarget,
+  PlannerItem,
+  StatKind,
+  StatMap,
+  StatMapEntry,
+  TradeItemsMap,
+} from '../../src/core/types.ts';
 
 const KINDS: readonly StatKind[] = ['explicit', 'implicit', 'enchant', 'crafted', 'fractured', 'rune'];
 
@@ -24,6 +32,17 @@ export type ValueHandlers = Record<
   string,
   { type: string; divisor?: number; multiplier?: number; addend?: number }
 >;
+
+export interface TradeItemsResponse {
+  result: {
+    id: string;
+    entries: { type: string; name?: string; text?: string; flags?: { unique?: boolean } }[];
+  }[];
+}
+
+export interface TradeStaticResponse {
+  result: { id: string; entries: { id: string; text: string }[] }[];
+}
 
 export interface RepoeBase {
   name: string;
@@ -235,4 +254,32 @@ export function coverage(
     }
   }
   return { mapped, total, ratio: total ? mapped / total : 1, misses: [...misses].sort() };
+}
+
+const EQUIPMENT_GROUPS = new Set(['accessory', 'armour', 'weapon', 'flask', 'jewel']);
+
+/**
+ * Maps names shown in guide links to a trade search. Bulk-exchange items win, then
+ * uniques (by name), equipment bases, and everything else by type (gems, other currency).
+ */
+export function buildTradeItems(
+  items: TradeItemsResponse,
+  statics: TradeStaticResponse,
+  generatedAt: string,
+): TradeItemsMap {
+  const byName: Record<string, LinkTarget> = {};
+  const add = (name: string, t: LinkTarget) => {
+    if (name && !(name in byName)) byName[name] = t;
+  };
+  for (const group of statics.result) {
+    for (const e of group.entries) if (e.id && e.text) add(e.text, { kind: 'exchange', id: e.id });
+  }
+  for (const group of items.result) {
+    for (const e of group.entries) {
+      if (e.flags?.unique && e.name) add(e.name, { kind: 'unique', name: e.name, type: e.type });
+      else if (EQUIPMENT_GROUPS.has(group.id)) add(e.type, { kind: 'base', type: e.type });
+      else add(e.type, { kind: 'type', type: e.type });
+    }
+  }
+  return { generatedAt, byName };
 }

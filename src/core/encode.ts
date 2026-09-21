@@ -1,5 +1,5 @@
-import { TRADE_SEARCH_URL } from '../config.ts';
-import type { TradeQuery } from './types.ts';
+import { TRADE_EXCHANGE_URL, TRADE_SEARCH_URL } from '../config.ts';
+import type { ExchangeQuery, TradeQuery } from './types.ts';
 
 async function pipeThrough(
   bytes: Uint8Array,
@@ -21,7 +21,7 @@ function fromBase64Url(s: string): Uint8Array {
 }
 
 /** Encodes a trade query the way trade2 URLs carry it: base64url(gzip(JSON)), unpadded. */
-export async function encodeQuery(q: TradeQuery): Promise<string> {
+export async function encodeQuery(q: TradeQuery | ExchangeQuery): Promise<string> {
   const json = new TextEncoder().encode(JSON.stringify(q));
   return toBase64Url(await pipeThrough(json, new CompressionStream('gzip')));
 }
@@ -33,4 +33,8 @@ export async function decodeQuery(payload: string): Promise<unknown> {
 
 export async function tradeUrl(league: string, q: TradeQuery): Promise<string> {
   return `${TRADE_SEARCH_URL}${encodeURIComponent(league)}/${await encodeQuery(q)}`;
+}
+
+export async function exchangeUrl(league: string, q: ExchangeQuery): Promise<string> {
+  return `${TRADE_EXCHANGE_URL}${encodeURIComponent(league)}/${await encodeQuery(q)}`;
 }

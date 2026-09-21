@@ -27,6 +27,26 @@ export function findTargets(root: ParentNode): Target[] {
   return targets;
 }
 
+export const LINK_ATTR = 'data-b2t-link';
+const LINK_CHECKED_ATTR = 'data-b2t-link-checked';
+
+/**
+ * Inline guide links (gems, currency, uniques, bases) not yet checked against trade data.
+ * Planner items ("New Item" spans with a profile) are handled by findTargets instead.
+ */
+export function findLinkSpans(root: ParentNode): HTMLElement[] {
+  return [
+    ...root.querySelectorAll<HTMLElement>(
+      `span.poe2-item[data-poe2-text]:not([data-poe2-profile]):not([${LINK_CHECKED_ATTR}])`,
+    ),
+  ];
+}
+
+export function markLinkSpan(el: HTMLElement, searchable: boolean): void {
+  el.setAttribute(LINK_CHECKED_ATTR, '');
+  if (searchable) el.setAttribute(LINK_ATTR, '');
+}
+
 /** Asks the MAIN-world reader for the item currently rendered in a paperdoll slot. */
 export function readSlotItem(el: HTMLElement, timeoutMs = 1500): Promise<PlannerItem | null> {
   const key = crypto.randomUUID();

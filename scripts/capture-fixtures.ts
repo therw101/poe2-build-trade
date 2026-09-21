@@ -17,6 +17,8 @@ const planner = await get(`https://planners.maxroll.gg/profiles/poe2/${PROFILE}`
 out(`planner-${PROFILE}.json`, planner);
 out('trade-stats.json', await get('https://www.pathofexile.com/api/trade2/data/stats'));
 out('trade-leagues.json', await get('https://www.pathofexile.com/api/trade2/data/leagues'));
+out('trade-items.json', await get('https://www.pathofexile.com/api/trade2/data/items'));
+out('trade-static.json', await get('https://www.pathofexile.com/api/trade2/data/static'));
 
 const items: Record<string, any> = JSON.parse(planner.data).items;
 const usedStats = new Set<string>();

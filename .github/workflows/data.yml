@@ -1,6 +1,6 @@
 name: Refresh mod data
 
-# Rebuilds the stat/base maps daily and publishes them to GitHub Pages under /data/.
+# Rebuilds the stat/base/trade-item maps daily and publishes them to GitHub Pages under /data/.
 # Installed extensions fetch these files at most once a day (see src/config.ts GITHUB_REPO).
 on:
   schedule:

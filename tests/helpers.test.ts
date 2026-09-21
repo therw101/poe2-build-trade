@@ -1,7 +1,7 @@
 import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import { compareVersions, pickDefaultLeague, type League } from '../src/core/leagues.ts';
-import { isPlannerItem, isStatMap } from '../src/core/validate.ts';
+import { isPlannerItem, isStatMap, isTradeItemsMap } from '../src/core/validate.ts';
 
 const read = (p: string) => JSON.parse(readFileSync(p, 'utf8'));
 const leagues: League[] = read('tests/fixtures/trade-leagues.json').result;
@@ -39,6 +39,12 @@ describe('validation', () => {
     const { name: _name, ...unnamed } = items['32'];
     expect(isPlannerItem(unnamed)).toBe(true);
     expect(isPlannerItem({ ...items['32'], name: 5 })).toBe(false);
+  });
+
+  it('accepts the bundled trade items map and rejects bad shapes', () => {
+    expect(isTradeItemsMap(read('public/data/trade-items.json'))).toBe(true);
+    expect(isTradeItemsMap({ generatedAt: 'x', byName: { a: { kind: 'bogus' } } })).toBe(false);
+    expect(isTradeItemsMap({ generatedAt: 'x', byName: {} })).toBe(false);
   });
 
   it('accepts the bundled stat map', () => {

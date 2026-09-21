@@ -111,3 +111,24 @@ export interface TradeQuery {
     equipment_filters?: { filters: { rune_sockets?: { min: number } } };
   };
 }
+
+/** How an inline guide link (gem, currency, unique, base) is searched on trade. */
+export type LinkTarget =
+  | { kind: 'exchange'; id: string }
+  | { kind: 'unique'; name: string; type: string }
+  | { kind: 'type'; type: string }
+  | { kind: 'base'; type: string };
+
+export interface TradeItemsMap {
+  generatedAt: string;
+  /** Display name as shown on maxroll (data-poe2-text) → search target. */
+  byName: Record<string, LinkTarget>;
+}
+
+export type ExchangeStatus = 'online' | 'any';
+
+export interface ExchangeQuery {
+  status: { option: ExchangeStatus };
+  want: string[];
+  have: string[];
+}
