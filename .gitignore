@@ -6,3 +6,4 @@ site
 e2e/.profile
 *.log
 .DS_Store
+e2e/*.png
