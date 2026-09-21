@@ -1,0 +1,1557 @@
+[
+ {
+  "English": [
+   {
+    "condition": [
+     {
+      "min": 1
+     }
+    ],
+    "format": [
+     "#"
+    ],
+    "index_handlers": [
+     []
+    ],
+    "string": "{0}% increased effect of Socketed [Augment] Items"
+   },
+   {
+    "condition": [
+     {
+      "max": -1
+     }
+    ],
+    "format": [
+     "#"
+    ],
+    "index_handlers": [
+     [
+      "negate"
+     ]
+    ],
+    "string": "{0}% reduced effect of Socketed [Augment] Items"
+   }
+  ],
+  "ids": [
+   "local_socketed_items_effect_+%"
+  ]
+ },
+ {
+  "English": [
+   {
+    "condition": [
+     {}
+    ],
+    "format": [
+     "ignore"
+    ],
+    "index_handlers": [
+     []
+    ],
+    "string": "Used when you become [Frozen]"
+   }
+  ],
+  "ids": [
+   "local_flask_use_on_affected_by_freeze"
+  ]
+ },
+ {
+  "English": [
+   {
+    "condition": [
+     {}
+    ],
+    "format": [
+     "ignore"
+    ],
+    "index_handlers": [
+     []
+    ],
+    "string": "Used when you become [Poison|Poisoned]"
+   }
+  ],
+  "ids": [
+   "local_flask_use_on_affected_by_poison"
+  ]
+ },
+ {
+  "English": [
+   {
+    "condition": [
+     {}
+    ],
+    "format": [
+     "ignore"
+    ],
+    "index_handlers": [
+     []
+    ],
+    "string": "Used when you are affected by a [Slow]"
+   }
+  ],
+  "ids": [
+   "local_flask_use_on_affected_by_slow"
+  ]
+ },
+ {
+  "English": [
+   {
+    "condition": [
+     {}
+    ],
+    "format": [
+     "ignore"
+    ],
+    "index_handlers": [
+     []
+    ],
+    "string": "Used when you take [Cold] damage from a [Hit]"
+   }
+  ],
+  "ids": [
+   "local_flask_use_on_cold_damage_taken"
+  ]
+ },
+ {
+  "English": [
+   {
+    "condition": [
+     {}
+    ],
+    "format": [
+     "ignore"
+    ],
+    "index_handlers": [
+     []
+    ],
+    "string": "Used when you kill a [Rarity|Rare] or [Rarity|Unique] enemy"
+   }
+  ],
+  "ids": [
+   "local_flask_use_on_killing_rare_or_unique_enemy"
+  ]
+ },
+ {
+  "English": [
+   {
+    "condition": [
+     {}
+    ],
+    "format": [
+     "ignore"
+    ],
+    "index_handlers": [
+     []
+    ],
+    "string": "Used when you take [Lightning] damage from a [Hit]"
+   }
+  ],
+  "ids": [
+   "local_flask_use_on_lightning_damage_taken"
+  ]
+ },
+ {
+  "English": [
+   {
+    "condition": [
+     {}
+    ],
+    "format": [
+     "ignore"
+    ],
+    "index_handlers": [
+     []
+    ],
+    "string": "Used when you become [Stun|Stunned]"
+   }
+  ],
+  "ids": [
+   "local_flask_use_on_stunned"
+  ]
+ },
+ {
+  "English": [
+   {
+    "condition": [
+     {
+      "min": 1
+     }
+    ],
+    "format": [
+     "#"
+    ],
+    "index_handlers": [
+     []
+    ],
+    "string": "{0}% increased Movement Speed"
+   },
+   {
+    "condition": [
+     {
+      "max": -1
+     }
+    ],
+    "format": [
+     "#"
+    ],
+    "index_handlers": [
+     [
+      "negate"
+     ]
+    ],
+    "string": "{0}% reduced Movement Speed"
+   }
+  ],
+  "ids": [
+   "base_movement_velocity_+%"
+  ],
+  "trade_stats": [
+   {
+    "id": "crafted.stat_2250533757",
+    "text": "#% increased Movement Speed",
+    "type": "crafted"
+   },
+   {
+    "id": "desecrated.stat_2250533757",
+    "text": "#% increased Movement Speed",
+    "type": "desecrated"
+   },
+   {
+    "id": "enchant.stat_2250533757",
+    "text": "#% increased Movement Speed",
+    "type": "enchant"
+   },
+   {
+    "id": "explicit.stat_2250533757",
+    "text": "#% increased Movement Speed",
+    "type": "explicit"
+   },
+   {
+    "id": "fractured.stat_2250533757",
+    "text": "#% increased Movement Speed",
+    "type": "fractured"
+   },
+   {
+    "id": "implicit.stat_2250533757",
+    "text": "#% increased Movement Speed",
+    "type": "implicit"
+   },
+   {
+    "id": "pseudo.pseudo_increased_movement_speed",
+    "text": "#% increased Movement Speed",
+    "type": "pseudo"
+   },
+   {
+    "id": "rune.stat_2250533757",
+    "text": "#% increased Movement Speed",
+    "type": "augment"
+   },
+   {
+    "id": "sanctum.stat_1416455556",
+    "text": "#% increased Movement Speed",
+    "type": "sanctum"
+   }
+  ]
+ },
+ {
+  "English": [
+   {
+    "condition": [
+     {}
+    ],
+    "format": [
+     "+#"
+    ],
+    "index_handlers": [
+     []
+    ],
+    "string": "{0} to maximum [EnergyShield|Energy Shield]"
+   }
+  ],
+  "ids": [
+   "local_energy_shield"
+  ]
+ },
+ {
+  "English": [
+   {
+    "condition": [
+     {
+      "min": 1
+     }
+    ],
+    "format": [
+     "#"
+    ],
+    "index_handlers": [
+     []
+    ],
+    "string": "{0}% increased [EnergyShield|Energy Shield]"
+   },
+   {
+    "condition": [
+     {
+      "max": -1
+     }
+    ],
+    "format": [
+     "#"
+    ],
+    "index_handlers": [
+     [
+      "negate"
+     ]
+    ],
+    "string": "{0}% reduced [EnergyShield|Energy Shield]"
+   }
+  ],
+  "ids": [
+   "local_energy_shield_+%"
+  ]
+ },
+ {
+  "English": [
+   {
+    "condition": [
+     {
+      "min": 1
+     }
+    ],
+    "format": [
+     "#"
+    ],
+    "index_handlers": [
+     []
+    ],
+    "string": "{0}% increased [Armour|Armour], [Evasion|Evasion] and [EnergyShield|Energy Shield]"
+   },
+   {
+    "condition": [
+     {
+      "max": -1
+     }
+    ],
+    "format": [
+     "#"
+    ],
+    "index_handlers": [
+     [
+      "negate"
+     ]
+    ],
+    "string": "{0}% reduced [Armour|Armour], [Evasion|Evasion] and [EnergyShield|Energy Shield]"
+   }
+  ],
+  "ids": [
+   "local_armour_and_evasion_and_energy_shield_+%"
+  ]
+ },
+ {
+  "English": [
+   {
+    "condition": [
+     {
+      "min": 1
+     }
+    ],
+    "format": [
+     "#"
+    ],
+    "index_handlers": [
+     []
+    ],
+    "string": "{0}% increased [Spirit|Spirit]"
+   },
+   {
+    "condition": [
+     {
+      "max": -1
+     }
+    ],
+    "format": [
+     "#"
+    ],
+    "index_handlers": [
+     [
+      "negate"
+     ]
+    ],
+    "string": "{0}% reduced [Spirit|Spirit]"
+   }
+  ],
+  "ids": [
+   "local_spirit_+%"
+  ]
+ },
+ {
+  "English": [
+   {
+    "condition": [
+     {},
+     {}
+    ],
+    "format": [
+     "#",
+     "#"
+    ],
+    "index_handlers": [
+     [],
+     []
+    ],
+    "string": "Adds {0} to {1} [Physical|Physical] Damage to [Attack|Attacks]"
+   }
+  ],
+  "ids": [
+   "attack_minimum_added_physical_damage",
+   "attack_maximum_added_physical_damage"
+  ]
+ },
+ {
+  "English": [
+   {
+    "condition": [
+     {
+      "min": 1
+     }
+    ],
+    "format": [
+     "#"
+    ],
+    "index_handlers": [
+     []
+    ],
+    "string": "[Gain] {0}% of Damage as Extra [Cold] Damage"
+   }
+  ],
+  "ids": [
+   "non_skill_base_all_damage_%_to_gain_as_cold"
+  ]
+ },
+ {
+  "English": [
+   {
+    "condition": [
+     {
+      "min": 1
+     }
+    ],
+    "format": [
+     "#"
+    ],
+    "index_handlers": [
+     []
+    ],
+    "string": "[Gain] {0}% of Damage as Extra [Lightning] Damage"
+   }
+  ],
+  "ids": [
+   "non_skill_base_all_damage_%_to_gain_as_lightning"
+  ]
+ },
+ {
+  "English": [
+   {
+    "condition": [
+     {
+      "min": 1
+     }
+    ],
+    "format": [
+     "#"
+    ],
+    "index_handlers": [
+     []
+    ],
+    "string": "{0}% increased [Spell] Damage"
+   },
+   {
+    "condition": [
+     {
+      "max": -1
+     }
+    ],
+    "format": [
+     "#"
+    ],
+    "index_handlers": [
+     [
+      "negate"
+     ]
+    ],
+    "string": "{0}% reduced [Spell] Damage"
+   }
+  ],
+  "ids": [
+   "spell_damage_+%"
+  ]
+ },
+ {
+  "English": [
+   {
+    "condition": [
+     {
+      "min": 1
+     }
+    ],
+    "format": [
+     "#"
+    ],
+    "index_handlers": [
+     []
+    ],
+    "string": "{0}% increased maximum [EnergyShield|Energy Shield]"
+   },
+   {
+    "condition": [
+     {
+      "max": -1
+     }
+    ],
+    "format": [
+     "#"
+    ],
+    "index_handlers": [
+     [
+      "negate"
+     ]
+    ],
+    "string": "{0}% reduced maximum [EnergyShield|Energy Shield]"
+   }
+  ],
+  "ids": [
+   "maximum_energy_shield_+%"
+  ]
+ },
+ {
+  "English": [
+   {
+    "condition": [
+     {}
+    ],
+    "format": [
+     "+#"
+    ],
+    "index_handlers": [
+     []
+    ],
+    "string": "{0} to maximum Life"
+   }
+  ],
+  "ids": [
+   "base_maximum_life"
+  ],
+  "trade_stats": [
+   {
+    "id": "crafted.stat_3299347043",
+    "text": "# to maximum Life",
+    "type": "crafted"
+   },
+   {
+    "id": "desecrated.stat_3299347043",
+    "text": "# to maximum Life",
+    "type": "desecrated"
+   },
+   {
+    "id": "enchant.stat_3299347043",
+    "text": "# to maximum Life",
+    "type": "enchant"
+   },
+   {
+    "id": "explicit.stat_3299347043",
+    "text": "# to maximum Life",
+    "type": "explicit"
+   },
+   {
+    "id": "fractured.stat_3299347043",
+    "text": "# to maximum Life",
+    "type": "fractured"
+   },
+   {
+    "id": "implicit.stat_3299347043",
+    "text": "# to maximum Life",
+    "type": "implicit"
+   },
+   {
+    "id": "rune.stat_3299347043",
+    "text": "# to maximum Life",
+    "type": "augment"
+   }
+  ]
+ },
+ {
+  "English": [
+   {
+    "condition": [
+     {}
+    ],
+    "format": [
+     "+#"
+    ],
+    "index_handlers": [
+     []
+    ],
+    "string": "{0} to maximum Mana"
+   }
+  ],
+  "ids": [
+   "base_maximum_mana"
+  ],
+  "trade_stats": [
+   {
+    "id": "crafted.stat_1050105434",
+    "text": "# to maximum Mana",
+    "type": "crafted"
+   },
+   {
+    "id": "desecrated.stat_1050105434",
+    "text": "# to maximum Mana",
+    "type": "desecrated"
+   },
+   {
+    "id": "enchant.stat_1050105434",
+    "text": "# to maximum Mana",
+    "type": "enchant"
+   },
+   {
+    "id": "explicit.stat_1050105434",
+    "text": "# to maximum Mana",
+    "type": "explicit"
+   },
+   {
+    "id": "fractured.stat_1050105434",
+    "text": "# to maximum Mana",
+    "type": "fractured"
+   },
+   {
+    "id": "implicit.stat_1050105434",
+    "text": "# to maximum Mana",
+    "type": "implicit"
+   },
+   {
+    "id": "rune.stat_1050105434",
+    "text": "# to maximum Mana",
+    "type": "augment"
+   }
+  ]
+ },
+ {
+  "English": [
+   {
+    "condition": [
+     {}
+    ],
+    "format": [
+     "+#"
+    ],
+    "index_handlers": [
+     []
+    ],
+    "string": "{0} to [Spirit|Spirit]"
+   }
+  ],
+  "ids": [
+   "base_spirit_from_equipment"
+  ]
+ },
+ {
+  "English": [
+   {
+    "condition": [
+     {
+      "min": 1
+     }
+    ],
+    "format": [
+     "#"
+    ],
+    "index_handlers": [
+     []
+    ],
+    "string": "{0}% increased [ItemRarity|Rarity of Items] found"
+   },
+   {
+    "condition": [
+     {
+      "max": -1
+     }
+    ],
+    "format": [
+     "#"
+    ],
+    "index_handlers": [
+     [
+      "negate"
+     ]
+    ],
+    "string": "{0}% reduced [ItemRarity|Rarity of Items] found"
+   }
+  ],
+  "ids": [
+   "base_item_found_rarity_+%"
+  ]
+ },
+ {
+  "English": [
+   {
+    "condition": [
+     {}
+    ],
+    "format": [
+     "+#"
+    ],
+    "index_handlers": [
+     []
+    ],
+    "string": "{0} to Level of all [Spell|Spell] Skills"
+   }
+  ],
+  "ids": [
+   "spell_skill_gem_level_+"
+  ]
+ },
+ {
+  "English": [
+   {
+    "condition": [
+     {}
+    ],
+    "format": [
+     "+#"
+    ],
+    "index_handlers": [
+     []
+    ],
+    "string": "{0} to Level of all [Cold|Cold] [Spell|Spell] Skills"
+   }
+  ],
+  "ids": [
+   "cold_spell_skill_gem_level_+"
+  ]
+ },
+ {
+  "English": [
+   {
+    "condition": [
+     {
+      "min": 1
+     }
+    ],
+    "format": [
+     "#"
+    ],
+    "index_handlers": [
+     []
+    ],
+    "string": "{0}% increased [Critical|Critical Hit Chance] for [Spell|Spells]"
+   },
+   {
+    "condition": [
+     {
+      "max": -1
+     }
+    ],
+    "format": [
+     "#"
+    ],
+    "index_handlers": [
+     [
+      "negate"
+     ]
+    ],
+    "string": "{0}% reduced [Critical|Critical Hit Chance] for [Spell|Spells]"
+   }
+  ],
+  "ids": [
+   "spell_critical_strike_chance_+%"
+  ]
+ },
+ {
+  "English": [
+   {
+    "condition": [
+     {
+      "min": 1
+     }
+    ],
+    "format": [
+     "#"
+    ],
+    "index_handlers": [
+     []
+    ],
+    "string": "{0}% increased [CriticalDamageBonus|Critical Damage Bonus]"
+   },
+   {
+    "condition": [
+     {
+      "max": -1
+     }
+    ],
+    "format": [
+     "#"
+    ],
+    "index_handlers": [
+     [
+      "negate"
+     ]
+    ],
+    "string": "{0}% reduced [CriticalDamageBonus|Critical Damage Bonus]"
+   }
+  ],
+  "ids": [
+   "base_critical_strike_multiplier_+"
+  ]
+ },
+ {
+  "English": [
+   {
+    "condition": [
+     {
+      "min": 1
+     }
+    ],
+    "format": [
+     "#"
+    ],
+    "index_handlers": [
+     []
+    ],
+    "string": "{0}% increased [CriticalDamageBonus|Critical Spell Damage Bonus]"
+   },
+   {
+    "condition": [
+     {
+      "max": -1
+     }
+    ],
+    "format": [
+     "#"
+    ],
+    "index_handlers": [
+     [
+      "negate"
+     ]
+    ],
+    "string": "{0}% reduced [CriticalDamageBonus|Critical Spell Damage Bonus]"
+   }
+  ],
+  "ids": [
+   "base_spell_critical_strike_multiplier_+"
+  ]
+ },
+ {
+  "English": [
+   {
+    "condition": [
+     {
+      "min": 1
+     }
+    ],
+    "format": [
+     "#"
+    ],
+    "index_handlers": [
+     []
+    ],
+    "string": "{0}% increased Cast Speed"
+   },
+   {
+    "condition": [
+     {
+      "max": -1
+     }
+    ],
+    "format": [
+     "#"
+    ],
+    "index_handlers": [
+     [
+      "negate"
+     ]
+    ],
+    "string": "{0}% reduced Cast Speed"
+   }
+  ],
+  "ids": [
+   "base_cast_speed_+%"
+  ],
+  "trade_stats": [
+   {
+    "id": "crafted.stat_2891184298",
+    "text": "#% increased Cast Speed",
+    "type": "crafted"
+   },
+   {
+    "id": "desecrated.stat_2891184298",
+    "text": "#% increased Cast Speed",
+    "type": "desecrated"
+   },
+   {
+    "id": "enchant.stat_2891184298",
+    "text": "#% increased Cast Speed",
+    "type": "enchant"
+   },
+   {
+    "id": "explicit.stat_2891184298",
+    "text": "#% increased Cast Speed",
+    "type": "explicit"
+   },
+   {
+    "id": "fractured.stat_2891184298",
+    "text": "#% increased Cast Speed",
+    "type": "fractured"
+   },
+   {
+    "id": "implicit.stat_2891184298",
+    "text": "#% increased Cast Speed",
+    "type": "implicit"
+   },
+   {
+    "id": "rune.stat_2891184298",
+    "text": "#% increased Cast Speed",
+    "type": "augment"
+   }
+  ]
+ },
+ {
+  "English": [
+   {
+    "condition": [
+     {}
+    ],
+    "format": [
+     "+#"
+    ],
+    "index_handlers": [
+     []
+    ],
+    "string": "{0} to all [Attributes|Attributes]"
+   }
+  ],
+  "ids": [
+   "additional_all_attributes"
+  ]
+ },
+ {
+  "English": [
+   {
+    "condition": [
+     {}
+    ],
+    "format": [
+     "+#"
+    ],
+    "index_handlers": [
+     []
+    ],
+    "string": "{0} to [Strength|Strength]"
+   }
+  ],
+  "ids": [
+   "additional_strength"
+  ]
+ },
+ {
+  "English": [
+   {
+    "condition": [
+     {}
+    ],
+    "format": [
+     "+#"
+    ],
+    "index_handlers": [
+     []
+    ],
+    "string": "{0}% to [Resistances|Fire Resistance]"
+   }
+  ],
+  "ids": [
+   "base_fire_damage_resistance_%"
+  ]
+ },
+ {
+  "English": [
+   {
+    "condition": [
+     {}
+    ],
+    "format": [
+     "+#"
+    ],
+    "index_handlers": [
+     []
+    ],
+    "string": "{0}% to [Resistances|Cold Resistance]"
+   }
+  ],
+  "ids": [
+   "base_cold_damage_resistance_%"
+  ]
+ },
+ {
+  "English": [
+   {
+    "condition": [
+     {}
+    ],
+    "format": [
+     "+#"
+    ],
+    "index_handlers": [
+     []
+    ],
+    "string": "{0}% to [Resistances|Lightning Resistance]"
+   }
+  ],
+  "ids": [
+   "base_lightning_damage_resistance_%"
+  ]
+ },
+ {
+  "English": [
+   {
+    "condition": [
+     {}
+    ],
+    "format": [
+     "+#"
+    ],
+    "index_handlers": [
+     []
+    ],
+    "string": "{0}% to [Resistances|Chaos Resistance]"
+   }
+  ],
+  "ids": [
+   "base_chaos_damage_resistance_%"
+  ]
+ },
+ {
+  "English": [
+   {
+    "condition": [
+     {
+      "min": 1
+     }
+    ],
+    "format": [
+     "#"
+    ],
+    "index_handlers": [
+     []
+    ],
+    "string": "{0}% increased [ESRechargeRate|Energy Shield Recharge Rate]"
+   },
+   {
+    "condition": [
+     {
+      "max": -1
+     }
+    ],
+    "format": [
+     "#"
+    ],
+    "index_handlers": [
+     [
+      "negate"
+     ]
+    ],
+    "string": "{0}% reduced [ESRechargeRate|Energy Shield Recharge Rate]"
+   }
+  ],
+  "ids": [
+   "energy_shield_recharge_rate_+%"
+  ]
+ },
+ {
+  "English": [
+   {
+    "condition": [
+     {
+      "min": 1
+     }
+    ],
+    "format": [
+     "#"
+    ],
+    "index_handlers": [
+     []
+    ],
+    "string": "{0}% [FasterESRechargeStart|faster start of Energy Shield Recharge]"
+   },
+   {
+    "condition": [
+     {
+      "max": -1
+     }
+    ],
+    "format": [
+     "#"
+    ],
+    "index_handlers": [
+     [
+      "negate"
+     ]
+    ],
+    "string": "{0}% [FasterESRechargeStart|slower start of Energy Shield Recharge]"
+   }
+  ],
+  "ids": [
+   "energy_shield_delay_-%"
+  ]
+ },
+ {
+  "English": [
+   {
+    "condition": [
+     {}
+    ],
+    "format": [
+     "#"
+    ],
+    "index_handlers": [
+     []
+    ],
+    "string": "{0}% Chance to gain a [Charges|Charge] when you kill an enemy"
+   }
+  ],
+  "ids": [
+   "local_%_chance_to_gain_flask_charge_on_kill"
+  ]
+ },
+ {
+  "English": [
+   {
+    "condition": [
+     {
+      "min": 1
+     }
+    ],
+    "format": [
+     "#"
+    ],
+    "index_handlers": [
+     []
+    ],
+    "string": "{0}% increased [Spirit]"
+   },
+   {
+    "condition": [
+     {
+      "max": -1
+     }
+    ],
+    "format": [
+     "#"
+    ],
+    "index_handlers": [
+     [
+      "negate"
+     ]
+    ],
+    "string": "{0}% reduced [Spirit]"
+   }
+  ],
+  "ids": [
+   "spirit_+%"
+  ]
+ },
+ {
+  "English": [
+   {
+    "condition": [
+     {
+      "min": 1
+     }
+    ],
+    "format": [
+     "#"
+    ],
+    "index_handlers": [
+     []
+    ],
+    "string": "{0}% increased [ElementalDamage|Elemental Damage]"
+   },
+   {
+    "condition": [
+     {
+      "max": -1
+     }
+    ],
+    "format": [
+     "#"
+    ],
+    "index_handlers": [
+     [
+      "negate"
+     ]
+    ],
+    "string": "{0}% reduced [ElementalDamage|Elemental Damage]"
+   }
+  ],
+  "ids": [
+   "elemental_damage_+%"
+  ]
+ },
+ {
+  "English": [
+   {
+    "condition": [
+     {
+      "min": 1
+     }
+    ],
+    "format": [
+     "#"
+    ],
+    "index_handlers": [
+     []
+    ],
+    "string": "{0}% increased Mana Recovery from [Flask|Flasks]"
+   },
+   {
+    "condition": [
+     {
+      "max": -1
+     }
+    ],
+    "format": [
+     "#"
+    ],
+    "index_handlers": [
+     [
+      "negate"
+     ]
+    ],
+    "string": "{0}% reduced Mana Recovery from [Flask|Flasks]"
+   }
+  ],
+  "ids": [
+   "flask_mana_to_recover_+%"
+  ]
+ },
+ {
+  "English": [
+   {
+    "condition": [
+     {
+      "min": 1,
+      "max": 1
+     }
+    ],
+    "format": [
+     "#"
+    ],
+    "index_handlers": [
+     []
+    ],
+    "string": "Has {0} [Charm] Slot"
+   },
+   {
+    "condition": [
+     {
+      "min": 2
+     }
+    ],
+    "format": [
+     "#"
+    ],
+    "index_handlers": [
+     []
+    ],
+    "string": "Has {0} [Charm] Slots"
+   }
+  ],
+  "ids": [
+   "local_charm_slots"
+  ]
+ },
+ {
+  "English": [
+   {
+    "condition": [
+     {}
+    ],
+    "format": [
+     "ignore"
+    ],
+    "index_handlers": [
+     []
+    ],
+    "string": "[ESRecharge|Energy Shield Recharge] starts on use"
+   }
+  ],
+  "ids": [
+   "charm_energy_shield_recharge_starts_when_used"
+  ]
+ },
+ {
+  "English": [
+   {
+    "condition": [
+     {}
+    ],
+    "format": [
+     "ignore"
+    ],
+    "index_handlers": [
+     []
+    ],
+    "string": "Grants [Onslaught] during effect"
+   }
+  ],
+  "ids": [
+   "charm_gain_onslaught_during_effect"
+  ]
+ },
+ {
+  "English": [
+   {
+    "condition": [
+     {}
+    ],
+    "format": [
+     "ignore"
+    ],
+    "index_handlers": [
+     []
+    ],
+    "string": "Destroys all [Augment] Sockets on the item to create a [Jewel] Socket"
+   }
+  ],
+  "ids": [
+   "dummy_display_stat_rune_create_jewel_socket"
+  ]
+ },
+ {
+  "English": [
+   {
+    "condition": [
+     {}
+    ],
+    "format": [
+     "#"
+    ],
+    "index_handlers": [
+     []
+    ],
+    "string": "{0}% of [Flask|Flask] Recovery applied Instantly"
+   }
+  ],
+  "ids": [
+   "flask_recovery_amount_%_to_recover_instantly"
+  ]
+ },
+ {
+  "English": [
+   {
+    "condition": [
+     {}
+    ],
+    "format": [
+     "#"
+    ],
+    "index_handlers": [
+     [
+      "per_minute_to_per_second_2dp_if_required"
+     ]
+    ],
+    "string": "[Flask|Flasks] gain {0} charges per Second"
+   }
+  ],
+  "ids": [
+   "generate_x_charges_for_any_flask_per_minute"
+  ]
+ },
+ {
+  "English": [
+   {
+    "condition": [
+     {
+      "min": 1
+     }
+    ],
+    "format": [
+     "#"
+    ],
+    "index_handlers": [
+     []
+    ],
+    "string": "[LifeLeech|Leeches] {0}% of maximum Life when you Cast a [Spell|Spell]"
+   }
+  ],
+  "ids": [
+   "life_leech_%_maximum_life_on_spell_cast"
+  ]
+ },
+ {
+  "English": [
+   {
+    "condition": [
+     {}
+    ],
+    "format": [
+     "ignore"
+    ],
+    "index_handlers": [
+     []
+    ],
+    "string": "This item gains bonuses from Socketed Items as though it was a Body Armour"
+   }
+  ],
+  "ids": [
+   "local_item_benefit_socketable_as_if_body_armour"
+  ],
+  "trade_stats": [
+   {
+    "id": "explicit.stat_1087787187",
+    "text": "This item gains bonuses from Socketed Items as though it was a Body Armour",
+    "type": "explicit"
+   }
+  ]
+ },
+ {
+  "English": [
+   {
+    "condition": [
+     {}
+    ],
+    "format": [
+     "#"
+    ],
+    "index_handlers": [
+     [
+      "mages_legacy_index"
+     ]
+    ],
+    "string": "Legacy of {0}"
+   }
+  ],
+  "ids": [
+   "local_unique_mages_legacy_1"
+  ]
+ },
+ {
+  "English": [
+   {
+    "condition": [
+     {}
+    ],
+    "format": [
+     "#"
+    ],
+    "index_handlers": [
+     [
+      "mages_legacy_index"
+     ]
+    ],
+    "string": "Legacy of {0}"
+   }
+  ],
+  "ids": [
+   "local_unique_mages_legacy_2"
+  ]
+ },
+ {
+  "English": [
+   {
+    "condition": [
+     {}
+    ],
+    "format": [
+     "#"
+    ],
+    "index_handlers": [
+     [
+      "mages_legacy_index"
+     ]
+    ],
+    "string": "Legacy of {0}"
+   }
+  ],
+  "ids": [
+   "local_unique_mages_legacy_3"
+  ]
+ },
+ {
+  "English": [
+   {
+    "condition": [
+     {}
+    ],
+    "format": [
+     "#"
+    ],
+    "index_handlers": [
+     [
+      "mages_legacy_index"
+     ]
+    ],
+    "string": "Legacy of {0}"
+   }
+  ],
+  "ids": [
+   "local_unique_mages_legacy_4"
+  ]
+ },
+ {
+  "English": [
+   {
+    "condition": [
+     {}
+    ],
+    "format": [
+     "#"
+    ],
+    "index_handlers": [
+     []
+    ],
+    "string": "All [MagesLegacy|Mage's Legacies] have {0}% increased effect per duplicate [MagesLegacy|Mage's Legacy] you have"
+   }
+  ],
+  "ids": [
+   "local_unique_mages_legacy_effect_+%_per_duplicate_mages_legacy"
+  ]
+ },
+ {
+  "English": [
+   {
+    "condition": [
+     {}
+    ],
+    "format": [
+     "#"
+    ],
+    "index_handlers": [
+     [
+      "passive_hash"
+     ]
+    ],
+    "string": "Allocates {0}"
+   }
+  ],
+  "ids": [
+   "mod_granted_passive_hash"
+  ]
+ },
+ {
+  "English": [
+   {
+    "condition": [
+     {}
+    ],
+    "format": [
+     "#"
+    ],
+    "index_handlers": [
+     []
+    ],
+    "string": "[Gain] {0}% of [ElementalDamage|Elemental Damage] as Extra [Cold] Damage"
+   }
+  ],
+  "ids": [
+   "non_skill_base_elemental_damage_%_to_gain_as_cold"
+  ]
+ }
+]

@@ -1,0 +1,1117 @@
+{
+ "Metadata/Items/Gems/SkillGemPurityOfFire": {
+  "domain": "undefined",
+  "drop_level": 1,
+  "implicits": [],
+  "inventory_height": 1,
+  "inventory_width": 1,
+  "inherits_from": "Metadata/Items/Gems/ActiveSkillGem",
+  "item_class": "Active Skill Gem",
+  "name": "Purity of Fire",
+  "properties": {},
+  "release_state": "released",
+  "tags": [
+   "gem",
+   "default"
+  ],
+  "visual_identity": {
+   "dds_file": "Art/2DItems/Gems/New/BlankGem.dds",
+   "id": "SkillGemBlank"
+  }
+ },
+ "Metadata/Items/Jewels/JewelInt": {
+  "domain": "misc",
+  "drop_level": 20,
+  "implicits": [],
+  "inventory_height": 1,
+  "inventory_width": 1,
+  "inherits_from": "Metadata/Items/Jewels/AbstractJewel",
+  "item_class": "Jewel",
+  "name": "Sapphire",
+  "properties": {},
+  "release_state": "released",
+  "tags": [
+   "jewel",
+   "intjewel",
+   "default"
+  ],
+  "visual_identity": {
+   "dds_file": "Art/2DItems/Jewels/SapphireJewel.dds",
+   "id": "JewelInt"
+  }
+ },
+ "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand3": {
+  "domain": "item",
+  "drop_level": 2,
+  "implicits": [],
+  "inventory_height": 3,
+  "inventory_width": 1,
+  "inherits_from": "Metadata/Items/Wands/AbstractWand",
+  "item_class": "Wand",
+  "name": "Attuned Wand",
+  "properties": {},
+  "release_state": "released",
+  "tags": [
+   "wand",
+   "onehand",
+   "default"
+  ],
+  "visual_identity": {
+   "dds_file": "Art/2DItems/Weapons/OneHandWeapons/Wands/Basetypes/Wand03.dds",
+   "id": "FourWand3"
+  },
+  "requirements": {
+   "dexterity": 0,
+   "intelligence": 0,
+   "level": 2,
+   "strength": 0
+  },
+  "skills_granted": [
+   "Metadata/Items/Gem/SkillGemManaDrain"
+  ]
+ },
+ "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre6a": {
+  "domain": "item",
+  "drop_level": 26,
+  "implicits": [],
+  "inventory_height": 3,
+  "inventory_width": 2,
+  "inherits_from": "Metadata/Items/Sceptres/AbstractSceptre",
+  "item_class": "Sceptre",
+  "name": "Shrine Sceptre",
+  "properties": {},
+  "release_state": "released",
+  "tags": [
+   "fire_implicit_skill",
+   "sceptre",
+   "onehand",
+   "default"
+  ],
+  "visual_identity": {
+   "dds_file": "Art/2DItems/Weapons/OneHandWeapons/Scepters/Basetypes/Sceptre06a.dds",
+   "id": "FourSceptre6a"
+  },
+  "requirements": {
+   "dexterity": 0,
+   "intelligence": 38,
+   "level": 26,
+   "strength": 17
+  },
+  "skills_granted": [
+   "Metadata/Items/Gems/SkillGemPurityOfFire"
+  ]
+ },
+ "Metadata/Items/Armours/BodyArmours/FourBodyStrInt1": {
+  "domain": "item",
+  "drop_level": 1,
+  "implicits": [],
+  "inventory_height": 3,
+  "inventory_width": 2,
+  "inherits_from": "Metadata/Items/Armours/BodyArmours/AbstractBodyArmour",
+  "item_class": "Body Armour",
+  "name": "Pilgrim Vestments",
+  "properties": {
+   "armour": {
+    "max": 25,
+    "min": 25
+   },
+   "energy_shield": {
+    "max": 16,
+    "min": 16
+   },
+   "movement_speed": -400
+  },
+  "release_state": "released",
+  "tags": [
+   "str_int_armour",
+   "ezomyte_basetype",
+   "body_armour",
+   "armour",
+   "default"
+  ],
+  "visual_identity": {
+   "dds_file": "Art/2DItems/Armours/BodyArmours/Basetypes/BodyIntStr01.dds",
+   "id": "FourBodyStrInt1"
+  },
+  "requirements": {
+   "dexterity": 0,
+   "intelligence": 0,
+   "level": 1,
+   "strength": 0
+  }
+ },
+ "Metadata/Items/Armours/BodyArmours/FourBodyStrInt12": {
+  "domain": "item",
+  "drop_level": 68,
+  "implicits": [
+   "BodyArmourImplicitIncreasedSpirit1"
+  ],
+  "inventory_height": 3,
+  "inventory_width": 2,
+  "inherits_from": "Metadata/Items/Armours/BodyArmours/AbstractBodyArmour",
+  "item_class": "Body Armour",
+  "name": "Corvus Mantle",
+  "properties": {
+   "armour": {
+    "max": 273,
+    "min": 273
+   },
+   "energy_shield": {
+    "max": 76,
+    "min": 76
+   },
+   "movement_speed": -400
+  },
+  "release_state": "released",
+  "tags": [
+   "str_int_armour",
+   "body_armour",
+   "armour",
+   "default"
+  ],
+  "visual_identity": {
+   "dds_file": "Art/2DItems/Armours/BodyArmours/Basetypes/BodyIntStr12.dds",
+   "id": "FourBodyStrInt12"
+  },
+  "requirements": {
+   "dexterity": 0,
+   "intelligence": 67,
+   "level": 68,
+   "strength": 67
+  }
+ },
+ "Metadata/Items/Armours/Helmets/FourHelmetStrInt1": {
+  "domain": "item",
+  "drop_level": 5,
+  "implicits": [],
+  "inventory_height": 2,
+  "inventory_width": 2,
+  "inherits_from": "Metadata/Items/Armours/Helmets/AbstractHelmet",
+  "item_class": "Helmet",
+  "name": "Iron Crown",
+  "properties": {
+   "armour": {
+    "max": 26,
+    "min": 26
+   },
+   "energy_shield": {
+    "max": 13,
+    "min": 13
+   }
+  },
+  "release_state": "released",
+  "tags": [
+   "str_int_armour",
+   "ezomyte_basetype",
+   "helmet",
+   "armour",
+   "default"
+  ],
+  "visual_identity": {
+   "dds_file": "Art/2DItems/Armours/Helmets/Basetypes/HelmetIntStr01.dds",
+   "id": "FourHelmetStrInt1"
+  },
+  "requirements": {
+   "dexterity": 0,
+   "intelligence": 7,
+   "level": 5,
+   "strength": 7
+  }
+ },
+ "Metadata/Items/Armours/Gloves/FourGlovesStrInt1": {
+  "domain": "item",
+  "drop_level": 5,
+  "implicits": [],
+  "inventory_height": 2,
+  "inventory_width": 2,
+  "inherits_from": "Metadata/Items/Armours/Gloves/AbstractGloves",
+  "item_class": "Gloves",
+  "name": "Rope Cuffs",
+  "properties": {
+   "armour": {
+    "max": 13,
+    "min": 13
+   },
+   "energy_shield": {
+    "max": 6,
+    "min": 6
+   }
+  },
+  "release_state": "released",
+  "tags": [
+   "str_int_armour",
+   "ezomyte_basetype",
+   "gloves",
+   "armour",
+   "default"
+  ],
+  "visual_identity": {
+   "dds_file": "Art/2DItems/Armours/Gloves/Basetypes/GlovesIntStr01.dds",
+   "id": "FourGlovesStrInt1"
+  },
+  "requirements": {
+   "dexterity": 0,
+   "intelligence": 6,
+   "level": 5,
+   "strength": 6
+  }
+ },
+ "Metadata/Items/Armours/Gloves/FourGlovesStrInt6": {
+  "domain": "item",
+  "drop_level": 65,
+  "implicits": [],
+  "inventory_height": 2,
+  "inventory_width": 2,
+  "inherits_from": "Metadata/Items/Armours/Gloves/AbstractGloves",
+  "item_class": "Gloves",
+  "name": "Signet Cuffs",
+  "properties": {
+   "armour": {
+    "max": 89,
+    "min": 89
+   },
+   "energy_shield": {
+    "max": 25,
+    "min": 25
+   }
+  },
+  "release_state": "released",
+  "tags": [
+   "str_int_armour",
+   "gloves",
+   "armour",
+   "default"
+  ],
+  "visual_identity": {
+   "dds_file": "Art/2DItems/Armours/Gloves/Basetypes/GlovesIntStr01.dds",
+   "id": "FourGlovesStrInt6"
+  },
+  "requirements": {
+   "dexterity": 0,
+   "intelligence": 44,
+   "level": 65,
+   "strength": 44
+  }
+ },
+ "Metadata/Items/Armours/Boots/FourBootsStrInt1": {
+  "domain": "item",
+  "drop_level": 5,
+  "implicits": [],
+  "inventory_height": 2,
+  "inventory_width": 2,
+  "inherits_from": "Metadata/Items/Armours/Boots/AbstractBoots",
+  "item_class": "Boots",
+  "name": "Padded Leggings",
+  "properties": {
+   "armour": {
+    "max": 20,
+    "min": 20
+   },
+   "energy_shield": {
+    "max": 10,
+    "min": 10
+   }
+  },
+  "release_state": "released",
+  "tags": [
+   "str_int_armour",
+   "ezomyte_basetype",
+   "boots",
+   "armour",
+   "default"
+  ],
+  "visual_identity": {
+   "dds_file": "Art/2DItems/Armours/Boots/Basetypes/BootsIntStr01.dds",
+   "id": "FourBootsStrInt1"
+  },
+  "requirements": {
+   "dexterity": 0,
+   "intelligence": 7,
+   "level": 5,
+   "strength": 7
+  }
+ },
+ "Metadata/Items/Armours/Boots/FourBootsStrInt3": {
+  "domain": "item",
+  "drop_level": 33,
+  "implicits": [],
+  "inventory_height": 2,
+  "inventory_width": 2,
+  "inherits_from": "Metadata/Items/Armours/Boots/AbstractBoots",
+  "item_class": "Boots",
+  "name": "Pelt Leggings",
+  "properties": {
+   "armour": {
+    "max": 73,
+    "min": 73
+   },
+   "energy_shield": {
+    "max": 22,
+    "min": 22
+   }
+  },
+  "release_state": "released",
+  "tags": [
+   "str_int_armour",
+   "vaal_basetype",
+   "boots",
+   "armour",
+   "default"
+  ],
+  "visual_identity": {
+   "dds_file": "Art/2DItems/Armours/Boots/Basetypes/BootsIntStr03.dds",
+   "id": "FourBootsStrInt3"
+  },
+  "requirements": {
+   "dexterity": 0,
+   "intelligence": 26,
+   "level": 33,
+   "strength": 26
+  }
+ },
+ "Metadata/Items/Armours/Focii/FourFocus2": {
+  "domain": "item",
+  "drop_level": 6,
+  "implicits": [],
+  "inventory_height": 3,
+  "inventory_width": 2,
+  "inherits_from": "Metadata/Items/Armours/Focus/AbstractFocus",
+  "item_class": "Focus",
+  "name": "Woven Focus",
+  "properties": {
+   "energy_shield": {
+    "max": 15,
+    "min": 15
+   }
+  },
+  "release_state": "released",
+  "tags": [
+   "int_armour",
+   "ezomyte_basetype",
+   "focus",
+   "armour",
+   "default"
+  ],
+  "visual_identity": {
+   "dds_file": "Art/2DItems/Offhand/Foci/Basetypes/Focus02.dds",
+   "id": "FourFocus2"
+  },
+  "requirements": {
+   "dexterity": 0,
+   "intelligence": 11,
+   "level": 6,
+   "strength": 0
+  }
+ },
+ "Metadata/Items/Amulets/FourAmulet3": {
+  "domain": "item",
+  "drop_level": 8,
+  "implicits": [
+   "AmuletImplicitStrength1"
+  ],
+  "inventory_height": 1,
+  "inventory_width": 1,
+  "inherits_from": "Metadata/Items/Amulets/AbstractAmulet",
+  "item_class": "Amulet",
+  "name": "Amber Amulet",
+  "properties": {},
+  "release_state": "released",
+  "tags": [
+   "amulet",
+   "default"
+  ],
+  "visual_identity": {
+   "dds_file": "Art/2DItems/Amulets/Basetypes/AmberAmulet.dds",
+   "id": "FourAmulet3_"
+  }
+ },
+ "Metadata/Items/Amulets/FourAmulet8": {
+  "domain": "item",
+  "drop_level": 25,
+  "implicits": [
+   "AmuletImplicitAllAttributes1"
+  ],
+  "inventory_height": 1,
+  "inventory_width": 1,
+  "inherits_from": "Metadata/Items/Amulets/AbstractAmulet",
+  "item_class": "Amulet",
+  "name": "Stellar Amulet",
+  "properties": {},
+  "release_state": "released",
+  "tags": [
+   "amulet",
+   "default"
+  ],
+  "visual_identity": {
+   "dds_file": "Art/2DItems/Amulets/Basetypes/StellarAmulet.dds",
+   "id": "FourAmulet8___"
+  }
+ },
+ "Metadata/Items/Amulets/FourAmulet9": {
+  "domain": "item",
+  "drop_level": 30,
+  "implicits": [
+   "AmuletImplicitBaseSpirit1"
+  ],
+  "inventory_height": 1,
+  "inventory_width": 1,
+  "inherits_from": "Metadata/Items/Amulets/AbstractAmulet",
+  "item_class": "Amulet",
+  "name": "Solar Amulet",
+  "properties": {},
+  "release_state": "released",
+  "tags": [
+   "amulet",
+   "default"
+  ],
+  "visual_identity": {
+   "dds_file": "Art/2DItems/Amulets/Basetypes/SolarAmulet.dds",
+   "id": "FourAmulet9"
+  }
+ },
+ "Metadata/Items/Rings/FourRing2": {
+  "domain": "item",
+  "drop_level": 1,
+  "implicits": [
+   "RingImplicitIncreasedMana1"
+  ],
+  "inventory_height": 1,
+  "inventory_width": 1,
+  "inherits_from": "Metadata/Items/Rings/AbstractRing",
+  "item_class": "Ring",
+  "name": "Lazuli Ring",
+  "properties": {},
+  "release_state": "released",
+  "tags": [
+   "ring",
+   "default"
+  ],
+  "visual_identity": {
+   "dds_file": "Art/2DItems/Rings/Basetypes/LazuliRing.dds",
+   "id": "FourRing2"
+  }
+ },
+ "Metadata/Items/Rings/FourRing8": {
+  "domain": "item",
+  "drop_level": 32,
+  "implicits": [
+   "RingImplicitIncreasedCastSpeed1"
+  ],
+  "inventory_height": 1,
+  "inventory_width": 1,
+  "inherits_from": "Metadata/Items/Rings/AbstractRing",
+  "item_class": "Ring",
+  "name": "Pearl Ring",
+  "properties": {},
+  "release_state": "released",
+  "tags": [
+   "ring",
+   "default"
+  ],
+  "visual_identity": {
+   "dds_file": "Art/2DItems/Rings/Basetypes/PearlRing.dds",
+   "id": "FourRing8"
+  }
+ },
+ "Metadata/Items/Rings/FourRing10": {
+  "domain": "item",
+  "drop_level": 40,
+  "implicits": [
+   "RingImplicitItemFoundRarityIncrease1"
+  ],
+  "inventory_height": 1,
+  "inventory_width": 1,
+  "inherits_from": "Metadata/Items/Rings/AbstractRing",
+  "item_class": "Ring",
+  "name": "Gold Ring",
+  "properties": {},
+  "release_state": "released",
+  "tags": [
+   "ring",
+   "default"
+  ],
+  "visual_identity": {
+   "dds_file": "Art/2DItems/Rings/Basetypes/GoldRing.dds",
+   "id": "FourRing10_"
+  }
+ },
+ "Metadata/Items/Belts/FourBelt2": {
+  "domain": "item",
+  "drop_level": 1,
+  "implicits": [
+   "BeltImplicitFlaskManaRecovery1"
+  ],
+  "inventory_height": 1,
+  "inventory_width": 2,
+  "inherits_from": "Metadata/Items/Belts/AbstractBelt",
+  "item_class": "Belt",
+  "name": "Linen Belt",
+  "properties": {},
+  "release_state": "released",
+  "tags": [
+   "belt",
+   "default"
+  ],
+  "visual_identity": {
+   "dds_file": "Art/2DItems/Belts/Basetypes/Belt02.dds",
+   "id": "FourBelt2"
+  }
+ },
+ "Metadata/Items/Belts/FourBelt10": {
+  "domain": "item",
+  "drop_level": 55,
+  "implicits": [
+   "BeltImplicitInstantFlaskRecoveryPercent1"
+  ],
+  "inventory_height": 1,
+  "inventory_width": 2,
+  "inherits_from": "Metadata/Items/Belts/AbstractBelt",
+  "item_class": "Belt",
+  "name": "Utility Belt",
+  "properties": {},
+  "release_state": "released",
+  "tags": [
+   "belt",
+   "default"
+  ],
+  "visual_identity": {
+   "dds_file": "Art/2DItems/Belts/Basetypes/Belt10.dds",
+   "id": "FourBelt10"
+  }
+ },
+ "Metadata/Items/Belts/FourBelt11": {
+  "domain": "item",
+  "drop_level": 62,
+  "implicits": [
+   "BeltImplicitFlaskPassiveChargeGain1"
+  ],
+  "inventory_height": 1,
+  "inventory_width": 2,
+  "inherits_from": "Metadata/Items/Belts/AbstractBelt",
+  "item_class": "Belt",
+  "name": "Fine Belt",
+  "properties": {},
+  "release_state": "released",
+  "tags": [
+   "belt",
+   "default"
+  ],
+  "visual_identity": {
+   "dds_file": "Art/2DItems/Belts/Basetypes/Belt11.dds",
+   "id": "FourBelt11"
+  }
+ },
+ "Metadata/Items/Flasks/FourCharm1": {
+  "domain": "flask",
+  "drop_level": 12,
+  "implicits": [
+   "CharmImplicitUseOnFreeze1"
+  ],
+  "inventory_height": 1,
+  "inventory_width": 1,
+  "inherits_from": "Metadata/Items/Flasks/AbstractUtilityFlask",
+  "item_class": "UtilityFlask",
+  "name": "Thawing Charm",
+  "properties": {
+   "charges_max": 40,
+   "charges_per_use": 40,
+   "duration": 30
+  },
+  "release_state": "released",
+  "tags": [
+   "utility_flask",
+   "flask",
+   "default"
+  ],
+  "visual_identity": {
+   "dds_file": "Art/2DItems/Charms/Basetypes/ThawingCharm.dds",
+   "id": "FourCharm1"
+  }
+ },
+ "Metadata/Items/Flasks/FourCharm3": {
+  "domain": "flask",
+  "drop_level": 24,
+  "implicits": [
+   "CharmImplicitUseOnPoison1"
+  ],
+  "inventory_height": 1,
+  "inventory_width": 1,
+  "inherits_from": "Metadata/Items/Flasks/AbstractUtilityFlask",
+  "item_class": "UtilityFlask",
+  "name": "Antidote Charm",
+  "properties": {
+   "charges_max": 40,
+   "charges_per_use": 20,
+   "duration": 30
+  },
+  "release_state": "released",
+  "tags": [
+   "utility_flask",
+   "flask",
+   "default"
+  ],
+  "visual_identity": {
+   "dds_file": "Art/2DItems/Charms/Basetypes/AntidoteCharm.dds",
+   "id": "FourCharm3_"
+  }
+ },
+ "Metadata/Items/Flasks/FourCharm6": {
+  "domain": "flask",
+  "drop_level": 8,
+  "implicits": [
+   "CharmImplicitUseOnStun1"
+  ],
+  "inventory_height": 1,
+  "inventory_width": 1,
+  "inherits_from": "Metadata/Items/Flasks/AbstractUtilityFlask",
+  "item_class": "UtilityFlask",
+  "name": "Stone Charm",
+  "properties": {
+   "charges_max": 40,
+   "charges_per_use": 20,
+   "duration": 30
+  },
+  "release_state": "released",
+  "tags": [
+   "utility_flask",
+   "flask",
+   "default"
+  ],
+  "visual_identity": {
+   "dds_file": "Art/2DItems/Charms/Basetypes/StoneCharm.dds",
+   "id": "FourCharm6"
+  }
+ },
+ "Metadata/Items/Flasks/FourCharm7": {
+  "domain": "flask",
+  "drop_level": 10,
+  "implicits": [
+   "CharmImplicitUseOnSlow1"
+  ],
+  "inventory_height": 1,
+  "inventory_width": 1,
+  "inherits_from": "Metadata/Items/Flasks/AbstractUtilityFlask",
+  "item_class": "UtilityFlask",
+  "name": "Silver Charm",
+  "properties": {
+   "charges_max": 40,
+   "charges_per_use": 20,
+   "duration": 30
+  },
+  "release_state": "released",
+  "tags": [
+   "utility_flask",
+   "flask",
+   "default"
+  ],
+  "visual_identity": {
+   "dds_file": "Art/2DItems/Charms/Basetypes/SilverCharm.dds",
+   "id": "FourCharm7"
+  }
+ },
+ "Metadata/Items/Flasks/FourCharm9": {
+  "domain": "flask",
+  "drop_level": 5,
+  "implicits": [
+   "CharmImplicitUseOnColdDamage1"
+  ],
+  "inventory_height": 1,
+  "inventory_width": 1,
+  "inherits_from": "Metadata/Items/Flasks/AbstractUtilityFlask",
+  "item_class": "UtilityFlask",
+  "name": "Sapphire Charm",
+  "properties": {
+   "charges_max": 40,
+   "charges_per_use": 20,
+   "duration": 40
+  },
+  "release_state": "released",
+  "tags": [
+   "utility_flask",
+   "flask",
+   "default"
+  ],
+  "visual_identity": {
+   "dds_file": "Art/2DItems/Charms/Basetypes/SapphireCharm.dds",
+   "id": "FourCharm9"
+  }
+ },
+ "Metadata/Items/Flasks/FourCharm10": {
+  "domain": "flask",
+  "drop_level": 5,
+  "implicits": [
+   "CharmImplicitUseOnLightningDamage1"
+  ],
+  "inventory_height": 1,
+  "inventory_width": 1,
+  "inherits_from": "Metadata/Items/Flasks/AbstractUtilityFlask",
+  "item_class": "UtilityFlask",
+  "name": "Topaz Charm",
+  "properties": {
+   "charges_max": 40,
+   "charges_per_use": 20,
+   "duration": 40
+  },
+  "release_state": "released",
+  "tags": [
+   "utility_flask",
+   "flask",
+   "default"
+  ],
+  "visual_identity": {
+   "dds_file": "Art/2DItems/Charms/Basetypes/TopazCharm.dds",
+   "id": "FourCharm10"
+  }
+ },
+ "Metadata/Items/Flasks/FourCharm12": {
+  "domain": "flask",
+  "drop_level": 50,
+  "implicits": [
+   "CharmImplicitUseOnRareUniqueKill1"
+  ],
+  "inventory_height": 1,
+  "inventory_width": 1,
+  "inherits_from": "Metadata/Items/Flasks/AbstractUtilityFlask",
+  "item_class": "UtilityFlask",
+  "name": "Golden Charm",
+  "properties": {
+   "charges_max": 80,
+   "charges_per_use": 80,
+   "duration": 10
+  },
+  "release_state": "released",
+  "tags": [
+   "utility_flask",
+   "flask",
+   "default"
+  ],
+  "visual_identity": {
+   "dds_file": "Art/2DItems/Charms/Basetypes/GoldenCharm.dds",
+   "id": "FourCharm12"
+  }
+ },
+ "Metadata/Items/Armours/BodyArmours/FourBodyStrInt2Cruel": {
+  "domain": "item",
+  "drop_level": 48,
+  "implicits": [],
+  "inventory_height": 3,
+  "inventory_width": 2,
+  "inherits_from": "Metadata/Items/Armours/BodyArmours/AbstractBodyArmour",
+  "item_class": "Body Armour",
+  "name": "Bearskin Mantle",
+  "properties": {
+   "armour": {
+    "max": 207,
+    "min": 207
+   },
+   "energy_shield": {
+    "max": 60,
+    "min": 60
+   },
+   "movement_speed": -400
+  },
+  "release_state": "released",
+  "tags": [
+   "str_int_armour",
+   "body_armour",
+   "armour",
+   "default"
+  ],
+  "visual_identity": {
+   "dds_file": "Art/2DItems/Armours/BodyArmours/Basetypes/BodyIntStr02.dds",
+   "id": "FourBodyStrInt2"
+  },
+  "requirements": {
+   "dexterity": 0,
+   "intelligence": 43,
+   "level": 48,
+   "strength": 43
+  }
+ },
+ "Metadata/Items/Armours/Helmets/FourHelmetStrInt1Cruel": {
+  "domain": "item",
+  "drop_level": 45,
+  "implicits": [],
+  "inventory_height": 2,
+  "inventory_width": 2,
+  "inherits_from": "Metadata/Items/Armours/Helmets/AbstractHelmet",
+  "item_class": "Helmet",
+  "name": "Mailed Crown",
+  "properties": {
+   "armour": {
+    "max": 128,
+    "min": 128
+   },
+   "energy_shield": {
+    "max": 37,
+    "min": 37
+   }
+  },
+  "release_state": "released",
+  "tags": [
+   "str_int_armour",
+   "helmet",
+   "armour",
+   "default"
+  ],
+  "visual_identity": {
+   "dds_file": "Art/2DItems/Armours/Helmets/Basetypes/HelmetIntStr01.dds",
+   "id": "FourHelmetStrInt1"
+  },
+  "requirements": {
+   "dexterity": 0,
+   "intelligence": 36,
+   "level": 45,
+   "strength": 36
+  }
+ },
+ "Metadata/Items/Armours/BodyArmours/FourBodyInt3Endgame": {
+  "domain": "item",
+  "drop_level": 65,
+  "implicits": [],
+  "inventory_height": 3,
+  "inventory_width": 2,
+  "inherits_from": "Metadata/Items/Armours/BodyArmours/AbstractBodyArmour",
+  "item_class": "Body Armour",
+  "name": "Vile Robe",
+  "properties": {
+   "energy_shield": {
+    "max": 171,
+    "min": 171
+   },
+   "movement_speed": -300
+  },
+  "release_state": "released",
+  "tags": [
+   "int_armour",
+   "body_armour",
+   "armour",
+   "default"
+  ],
+  "visual_identity": {
+   "dds_file": "Art/2DItems/Armours/BodyArmours/Basetypes/BodyInt03.dds",
+   "id": "FourBodyInt3"
+  },
+  "requirements": {
+   "dexterity": 0,
+   "intelligence": 121,
+   "level": 65,
+   "strength": 0
+  }
+ },
+ "Metadata/Items/Armours/Helmets/FourHelmetInt8Endgame": {
+  "domain": "item",
+  "drop_level": 80,
+  "implicits": [],
+  "inventory_height": 2,
+  "inventory_width": 2,
+  "inherits_from": "Metadata/Items/Armours/Helmets/AbstractHelmet",
+  "item_class": "Helmet",
+  "name": "Ancestral Tiara",
+  "properties": {
+   "energy_shield": {
+    "max": 109,
+    "min": 109
+   }
+  },
+  "release_state": "released",
+  "tags": [
+   "int_armour",
+   "karui_basetype",
+   "helmet",
+   "armour",
+   "default"
+  ],
+  "visual_identity": {
+   "dds_file": "Art/2DItems/Armours/Helmets/Basetypes/HelmetInt08.dds",
+   "id": "FourHelmetInt8"
+  },
+  "requirements": {
+   "dexterity": 0,
+   "intelligence": 115,
+   "level": 80,
+   "strength": 0
+  }
+ },
+ "Metadata/Items/Armours/Helmets/FourHelmetStrInt6Endgame": {
+  "domain": "item",
+  "drop_level": 80,
+  "implicits": [],
+  "inventory_height": 2,
+  "inventory_width": 2,
+  "inherits_from": "Metadata/Items/Armours/Helmets/AbstractHelmet",
+  "item_class": "Helmet",
+  "name": "Cryptic Crown",
+  "properties": {
+   "armour": {
+    "max": 206,
+    "min": 206
+   },
+   "energy_shield": {
+    "max": 57,
+    "min": 57
+   }
+  },
+  "release_state": "released",
+  "tags": [
+   "str_int_armour",
+   "karui_basetype",
+   "helmet",
+   "armour",
+   "default"
+  ],
+  "visual_identity": {
+   "dds_file": "Art/2DItems/Armours/Helmets/Basetypes/HelmetIntStr06.dds",
+   "id": "FourHelmetStrInt6_"
+  },
+  "requirements": {
+   "dexterity": 0,
+   "intelligence": 63,
+   "level": 80,
+   "strength": 63
+  }
+ },
+ "Metadata/Items/Armours/Gloves/FourGlovesInt5Endgame": {
+  "domain": "item",
+  "drop_level": 75,
+  "implicits": [],
+  "inventory_height": 2,
+  "inventory_width": 2,
+  "inherits_from": "Metadata/Items/Armours/Gloves/AbstractGloves",
+  "item_class": "Gloves",
+  "name": "Vaal Gloves",
+  "properties": {
+   "energy_shield": {
+    "max": 51,
+    "min": 51
+   }
+  },
+  "release_state": "released",
+  "tags": [
+   "int_armour",
+   "gloves",
+   "armour",
+   "default"
+  ],
+  "visual_identity": {
+   "dds_file": "Art/2DItems/Armours/Gloves/Basetypes/GlovesInt05.dds",
+   "id": "FourGlovesInt5_"
+  },
+  "requirements": {
+   "dexterity": 0,
+   "intelligence": 94,
+   "level": 75,
+   "strength": 0
+  }
+ },
+ "Metadata/Items/Armours/Gloves/FourGlovesStrInt4Endgame": {
+  "domain": "item",
+  "drop_level": 80,
+  "implicits": [],
+  "inventory_height": 2,
+  "inventory_width": 2,
+  "inherits_from": "Metadata/Items/Armours/Gloves/AbstractGloves",
+  "item_class": "Gloves",
+  "name": "Adherent Cuffs",
+  "properties": {
+   "armour": {
+    "max": 98,
+    "min": 98
+   },
+   "energy_shield": {
+    "max": 27,
+    "min": 27
+   }
+  },
+  "release_state": "released",
+  "tags": [
+   "str_int_armour",
+   "karui_basetype",
+   "gloves",
+   "armour",
+   "default"
+  ],
+  "visual_identity": {
+   "dds_file": "Art/2DItems/Armours/Gloves/Basetypes/GlovesIntStr04.dds",
+   "id": "FourGlovesStrInt4"
+  },
+  "requirements": {
+   "dexterity": 0,
+   "intelligence": 55,
+   "level": 80,
+   "strength": 55
+  }
+ },
+ "Metadata/Items/Armours/Boots/FourBootsInt6Endgame": {
+  "domain": "item",
+  "drop_level": 80,
+  "implicits": [],
+  "inventory_height": 2,
+  "inventory_width": 2,
+  "inherits_from": "Metadata/Items/Armours/Boots/AbstractBoots",
+  "item_class": "Boots",
+  "name": "Sekhema Sandals",
+  "properties": {
+   "energy_shield": {
+    "max": 83,
+    "min": 83
+   }
+  },
+  "release_state": "released",
+  "tags": [
+   "int_armour",
+   "karui_basetype",
+   "boots",
+   "armour",
+   "default"
+  ],
+  "visual_identity": {
+   "dds_file": "Art/2DItems/Armours/Boots/Basetypes/BootsInt06.dds",
+   "id": "FourBootsInt6"
+  },
+  "requirements": {
+   "dexterity": 0,
+   "intelligence": 108,
+   "level": 80,
+   "strength": 0
+  }
+ },
+ "Metadata/Items/Armours/Boots/FourBootsStrInt4Endgame": {
+  "domain": "item",
+  "drop_level": 80,
+  "implicits": [],
+  "inventory_height": 2,
+  "inventory_width": 2,
+  "inherits_from": "Metadata/Items/Armours/Boots/AbstractBoots",
+  "item_class": "Boots",
+  "name": "Cryptic Leggings",
+  "properties": {
+   "armour": {
+    "max": 134,
+    "min": 134
+   },
+   "energy_shield": {
+    "max": 37,
+    "min": 37
+   }
+  },
+  "release_state": "released",
+  "tags": [
+   "str_int_armour",
+   "karui_basetype",
+   "boots",
+   "armour",
+   "default"
+  ],
+  "visual_identity": {
+   "dds_file": "Art/2DItems/Armours/Boots/Basetypes/BootsIntStr04.dds",
+   "id": "FourBootsStrInt4"
+  },
+  "requirements": {
+   "dexterity": 0,
+   "intelligence": 59,
+   "level": 80,
+   "strength": 59
+  }
+ }
+}
