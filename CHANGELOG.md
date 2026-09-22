@@ -3,7 +3,7 @@
 What changed between releases. Download builds from the
 [Releases page](https://github.com/therw101/poe2-build-trade/releases).
 
-## [Unreleased]
+## [0.4.0] - 2026-09-22
 
 ### Added
 
@@ -89,6 +89,7 @@ First release.
 - **rare/magic:** เลือกม็อดและค่าต่ำสุดได้ก่อนค้น
 - หน้า Options ตั้ง league, ค่าต่ำสุดเริ่มต้น และสถานะการขาย
 
+[0.4.0]: https://github.com/therw101/poe2-build-trade/compare/v0.3.0...v0.4.0
 [0.3.0]: https://github.com/therw101/poe2-build-trade/compare/v0.2.0...v0.3.0
 [0.2.0]: https://github.com/therw101/poe2-build-trade/compare/v0.1.0...v0.2.0
 [0.1.0]: https://github.com/therw101/poe2-build-trade/releases/tag/v0.1.0
