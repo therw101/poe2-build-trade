@@ -49,6 +49,7 @@ export interface RepoeBase {
   name: string;
   item_class: string;
   release_state?: string;
+  implicits?: string[];
 }
 
 function isKind(s: string): s is StatKind {
@@ -227,7 +228,8 @@ export function buildBaseMap(baseItems: Record<string, RepoeBase>): BaseMap {
   const out: BaseMap = {};
   for (const [path, b] of Object.entries(baseItems)) {
     if (b.item_class in CATEGORY_BY_CLASS && b.release_state !== 'unreleased') {
-      out[path] = { name: b.name, itemClass: b.item_class };
+      const implicits = b.implicits?.length ?? 0;
+      out[path] = { name: b.name, itemClass: b.item_class, ...(implicits ? { implicits } : {}) };
     }
   }
   return out;

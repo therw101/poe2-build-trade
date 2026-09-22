@@ -1,0 +1,423 @@
+{
+ "_source": "poe.ninja/poe2/pob/1e26a, React props item.itemData of the 14 equipment slots, 2026-09-22 (icon and layout fields dropped; socketedItems reduced to names)",
+ "items": [
+  {
+   "name": "Fate Chant",
+   "typeLine": "Dueling Wand",
+   "baseType": "Dueling Wand",
+   "frameType": 2,
+   "corrupted": false,
+   "sockets": [],
+   "explicitMods": [
+    "Sockets: S",
+    "Rune: Hedgewitch Assandra's Rune of Wisdom",
+    "Gain 82 Life per enemy killed"
+   ],
+   "implicitMods": [
+    "Grants Skill: Level 20 Spellslinger",
+    "83% increased Spell Damage",
+    "+4 to Level of all Spell Skills"
+   ],
+   "craftedMods": [
+    "+165 to maximum Mana",
+    "+1 to Level of all Spell Skills",
+    "53% increased Critical Hit Chance for Spells"
+   ],
+   "fracturedMods": [],
+   "desecratedMods": [
+    "Gain 22% of Damage as Extra Fire Damage"
+   ],
+   "enchantMods": [],
+   "runeMods": [
+    "+1 to Level of all Spell Skills",
+    "Bonded: Archon recovery period expires 30% faster"
+   ],
+   "bondedMods": [],
+   "utilityMods": [],
+   "inventoryId": "Weapon",
+   "socketedItems": []
+  },
+  {
+   "name": "Carrion Visage",
+   "typeLine": "Runeforged Kamasan Tiara",
+   "baseType": "Runeforged Kamasan Tiara",
+   "frameType": 2,
+   "corrupted": false,
+   "sockets": [],
+   "explicitMods": [
+    "Energy Shield: 322",
+    "Ward: 50",
+    "Sockets: S",
+    "Rune: Quipolatl's Soul Core of Flow",
+    "15% increased Rarity of Items found",
+    "+40% to Cold Resistance"
+   ],
+   "implicitMods": [
+    "96% increased Energy Shield",
+    "+111 to maximum Mana"
+   ],
+   "craftedMods": [
+    "+33% to Cold Resistance"
+   ],
+   "fracturedMods": [],
+   "desecratedMods": [
+    "+42 to maximum Energy Shield"
+   ],
+   "enchantMods": [],
+   "runeMods": [
+    "8% increased Skill Effect Duration",
+    "8% increased Cooldown Recovery Rate"
+   ],
+   "bondedMods": [],
+   "utilityMods": [],
+   "inventoryId": "Helm",
+   "socketedItems": []
+  },
+  {
+   "name": "Apocalypse Chant",
+   "typeLine": "Cultist Focus",
+   "baseType": "Cultist Focus",
+   "frameType": 2,
+   "corrupted": false,
+   "sockets": [],
+   "explicitMods": [
+    "Energy Shield: 264",
+    "Sockets: S",
+    "Rune: Owl Idol",
+    "+2 to Level of all Spell Skills",
+    "34% increased Critical Hit Chance for Spells"
+   ],
+   "implicitMods": [
+    "80% increased Energy Shield",
+    "+29 to maximum Mana"
+   ],
+   "craftedMods": [
+    "39% increased Cast Speed",
+    "Gain 16% of Elemental Damage as Extra Cold Damage"
+   ],
+   "fracturedMods": [],
+   "desecratedMods": [
+    "+70 to maximum Energy Shield"
+   ],
+   "enchantMods": [],
+   "runeMods": [
+    "12% increased Cooldown Recovery Rate",
+    "Bonded: 20% increased effect of Archon Buffs on you"
+   ],
+   "bondedMods": [],
+   "utilityMods": [],
+   "inventoryId": "Offhand",
+   "socketedItems": []
+  },
+  {
+   "name": "Ingenuity",
+   "typeLine": "Utility Belt",
+   "baseType": "Utility Belt",
+   "frameType": 3,
+   "corrupted": true,
+   "sockets": [],
+   "explicitMods": [
+    "Charm Slots: 1",
+    "3% increased Charm Charges gained",
+    "5% reduced Charm Charges used",
+    "32% increased bonuses gained from left Equipped Ring",
+    "28% increased bonuses gained from right Equipped Ring"
+   ],
+   "implicitMods": [
+    "Has 1 Charm Slot",
+    "20% of Flask Recovery applied Instantly"
+   ],
+   "craftedMods": [],
+   "fracturedMods": [],
+   "desecratedMods": [],
+   "enchantMods": [],
+   "runeMods": [],
+   "bondedMods": [],
+   "utilityMods": [],
+   "inventoryId": "Belt",
+   "socketedItems": []
+  },
+  {
+   "name": "Viper Knot",
+   "typeLine": "Pearl Ring",
+   "baseType": "Pearl Ring",
+   "frameType": 2,
+   "corrupted": false,
+   "sockets": [],
+   "explicitMods": [
+    "Adds 7 to 19 Physical Damage to Attacks",
+    "23% increased Lightning Damage",
+    "16% increased Rarity of Items found",
+    "19% increased Cast Speed",
+    "+44% to Fire Resistance"
+   ],
+   "implicitMods": [
+    "8% increased Cast Speed"
+   ],
+   "craftedMods": [
+    "18% increased Rarity of Items found"
+   ],
+   "fracturedMods": [],
+   "desecratedMods": [],
+   "enchantMods": [],
+   "runeMods": [],
+   "bondedMods": [],
+   "utilityMods": [],
+   "inventoryId": "Ring2",
+   "socketedItems": []
+  },
+  {
+   "name": "Temporalis",
+   "typeLine": "Silk Robe",
+   "baseType": "Silk Robe",
+   "frameType": 3,
+   "corrupted": false,
+   "sockets": [],
+   "explicitMods": [
+    "Energy Shield: 258",
+    "Sockets: S S",
+    "Rune: Rabbit Idol",
+    "Rune: Fox Idol",
+    "Skills have -1.96 seconds to Cooldown"
+   ],
+   "implicitMods": [
+    "+139 to maximum Energy Shield",
+    "+20% to all Elemental Resistances",
+    "16% of Damage taken Recouped as Life",
+    "5% of Damage taken Recouped as Mana"
+   ],
+   "craftedMods": [],
+   "fracturedMods": [],
+   "desecratedMods": [],
+   "enchantMods": [],
+   "runeMods": [
+    "12% increased Rarity of Items found",
+    "Idols socketed in this item gain the benefits of their Bonded modifiers",
+    "Bonded: +5% to Quality of all Skills",
+    "Bonded: 10% increased Quantity of Gold Dropped by Slain Enemies"
+   ],
+   "bondedMods": [],
+   "utilityMods": [],
+   "inventoryId": "BodyArmour",
+   "socketedItems": []
+  },
+  {
+   "name": "Sorrow Touch",
+   "typeLine": "Opulent Gloves",
+   "baseType": "Opulent Gloves",
+   "frameType": 2,
+   "corrupted": true,
+   "sockets": [],
+   "explicitMods": [
+    "Energy Shield: 229",
+    "Sockets: S S",
+    "Rune: Soul Core of Tacati",
+    "Rune: Soul Core of Tacati",
+    "82% increased Energy Shield",
+    "+24% to Fire Resistance",
+    "+38% to Lightning Resistance"
+   ],
+   "implicitMods": [
+    "+43 to maximum Energy Shield"
+   ],
+   "craftedMods": [
+    "16% increased Rarity of Items found"
+   ],
+   "fracturedMods": [],
+   "desecratedMods": [
+    "28% increased Energy Shield",
+    "+28 to maximum Life"
+   ],
+   "enchantMods": [],
+   "runeMods": [
+    "+22% to Chaos Resistance"
+   ],
+   "bondedMods": [],
+   "utilityMods": [],
+   "inventoryId": "Gloves",
+   "socketedItems": []
+  },
+  {
+   "name": "Dusk Trail",
+   "typeLine": "Sekhema Sandals",
+   "baseType": "Sekhema Sandals",
+   "frameType": 2,
+   "corrupted": true,
+   "sockets": [],
+   "explicitMods": [
+    "Energy Shield: 333",
+    "Sockets: S S",
+    "Rune: Soul Core of Tacati",
+    "Rune: Soul Core of Tacati",
+    "15% increased Rarity of Items found",
+    "25% reduced Attribute Requirements",
+    "+51 to Stun Threshold"
+   ],
+   "implicitMods": [
+    "129% increased Energy Shield"
+   ],
+   "craftedMods": [
+    "+33% to Cold Resistance"
+   ],
+   "fracturedMods": [],
+   "desecratedMods": [
+    "+38 to maximum Energy Shield"
+   ],
+   "enchantMods": [],
+   "runeMods": [
+    "+22% to Chaos Resistance"
+   ],
+   "bondedMods": [],
+   "utilityMods": [],
+   "inventoryId": "Boots",
+   "socketedItems": []
+  },
+  {
+   "name": "Choir of the Storm",
+   "typeLine": "Jade Amulet",
+   "baseType": "Jade Amulet",
+   "frameType": 3,
+   "corrupted": false,
+   "sockets": [],
+   "explicitMods": [
+    "+85% to Lightning Resistance",
+    "Critical Hits Ignore Enemy Monster Lightning Resistance",
+    "Trigger Lightning Bolt Skill on Critical Hit"
+   ],
+   "implicitMods": [
+    "{enchant}Allocates Multitasking",
+    "+10 to Dexterity",
+    "Grants Skill: Level 20 Lightning Bolt"
+   ],
+   "craftedMods": [],
+   "fracturedMods": [],
+   "desecratedMods": [],
+   "enchantMods": [],
+   "runeMods": [],
+   "bondedMods": [],
+   "utilityMods": [],
+   "inventoryId": "Amulet",
+   "socketedItems": []
+  },
+  {
+   "name": "Bramble Spiral",
+   "typeLine": "Gold Ring",
+   "baseType": "Gold Ring",
+   "frameType": 2,
+   "corrupted": false,
+   "sockets": [],
+   "explicitMods": [
+    "+108 to maximum Life",
+    "+161 to maximum Mana",
+    "20% increased Cast Speed",
+    "+40% to Fire Resistance"
+   ],
+   "implicitMods": [
+    "15% increased Rarity of Items found"
+   ],
+   "craftedMods": [
+    "15% increased Rarity of Items found"
+   ],
+   "fracturedMods": [],
+   "desecratedMods": [
+    "23% increased Lightning Damage"
+   ],
+   "enchantMods": [],
+   "runeMods": [],
+   "bondedMods": [],
+   "utilityMods": [],
+   "inventoryId": "Ring",
+   "socketedItems": []
+  },
+  {
+   "name": "",
+   "typeLine": "Potent Ultimate Life Flask of the Endless",
+   "baseType": "Potent Ultimate Life Flask of the Endless",
+   "frameType": 1,
+   "corrupted": false,
+   "sockets": [],
+   "explicitMods": [
+    "73% increased Amount Recovered",
+    "45% increased Charges gained"
+   ],
+   "implicitMods": [],
+   "craftedMods": [],
+   "fracturedMods": [],
+   "desecratedMods": [],
+   "enchantMods": [],
+   "runeMods": [],
+   "bondedMods": [],
+   "utilityMods": [],
+   "inventoryId": "Flask",
+   "socketedItems": []
+  },
+  {
+   "name": "",
+   "typeLine": "Soaked Thawing Charm",
+   "baseType": "Soaked Thawing Charm",
+   "frameType": 1,
+   "corrupted": false,
+   "sockets": [],
+   "explicitMods": [
+    "Recover 42 Mana when Used"
+   ],
+   "implicitMods": [
+    "Used when you become Frozen"
+   ],
+   "craftedMods": [],
+   "fracturedMods": [],
+   "desecratedMods": [],
+   "enchantMods": [],
+   "runeMods": [],
+   "bondedMods": [],
+   "utilityMods": [],
+   "inventoryId": "Flask",
+   "socketedItems": []
+  },
+  {
+   "name": "For Utopia",
+   "typeLine": "Stone Charm",
+   "baseType": "Stone Charm",
+   "frameType": 3,
+   "corrupted": false,
+   "sockets": [],
+   "explicitMods": [
+    "Defend with 200% of Armour during effect"
+   ],
+   "implicitMods": [
+    "Used when you become Stunned"
+   ],
+   "craftedMods": [],
+   "fracturedMods": [],
+   "desecratedMods": [],
+   "enchantMods": [],
+   "runeMods": [],
+   "bondedMods": [],
+   "utilityMods": [],
+   "inventoryId": "Flask",
+   "socketedItems": []
+  },
+  {
+   "name": "",
+   "typeLine": "Potent Ultimate Mana Flask of the Medic",
+   "baseType": "Potent Ultimate Mana Flask of the Medic",
+   "frameType": 1,
+   "corrupted": false,
+   "sockets": [],
+   "explicitMods": [
+    "73% increased Amount Recovered",
+    "23% Chance to gain a Charge when you kill an enemy"
+   ],
+   "implicitMods": [],
+   "craftedMods": [],
+   "fracturedMods": [],
+   "desecratedMods": [],
+   "enchantMods": [],
+   "runeMods": [],
+   "bondedMods": [],
+   "utilityMods": [],
+   "inventoryId": "Flask",
+   "socketedItems": []
+  }
+ ]
+}

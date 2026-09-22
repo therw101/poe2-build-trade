@@ -1,6 +1,6 @@
 import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
-import { findItemInFiber, findMobaSlotInFiber } from '../src/adapters/fiber.ts';
+import { findItemInFiber, findMobaSlotInFiber, findNinjaItemInFiber } from '../src/adapters/fiber.ts';
 import { linkName } from '../src/adapters/names.ts';
 
 const items = JSON.parse(JSON.parse(readFileSync('tests/fixtures/planner-z7coxn0y.json', 'utf8')).data).items;
@@ -68,5 +68,19 @@ describe('linkName', () => {
   it('rejects text that cannot be an item name', () => {
     for (const s of ['', ' ', '1', '18 / 20', '(trigger)'.slice(0, 1), 'x'.repeat(81)]) expect(linkName(s)).toBeNull();
     expect(linkName(null)).toBeNull();
+  });
+});
+
+describe('findNinjaItemInFiber', () => {
+  it('returns itemData from the tile component props', () => {
+    const itemData = { baseType: 'Pearl Ring', frameType: 2 };
+    const tile = {
+      '__reactFiber$n1': {
+        memoizedProps: { href: '#' },
+        return: { memoizedProps: { tooltip: {} }, return: { memoizedProps: { item: { itemSlot: 1, itemData } }, return: null } },
+      },
+    };
+    expect(findNinjaItemInFiber(tile)).toEqual(itemData);
+    expect(findNinjaItemInFiber({})).toBeNull();
   });
 });

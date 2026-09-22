@@ -9,12 +9,14 @@ import {
   releasesApiUrl,
 } from '../src/config.ts';
 import { compareVersions, pickDefaultLeague, type League } from '../src/core/leagues.ts';
-import { indexStatMap, type StatIndex } from '../src/core/statmap.ts';
-import { toItemModel } from '../src/core/translate.ts';
 import { lookupName } from '../src/core/links.ts';
 import { mobaToModel } from '../src/core/mobalytics.ts';
+import { basesByName, ninjaToModel, type BasesByName } from '../src/core/ninja.ts';
+import { indexStatMap, type StatIndex } from '../src/core/statmap.ts';
+import { indexStatTexts, type TextIndex } from '../src/core/textmods.ts';
+import { toItemModel } from '../src/core/translate.ts';
 import type { BaseMap, LinkTarget, PlannerItem, StatMap, TradeItemsMap, TradeStatText } from '../src/core/types.ts';
-import { isMobaSlot, isPlannerItem, isStatMap, isTradeItemsMap, isTradeStatText } from '../src/core/validate.ts';
+import { isMobaSlot, isNinjaItem, isPlannerItem, isStatMap, isTradeItemsMap, isTradeStatText } from '../src/core/validate.ts';
 import type { Context, Request, Response } from '../src/ext/messages.ts';
 import { getSettings, saveSettings } from '../src/ext/settings.ts';
 
@@ -38,6 +40,16 @@ async function fetchJson<T>(url: string): Promise<T> {
 // ---- data maps: bundled snapshot, replaced by a newer remote copy when available ----
 
 let loaded: { maps: Maps; index: StatIndex } | null = null;
+/** Text matcher and base-by-name lookup for poe.ninja items, built from `loaded` on first use. */
+let ninjaData: { from: Maps; texts: TextIndex; bases: BasesByName } | null = null;
+
+async function getNinjaData(): Promise<{ texts: TextIndex; bases: BasesByName; index: StatIndex }> {
+  const { maps, index } = await getMaps();
+  if (ninjaData?.from !== maps) {
+    ninjaData = { from: maps, texts: indexStatTexts(maps.statMap), bases: basesByName(maps.baseMap) };
+  }
+  return { texts: ninjaData.texts, bases: ninjaData.bases, index };
+}
 
 async function bundledMaps(): Promise<Maps> {
   const [statMap, baseMap] = await Promise.all([
@@ -227,6 +239,11 @@ async function handle(req: Request, sender: Browser.runtime.MessageSender): Prom
       if (!isMobaSlot(req.slot)) return { ok: false, error: 'format' };
       const [statText, tradeItems] = await Promise.all([getStatText(), getTradeItems()]);
       return { ok: true, data: mobaToModel(req.slot, statText, tradeItems) };
+    }
+    case 'ninjaModel': {
+      if (!isNinjaItem(req.item)) return { ok: false, error: 'format' };
+      const { texts, bases, index } = await getNinjaData();
+      return { ok: true, data: ninjaToModel(req.item, texts, index, bases) };
     }
     case 'context':
       return { ok: true, data: await context() };

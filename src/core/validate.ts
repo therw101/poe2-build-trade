@@ -1,4 +1,4 @@
-import type { MobaSlot, PlannerItem, StatMap, TradeItemsMap, TradeStatText } from './types.ts';
+import type { MobaSlot, NinjaItem, PlannerItem, StatMap, TradeItemsMap, TradeStatText } from './types.ts';
 
 const RARITIES = new Set(['normal', 'magic', 'rare', 'unique']);
 
@@ -59,5 +59,28 @@ export function isMobaSlot(x: unknown): x is MobaSlot {
     typeof item.isUnique === 'boolean' &&
     (req === undefined || req === null || (isRecord(req) && typeof req.query === 'string')) &&
     (x.runes === undefined || x.runes === null || Array.isArray(x.runes))
+  );
+}
+
+const NINJA_MOD_LISTS = [
+  'implicitMods',
+  'explicitMods',
+  'craftedMods',
+  'fracturedMods',
+  'desecratedMods',
+  'enchantMods',
+  'runeMods',
+] as const;
+
+/** Shape check for a poe.ninja item read from React props. */
+export function isNinjaItem(x: unknown): x is NinjaItem {
+  return (
+    isRecord(x) &&
+    typeof x.baseType === 'string' &&
+    typeof x.frameType === 'number' &&
+    NINJA_MOD_LISTS.every((k) => {
+      const v = x[k];
+      return v === undefined || (Array.isArray(v) && v.every((l) => typeof l === 'string'));
+    })
   );
 }

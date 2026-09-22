@@ -8,6 +8,7 @@ One click opens the official trade site with a search that matches the item.
 | [maxroll.gg](https://maxroll.gg/poe2/build-guides) guides | Yes | Yes (hover) |
 | [mobalytics.gg](https://mobalytics.gg/poe-2/builds) guides | Yes, using the guide's own filters | Yes (hover) |
 | [poe.ninja](https://poe.ninja/poe2/builds) characters | No (poe.ninja has its own trade search) | Yes (hover) |
+| poe.ninja Path of Building pages (`poe.ninja/poe2/pob/…`) | Yes, mods read from the item text | Yes (hover) |
 
 - **Unique items** open a trade search by name.
 - **Rare and magic items** open a picker where you choose mods and minimum values
@@ -35,7 +36,7 @@ extension card. The picker shows a banner when a new version is out.
 
 ## Use
 
-1. Open a maxroll or mobalytics PoE2 build guide, or a poe.ninja character.
+1. Open a maxroll or mobalytics PoE2 build guide, or a poe.ninja character or PoB page.
 2. Click the magnifier on an item.
 3. For rare and magic items:
    - Untick mods you don't care about.
@@ -74,7 +75,8 @@ Extension สำหรับ Chrome, Edge, Brave และ Opera ที่เพ
 (maxroll, mobalytics, poe.ninja) กดแล้วจะเปิดเว็บเทรดอย่างเป็นทางการพร้อม filter ที่ตรงกับไอเทมนั้น
 
 - **mobalytics**: ไอเทมทุกช่องมีปุ่มค้นหา popup จะติ๊กม็อดที่คนเขียน guide เลือกไว้ให้แล้ว
-- **poe.ninja**: เฉพาะหินสกิล (ไอเทมที่ใส่อยู่ใช้ปุ่มเทรดของ poe.ninja เอง)
+- **poe.ninja**: หน้า character มีปุ่มเฉพาะหินสกิล (ไอเทมที่ใส่อยู่ใช้ปุ่มเทรดของ poe.ninja เอง)
+  ส่วนหน้า PoB (`poe.ninja/poe2/pob/…`) มีปุ่มบนไอเทมทุกชิ้นด้วย
 
 - **Unique**: กดครั้งเดียวก็ค้นด้วยชื่อ
 - **Rare/Magic**: มีหน้าต่างให้เลือกม็อดกับค่าต่ำสุดก่อน (ค่าเริ่มต้น 80% ของค่าใน build)

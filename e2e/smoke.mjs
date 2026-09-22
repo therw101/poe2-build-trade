@@ -1,4 +1,4 @@
-// Manual smoke test against live maxroll and poe.ninja pages with the built extension loaded.
+// Manual smoke test against live maxroll and poe.ninja (character and PoB) pages with the built extension loaded.
 // mobalytics is not covered: it serves a Cloudflare challenge to automated browsers.
 //   npm run build && npm run e2e            (headless Chromium)
 //   HEADED=1 npm run e2e                    (watch it run)
@@ -15,6 +15,7 @@ const TRADE_PREFIX = 'https://www.pathofexile.com/trade2/search/poe2/';
 const NINJA_CHARACTER =
   process.env.NINJA_CHARACTER ??
   'https://poe.ninja/poe2/builds/forbiddenrites/character/heygyus-0416/ResurrectForbidden?i=0';
+const NINJA_POB = process.env.NINJA_POB ?? 'https://poe.ninja/poe2/pob/1e26a';
 const ext = resolve('.output/chrome-mv3');
 const profile = mkdtempSync(join(tmpdir(), 'b2t-e2e-'));
 const results = [];
@@ -130,6 +131,27 @@ try {
   }
   const ninjaSlotButtons = await page.locator('[data-tooltip-trigger] .b2t-btn--slot').count();
   check('poe.ninja equipment keeps only its own trade button', ninjaSlotButtons === 0);
+
+  // poe.ninja PoB page: no native trade search, so equipment gets our picker (text mods).
+  await page.goto(NINJA_POB, { waitUntil: 'domcontentloaded' });
+  const pobButtons = page.locator('[class*="_equipment_"] .b2t-btn--slot');
+  const pobFound = await pobButtons.first().waitFor({ timeout: 30000 }).then(() => true, () => false);
+  check('poe.ninja PoB equipment gets buttons', pobFound, `${await pobButtons.count()} buttons`);
+  if (pobFound) {
+    await page.locator('[class*="_equipment_"] [data-tooltip-trigger]').nth(1).locator('.b2t-btn').click();
+    const popup = await page.waitForSelector('#b2t-popup .panel', { timeout: 15000 }).catch(() => null);
+    const pobRows = await page.locator('#b2t-popup .row:not(.unmapped)').count();
+    check('PoB rare opens the picker with mapped mods', !!popup && pobRows > 0, `${pobRows} mapped rows`);
+    if (popup) {
+      const url = await nextTradeTab(ctx, () => page.locator('#b2t-popup .search').click());
+      const q = url.startsWith(TRADE_PREFIX) ? decodeTradeUrl(url) : null;
+      check(
+        'PoB rare search has stat filters',
+        !!q && q.stats?.[0]?.filters?.length > 0 && q.filters?.type_filters?.filters?.rarity?.option === 'nonunique',
+        q ? JSON.stringify(q) : url,
+      );
+    }
+  }
 
   if (logs.length) console.log(`[b2t] console:\n  ${logs.join('\n  ')}`);
 } finally {

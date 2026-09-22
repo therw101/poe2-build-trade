@@ -51,7 +51,8 @@ export interface StatMap {
   options?: Record<string, Record<string, string>>;
 }
 
-export type BaseMap = Record<string, { name: string; itemClass: string }>;
+/** Metadata path → base. `implicits` is the number of implicit mods the base rolls with (omitted when 0). */
+export type BaseMap = Record<string, { name: string; itemClass: string; implicits?: number }>;
 
 /** Popup row group: a game stat kind, or a trade pseudo stat chosen by a build site. */
 export type RowKind = StatKind | 'pseudo';
@@ -162,4 +163,25 @@ export interface MobaEquipmentItem {
 export interface MobaSlot {
   equipmentItem: MobaEquipmentItem;
   runes?: unknown[] | null;
+}
+
+/**
+ * Item as rendered by poe.ninja (React props `item.itemData`, GGG character-API shape).
+ * On PoB pages mods are display text only, sorted into buckets by Path of Building.
+ */
+export interface NinjaItem {
+  name?: string;
+  typeLine?: string;
+  /** Base type; on magic items it still carries the affixes ("Potent … Flask of the Endless"). */
+  baseType: string;
+  /** 0 normal, 1 magic, 2 rare, 3 unique. */
+  frameType: number;
+  inventoryId?: string;
+  implicitMods?: string[];
+  explicitMods?: string[];
+  craftedMods?: string[];
+  fracturedMods?: string[];
+  desecratedMods?: string[];
+  enchantMods?: string[];
+  runeMods?: string[];
 }

@@ -67,3 +67,27 @@ offer it:
   - `findMobaSlotInFiber`, `linkName`, and `lookupName`.
 - **E2E:** `npm run e2e` covers maxroll plus a poe.ninja character (skill-gem hover search). Override the character with `NINJA_CHARACTER`.
 - **Manual:** mobalytics in real Chrome (slot popup, unique, jewel, gem hover).
+
+## Addendum: poe.ninja PoB pages
+
+- **Finding.** `poe.ninja/poe2/pob/<id>` pages show a Path of Building export.
+  - The page has the same paperdoll and Skills markup as character pages, but items only have a "Copy" button. There is no native trade search.
+  - Each tile's React props hold `item.itemData` in the GGG shape.
+  - Mods are text only, with no stat ids and no API call.
+  - PoB mixes item properties into the mods ("Energy Shield: 322", "Rune: …").
+  - PoB puts some explicit mods in `implicitMods`: a helmet, whose base has no implicits, lists "96% increased Energy Shield" there.
+  - PoB tags some lines by kind, e.g. `{enchant}Allocates Multitasking`.
+- **Design.**
+  - `ninjaAdapter` adds equipment buttons on `/poe2/pob/` only. The MAIN-world reader returns `itemData`, and the background converts it with `ninjaToModel`.
+  - `textmods.ts` indexes stat map templates, negative templates, and option names ("Allocates <notable>") by a text key: markup stripped, numbers and "+#" replaced by "#", lowercase.
+    - Local and global stats share wording, so weapons and armour prefer entries whose ids start with `local_`.
+    - The row value is the mean of the numbers in the line, negated for "reduced" templates.
+  - `ninjaToModel` assigns kinds as follows:
+    - Property lines are dropped.
+    - PoB tags set the kind.
+    - Only the first N untagged implicit lines are implicit, where N is `implicits` from `base-map.json` (the new RePoE implicit count). The rest are explicit.
+    - Crafted and desecrated lines are explicit, and runes are rune.
+  - Rows with the same trade id are summed, because trade compares the item's total.
+  - Magic items keep affixes in `baseType`, so the longest known base name inside it is used.
+- **Coverage.** On the reference page, every mod line of the non-unique items maps to a trade stat except one bonded idol effect, which has no rune filter.
+- **Tests.** `tests/ninja.test.ts` runs against `tests/fixtures/ninja-pob-items.json` and the bundled data. E2E opens `NINJA_POB` (default `/poe2/pob/1e26a`) and checks that the helmet search uses the local ES stat.

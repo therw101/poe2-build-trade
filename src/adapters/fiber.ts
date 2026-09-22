@@ -52,3 +52,13 @@ export function findMobaSlotInFiber(el: object, maxDepth = 8): unknown {
   }
   return null;
 }
+
+/** Reads the item behind a poe.ninja item tile (`item.itemData` a few levels up). MAIN world only. */
+export function findNinjaItemInFiber(el: object, maxDepth = 4): unknown {
+  let fiber: FiberLike | null | undefined = fiberOf(el);
+  for (let depth = 0; fiber && depth <= maxDepth; depth++, fiber = fiber.return) {
+    const item = fiber.memoizedProps?.item;
+    if (isObject(item) && isObject(item.itemData)) return item.itemData;
+  }
+  return null;
+}

@@ -3,6 +3,21 @@
 What changed between releases. Download builds from the
 [Releases page](https://github.com/therw101/poe2-build-trade/releases).
 
+## [Unreleased]
+
+### Added
+
+- **poe.ninja Path of Building pages (`poe.ninja/poe2/pob/…`):** a search button on every equipment item, flask, and charm. poe.ninja has no trade search on these pages.
+  - Mods are read from the item text and matched to trade stats. Local stats such as "% increased Energy Shield" on armour use their local filter.
+  - Repeated stats are added up. For example, +40% and +33% Cold Resistance become one row of 73%.
+  - Only as many lines as the base really has implicits count as implicit, because PoB exports sometimes list explicit mods as implicits.
+- Skill gems on PoB pages get the hover search.
+
+### ภาษาไทย
+
+- **หน้า PoB ของ poe.ninja:** ไอเทม ขวด และ charm ทุกชิ้นมีปุ่มค้นหา อ่านม็อดจากข้อความแล้วจับคู่กับ stat บนเว็บเทรดให้
+- ม็อดซ้ำกันจะรวมค่าให้ และหินสกิลบนหน้า PoB ชี้แล้วค้นได้
+
 ## [0.3.0] - 2026-09-22
 
 ### Added

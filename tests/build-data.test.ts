@@ -69,6 +69,11 @@ describe('buildBaseMap', () => {
       itemClass: 'Wand',
     });
   });
+
+  it('records how many implicits a base rolls with', () => {
+    const bases = buildBaseMap(load('base-items.subset.json'));
+    expect(bases['Metadata/Items/Rings/FourRing2']).toEqual({ name: 'Lazuli Ring', itemClass: 'Ring', implicits: 1 });
+  });
 });
 
 describe('coverage', () => {
