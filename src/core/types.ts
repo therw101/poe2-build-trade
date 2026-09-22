@@ -53,8 +53,11 @@ export interface StatMap {
 
 export type BaseMap = Record<string, { name: string; itemClass: string }>;
 
+/** Popup row group: a game stat kind, or a trade pseudo stat chosen by a build site. */
+export type RowKind = StatKind | 'pseudo';
+
 export interface ModRow {
-  kind: StatKind;
+  kind: RowKind;
   /** Filled display text, e.g. "64% increased Spell Damage". */
   text: string;
   /** Value used for trade: mean of the component stat values. */
@@ -62,6 +65,11 @@ export interface ModRow {
   /** False for flag-like mods whose text has no number (searched by presence only). */
   numeric: boolean;
   tradeId: string | null;
+  /**
+   * Bounds already chosen by the build site (mobalytics guide filters). Rows with a
+   * preset start checked and keep these bounds instead of scaling `value` by minPct.
+   */
+  preset?: { min: number | null; max: number | null };
 }
 
 export interface ItemModel {
@@ -131,4 +139,27 @@ export interface ExchangeQuery {
   status: { option: ExchangeStatus };
   want: string[];
   have: string[];
+}
+
+/** Trade stat id → display template, e.g. "stat_3299347043" → "# to maximum Life". */
+export interface TradeStatText {
+  generatedAt: string;
+  /** Keyed by the part after the kind prefix; a full id key overrides it for that kind. */
+  text: Record<string, string>;
+}
+
+/** Item as rendered by a mobalytics guide paperdoll (React props `data[slot].equipmentItem`). */
+export interface MobaEquipmentItem {
+  /** Unique name (sometimes with a variant, "Morior Invictus (life)") or base name; absent on jewels. */
+  name?: string;
+  isUnique: boolean;
+  itemClassSlug?: string | null;
+  explicitDescriptions?: { description: string }[] | null;
+  /** The guide's own trade search, a JSON string `{"query": TradeQuery-like, "sort": …}`. */
+  poe2TradeRequest?: { query: string } | null;
+}
+
+export interface MobaSlot {
+  equipmentItem: MobaEquipmentItem;
+  runes?: unknown[] | null;
 }

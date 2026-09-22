@@ -143,6 +143,14 @@ h3 {
 }
 .row.unchecked .text { color: var(--b2t-text-dim); }
 .row.unmapped .text { color: var(--b2t-text-faint); }
+.row .tag {
+  margin-left: 6px;
+  padding: 0 4px;
+  font-size: 10px;
+  color: var(--b2t-text-faint);
+  border: 1px solid var(--b2t-border);
+  border-radius: 3px;
+}
 .row .na {
   font-size: 11px;
   color: var(--b2t-text-faint);

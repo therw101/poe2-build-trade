@@ -1,0 +1,1255 @@
+{
+ "_source": "mobalytics.gg/poe-2/builds/fubgun-flameblast-oil-grenade SSR state, 2026-09-22; slots re-keyed to the live React props shape data[slot] = {runes, anointmentSlug, equipmentItem}",
+ "variants": {
+  "default-variant": {
+   "amulet": {
+    "runes": null,
+    "anointmentSlug": null,
+    "equipmentItem": {
+     "slug": "amulet-fouramulet3",
+     "isUnique": false,
+     "isImported": null,
+     "name": "Amber Amulet",
+     "itemClassSlug": "amulet",
+     "modifiers": null,
+     "explicitDescriptions": [
+      {
+       "description": "+85 to maximum Life",
+       "modifiers": [],
+       "mustHave": null
+      }
+     ],
+     "prefixes": [
+      {
+       "mustHave": false,
+       "slug": "IncreasedLife7"
+      },
+      {
+       "mustHave": false,
+       "slug": ""
+      }
+     ],
+     "suffixes": [
+      {
+       "modifiers": null,
+       "mustHave": false,
+       "slug": ""
+      }
+     ],
+     "requirements": null,
+     "stats": null,
+     "poe2TradeRequest": {
+      "query": "{\"query\":{\"status\":{\"option\":\"securable\"},\"stats\":[{\"type\":\"and\",\"filters\":[{\"id\":\"explicit.stat_3299347043\",\"value\":{\"min\":85}}]}],\"filters\":{\"type_filters\":{\"filters\":{\"category\":{\"option\":\"accessory.amulet\"}}}}},\"sort\":{\"price\":\"asc\"}}",
+      "currentLeague": "Forbidden Rites"
+     }
+    }
+   },
+   "belt": {
+    "runes": null,
+    "anointmentSlug": null,
+    "equipmentItem": {
+     "slug": "armour-fourbelt10",
+     "isUnique": false,
+     "isImported": null,
+     "name": "Utility Belt",
+     "itemClassSlug": "belt",
+     "modifiers": null,
+     "explicitDescriptions": [
+      {
+       "description": "+100 to maximum Life",
+       "modifiers": [],
+       "mustHave": null
+      }
+     ],
+     "prefixes": [
+      {
+       "mustHave": false,
+       "slug": "IncreasedLife8"
+      },
+      {
+       "mustHave": false,
+       "slug": ""
+      }
+     ],
+     "suffixes": [
+      {
+       "modifiers": null,
+       "mustHave": false,
+       "slug": ""
+      }
+     ],
+     "requirements": null,
+     "stats": [],
+     "poe2TradeRequest": {
+      "query": "{\"query\":{\"status\":{\"option\":\"securable\"},\"stats\":[{\"type\":\"and\",\"filters\":[{\"id\":\"explicit.stat_3299347043\",\"value\":{\"min\":100}}]}],\"filters\":{\"type_filters\":{\"filters\":{\"category\":{\"option\":\"accessory.belt\"}}}}},\"sort\":{\"price\":\"asc\"}}",
+      "currentLeague": "Forbidden Rites"
+     }
+    }
+   },
+   "boots": {
+    "runes": null,
+    "anointmentSlug": null,
+    "equipmentItem": {
+     "slug": "armour-fourbootsstr3",
+     "isUnique": false,
+     "isImported": null,
+     "name": "Bronze Greaves",
+     "itemClassSlug": "boots",
+     "modifiers": null,
+     "explicitDescriptions": [
+      {
+       "description": "20% increased Movement Speed",
+       "modifiers": [],
+       "mustHave": null
+      }
+     ],
+     "prefixes": [
+      {
+       "mustHave": false,
+       "slug": "MovementVelocity3"
+      },
+      {
+       "mustHave": false,
+       "slug": ""
+      }
+     ],
+     "suffixes": [
+      {
+       "modifiers": null,
+       "mustHave": false,
+       "slug": ""
+      }
+     ],
+     "requirements": null,
+     "stats": [
+      {
+       "name": "Armour",
+       "value": "74"
+      }
+     ],
+     "poe2TradeRequest": {
+      "query": "{\"query\":{\"status\":{\"option\":\"securable\"},\"stats\":[{\"type\":\"and\",\"filters\":[{\"id\":\"explicit.stat_2250533757\",\"value\":{\"min\":20}}]}],\"filters\":{\"type_filters\":{\"filters\":{\"category\":{\"option\":\"armour.boots\"}}}}},\"sort\":{\"price\":\"asc\"}}",
+      "currentLeague": "Forbidden Rites"
+     }
+    }
+   },
+   "charm1": {
+    "runes": null,
+    "anointmentSlug": null,
+    "equipmentItem": {
+     "slug": "flask-fourcharm1",
+     "isUnique": false,
+     "isImported": null,
+     "name": "Thawing Charm",
+     "itemClassSlug": "utilityflask",
+     "modifiers": null,
+     "explicitDescriptions": [],
+     "prefixes": [
+      {
+       "mustHave": false,
+       "slug": ""
+      }
+     ],
+     "suffixes": [
+      {
+       "modifiers": null,
+       "mustHave": false,
+       "slug": ""
+      }
+     ],
+     "requirements": null,
+     "stats": null,
+     "poe2TradeRequest": {
+      "query": "{\"query\":{\"status\":{\"option\":\"securable\"},\"type\":\"Thawing Charm\",\"stats\":[{\"type\":\"and\",\"filters\":[]}]},\"sort\":{\"price\":\"asc\"}}",
+      "currentLeague": "Forbidden Rites"
+     }
+    }
+   },
+   "gloves": {
+    "runes": null,
+    "anointmentSlug": null,
+    "equipmentItem": {
+     "slug": "armour-fourglovesint2verisium",
+     "isUnique": false,
+     "isImported": null,
+     "name": "Runeforged Sombre Gloves",
+     "itemClassSlug": "gloves",
+     "modifiers": null,
+     "explicitDescriptions": [
+      {
+       "description": "Adds 2 to 4 Physical Damage to Attacks",
+       "modifiers": [],
+       "mustHave": null
+      }
+     ],
+     "prefixes": [
+      {
+       "mustHave": false,
+       "slug": "AddedPhysicalDamage2"
+      },
+      {
+       "mustHave": false,
+       "slug": ""
+      }
+     ],
+     "suffixes": [
+      {
+       "modifiers": null,
+       "mustHave": false,
+       "slug": ""
+      }
+     ],
+     "requirements": null,
+     "stats": [
+      {
+       "name": "Energy Shield",
+       "value": "15"
+      }
+     ],
+     "poe2TradeRequest": {
+      "query": "{\"query\":{\"status\":{\"option\":\"securable\"},\"stats\":[{\"type\":\"and\",\"filters\":[{\"id\":\"explicit.stat_3032590688\",\"value\":{\"min\":2}}]}],\"filters\":{\"type_filters\":{\"filters\":{\"category\":{\"option\":\"armour.gloves\"}}}}},\"sort\":{\"price\":\"asc\"}}",
+      "currentLeague": "Forbidden Rites"
+     }
+    }
+   },
+   "helmet": {
+    "runes": null,
+    "anointmentSlug": null,
+    "equipmentItem": {
+     "slug": "armour-fourhelmetdexint2",
+     "isUnique": false,
+     "isImported": null,
+     "name": "Face Mask",
+     "itemClassSlug": "helmet",
+     "modifiers": null,
+     "explicitDescriptions": [
+      {
+       "description": "+60 to maximum Life",
+       "modifiers": [],
+       "mustHave": null
+      }
+     ],
+     "prefixes": [
+      {
+       "mustHave": false,
+       "slug": "IncreasedLife5"
+      },
+      {
+       "mustHave": false,
+       "slug": ""
+      }
+     ],
+     "suffixes": [
+      {
+       "modifiers": null,
+       "mustHave": false,
+       "slug": ""
+      }
+     ],
+     "requirements": null,
+     "stats": [
+      {
+       "name": "Evasion Rating",
+       "value": "32"
+      },
+      {
+       "name": "Energy Shield",
+       "value": "16"
+      }
+     ],
+     "poe2TradeRequest": {
+      "query": "{\"query\":{\"status\":{\"option\":\"securable\"},\"stats\":[{\"type\":\"and\",\"filters\":[{\"id\":\"explicit.stat_3299347043\",\"value\":{\"min\":60}}]}],\"filters\":{\"type_filters\":{\"filters\":{\"category\":{\"option\":\"armour.helmet\"}}}}},\"sort\":{\"price\":\"asc\"}}",
+      "currentLeague": "Forbidden Rites"
+     }
+    }
+   },
+   "leftRing": {
+    "runes": null,
+    "anointmentSlug": null,
+    "equipmentItem": {
+     "slug": "ring-fourring1",
+     "isUnique": false,
+     "isImported": null,
+     "name": "Iron Ring",
+     "itemClassSlug": "ring",
+     "modifiers": null,
+     "explicitDescriptions": [
+      {
+       "description": "Adds 1 to 3 Physical Damage to Attacks",
+       "modifiers": [],
+       "mustHave": null
+      }
+     ],
+     "prefixes": [
+      {
+       "mustHave": false,
+       "slug": "AddedPhysicalDamage1"
+      },
+      {
+       "mustHave": false,
+       "slug": ""
+      }
+     ],
+     "suffixes": [
+      {
+       "modifiers": null,
+       "mustHave": false,
+       "slug": ""
+      }
+     ],
+     "requirements": null,
+     "stats": null,
+     "poe2TradeRequest": {
+      "query": "{\"query\":{\"status\":{\"option\":\"securable\"},\"stats\":[{\"type\":\"and\",\"filters\":[{\"id\":\"explicit.stat_3032590688\",\"value\":{\"min\":1}}]}],\"filters\":{\"type_filters\":{\"filters\":{\"category\":{\"option\":\"accessory.ring\"}}}}},\"sort\":{\"price\":\"asc\"}}",
+      "currentLeague": "Forbidden Rites"
+     }
+    }
+   },
+   "rightRing": {
+    "runes": null,
+    "anointmentSlug": null,
+    "equipmentItem": {
+     "slug": "ring-fourring1",
+     "isUnique": false,
+     "isImported": null,
+     "name": "Iron Ring",
+     "itemClassSlug": "ring",
+     "modifiers": null,
+     "explicitDescriptions": [],
+     "prefixes": [
+      {
+       "mustHave": false,
+       "slug": ""
+      }
+     ],
+     "suffixes": [
+      {
+       "modifiers": null,
+       "mustHave": false,
+       "slug": ""
+      }
+     ],
+     "requirements": null,
+     "stats": null,
+     "poe2TradeRequest": {
+      "query": "{\"query\":{\"status\":{\"option\":\"securable\"},\"stats\":[{\"type\":\"and\",\"filters\":[]}],\"filters\":{\"type_filters\":{\"filters\":{\"category\":{\"option\":\"accessory.ring\"}}}}},\"sort\":{\"price\":\"asc\"}}",
+      "currentLeague": "Forbidden Rites"
+     }
+    }
+   }
+  },
+  "ec6511a2-8023-4841-b1a2-731bf5fdcd93": {
+   "amulet": {
+    "runes": null,
+    "anointmentSlug": "anointment-DeliriumAnoint_Paragon",
+    "equipmentItem": {
+     "slug": "amulet-fouramulet10",
+     "isUnique": false,
+     "isImported": null,
+     "name": "Gold Amulet",
+     "itemClassSlug": "amulet",
+     "modifiers": null,
+     "explicitDescriptions": [
+      {
+       "description": "+100 to maximum Life",
+       "modifiers": [],
+       "mustHave": null
+      },
+      {
+       "description": "+31% to Fire Resistance",
+       "modifiers": [],
+       "mustHave": null
+      },
+      {
+       "description": "+3 to Level of all Spell Skills",
+       "modifiers": [],
+       "mustHave": null
+      },
+      {
+       "description": "+47 to Spirit",
+       "modifiers": [],
+       "mustHave": null
+      },
+      {
+       "description": "+3% to Quality of all Skills",
+       "modifiers": [],
+       "mustHave": null
+      }
+     ],
+     "prefixes": [
+      {
+       "mustHave": false,
+       "slug": "IncreasedLife8"
+      },
+      {
+       "mustHave": false,
+       "slug": "IncreasedSpirit5"
+      },
+      {
+       "mustHave": false,
+       "slug": ""
+      }
+     ],
+     "suffixes": [
+      {
+       "modifiers": null,
+       "mustHave": false,
+       "slug": "AbyssModAmuletKurgalSuffixQualityofAllSkills"
+      },
+      {
+       "modifiers": null,
+       "mustHave": false,
+       "slug": "FireResist6"
+      },
+      {
+       "modifiers": null,
+       "mustHave": false,
+       "slug": "GlobalSpellGemsLevel3"
+      },
+      {
+       "modifiers": null,
+       "mustHave": false,
+       "slug": ""
+      }
+     ],
+     "requirements": null,
+     "stats": null,
+     "poe2TradeRequest": {
+      "query": "{\"query\":{\"status\":{\"option\":\"securable\"},\"stats\":[{\"type\":\"and\",\"filters\":[{\"id\":\"explicit.stat_3299347043\",\"value\":{\"min\":100}},{\"id\":\"pseudo.pseudo_total_elemental_resistance\",\"value\":{\"min\":31}},{\"id\":\"explicit.stat_124131830\",\"value\":{\"min\":3}},{\"id\":\"explicit.stat_3981240776\",\"value\":{\"min\":47}},{\"id\":\"explicit.stat_3655769732\",\"value\":{\"min\":3}}]}],\"filters\":{\"type_filters\":{\"filters\":{\"category\":{\"option\":\"accessory.amulet\"}}}}},\"sort\":{\"price\":\"asc\"}}",
+      "currentLeague": "Forbidden Rites"
+     }
+    }
+   },
+   "belt": {
+    "runes": null,
+    "anointmentSlug": null,
+    "equipmentItem": {
+     "slug": "armour-fouruniquebelt24-mageblood",
+     "isUnique": true,
+     "isImported": false,
+     "name": "Mageblood",
+     "itemClassSlug": "belt",
+     "modifiers": null,
+     "explicitDescriptions": [],
+     "prefixes": null,
+     "suffixes": null,
+     "requirements": null,
+     "stats": [],
+     "poe2TradeRequest": {
+      "query": "{\"query\":{\"status\":{\"option\":\"securable\"},\"name\":\"Mageblood\",\"stats\":[{\"type\":\"and\",\"filters\":[]}],\"filters\":{\"type_filters\":{\"filters\":{\"rarity\":{\"option\":\"unique\"}}}}},\"sort\":{\"price\":\"asc\"}}",
+      "currentLeague": "Forbidden Rites"
+     }
+    }
+   },
+   "body": {
+    "runes": [
+     {
+      "slug": "soulcore-talismanfox"
+     },
+     {
+      "slug": "soulcore-runeenhanceperfect"
+     }
+    ],
+    "anointmentSlug": null,
+    "equipmentItem": {
+     "slug": "armour-fourbodystrdex2endgame",
+     "isUnique": false,
+     "isImported": true,
+     "name": "Dastard Armour",
+     "itemClassSlug": "body-armour",
+     "modifiers": null,
+     "explicitDescriptions": [
+      {
+       "description": "+159 to Armour",
+       "modifiers": null,
+       "mustHave": false
+      },
+      {
+       "description": "+156 to Evasion Rating",
+       "modifiers": null,
+       "mustHave": false
+      },
+      {
+       "description": "94% increased Armour and Evasion",
+       "modifiers": null,
+       "mustHave": false
+      },
+      {
+       "description": "+40% to Fire Resistance",
+       "modifiers": null,
+       "mustHave": false
+      },
+      {
+       "description": "+40% to Lightning Resistance",
+       "modifiers": null,
+       "mustHave": false
+      },
+      {
+       "description": "+34% of Armour also applies to Elemental Damage",
+       "modifiers": null,
+       "mustHave": false
+      },
+      {
+       "description": "42% increased Armour and Evasion",
+       "modifiers": null,
+       "mustHave": false
+      },
+      {
+       "description": "+44 to maximum Life",
+       "modifiers": null,
+       "mustHave": false
+      }
+     ],
+     "prefixes": [
+      {
+       "mustHave": false,
+       "slug": "IncreasedLife4"
+      },
+      {
+       "mustHave": false,
+       "slug": "LocalBaseArmourAndEvasionRating8"
+      },
+      {
+       "mustHave": false,
+       "slug": "LocalIncreasedArmourAndEvasion7"
+      }
+     ],
+     "suffixes": [
+      {
+       "modifiers": null,
+       "mustHave": false,
+       "slug": "ArmourAppliesToElementalDamage4"
+      },
+      {
+       "modifiers": null,
+       "mustHave": false,
+       "slug": "FireResist7"
+      },
+      {
+       "modifiers": null,
+       "mustHave": false,
+       "slug": "LightningResist7"
+      }
+     ],
+     "requirements": [
+      {
+       "name": "Level",
+       "value": "65"
+      }
+     ],
+     "stats": [
+      {
+       "name": "Armour",
+       "value": "1419"
+      },
+      {
+       "name": "Evasion Rating",
+       "value": "1327"
+      },
+      {
+       "name": "Item Level",
+       "value": "79"
+      },
+      {
+       "name": "Quality",
+       "value": "20"
+      }
+     ],
+     "poe2TradeRequest": {
+      "query": "{\"query\":{\"status\":{\"option\":\"securable\"},\"stats\":[{\"type\":\"and\",\"filters\":[{\"id\":\"explicit.stat_3484657501\",\"value\":{\"min\":150}},{\"id\":\"explicit.stat_53045048\",\"value\":{\"min\":142}},{\"id\":\"explicit.stat_3299347043\",\"value\":{\"min\":40}},{\"id\":\"pseudo.pseudo_total_elemental_resistance\",\"value\":{\"min\":72}},{\"id\":\"explicit.stat_2451402625\",\"value\":{\"min\":92}},{\"id\":\"explicit.stat_3362812763\",\"value\":{\"min\":32}}]}],\"filters\":{\"type_filters\":{\"filters\":{\"category\":{\"option\":\"armour.chest\"}}}}},\"sort\":{\"price\":\"asc\"}}",
+      "currentLeague": "Forbidden Rites"
+     }
+    }
+   },
+   "boots": {
+    "runes": [
+     {
+      "slug": "soulcore-runeoftheancients16"
+     }
+    ],
+    "anointmentSlug": null,
+    "equipmentItem": {
+     "slug": "armour-fourbootsstrdex3endgame",
+     "isUnique": false,
+     "isImported": true,
+     "name": "Fortress Sabatons",
+     "itemClassSlug": "boots",
+     "modifiers": null,
+     "explicitDescriptions": [
+      {
+       "description": "35% increased Movement Speed",
+       "modifiers": null,
+       "mustHave": false
+      },
+      {
+       "description": "+77 to Armour",
+       "modifiers": null,
+       "mustHave": false
+      },
+      {
+       "description": "+68 to Evasion Rating",
+       "modifiers": null,
+       "mustHave": false
+      },
+      {
+       "description": "+34% to Fire Resistance",
+       "modifiers": null,
+       "mustHave": false
+      },
+      {
+       "description": "+39% of Armour also applies to Elemental Damage",
+       "modifiers": null,
+       "mustHave": false
+      },
+      {
+       "description": "+33% to Lightning Resistance",
+       "modifiers": [
+        "crafted"
+       ],
+       "mustHave": false
+      },
+      {
+       "description": "69% increased Armour and Evasion",
+       "modifiers": null,
+       "mustHave": false
+      }
+     ],
+     "prefixes": [
+      {
+       "mustHave": false,
+       "slug": "LocalBaseArmourAndEvasionRating4"
+      },
+      {
+       "mustHave": false,
+       "slug": "LocalIncreasedArmourAndEvasion5"
+      },
+      {
+       "mustHave": false,
+       "slug": "MovementVelocity6"
+      }
+     ],
+     "suffixes": [
+      {
+       "modifiers": null,
+       "mustHave": false,
+       "slug": "ArmourAppliesToElementalDamage5"
+      },
+      {
+       "modifiers": null,
+       "mustHave": false,
+       "slug": "FireResist6"
+      },
+      {
+       "modifiers": null,
+       "mustHave": false,
+       "slug": "LightningResist6"
+      }
+     ],
+     "requirements": [
+      {
+       "name": "Level",
+       "value": "75"
+      }
+     ],
+     "stats": [
+      {
+       "name": "Armour",
+       "value": "454"
+      },
+      {
+       "name": "Evasion Rating",
+       "value": "410"
+      },
+      {
+       "name": "Item Level",
+       "value": "82"
+      },
+      {
+       "name": "Quality",
+       "value": "20"
+      }
+     ],
+     "poe2TradeRequest": {
+      "query": "{\"query\":{\"status\":{\"option\":\"securable\"},\"stats\":[{\"type\":\"and\",\"filters\":[{\"id\":\"explicit.stat_3484657501\",\"value\":{\"min\":72}},{\"id\":\"explicit.stat_53045048\",\"value\":{\"min\":65}},{\"id\":\"pseudo.pseudo_total_elemental_resistance\",\"value\":{\"min\":62}},{\"id\":\"explicit.stat_2451402625\",\"value\":{\"min\":68}},{\"id\":\"explicit.stat_2250533757\",\"value\":{\"min\":35}},{\"id\":\"explicit.stat_3362812763\",\"value\":{\"min\":38}}]}],\"filters\":{\"type_filters\":{\"filters\":{\"category\":{\"option\":\"armour.boots\"}}}}},\"sort\":{\"price\":\"asc\"}}",
+      "currentLeague": "Forbidden Rites"
+     }
+    }
+   },
+   "flask1": {
+    "runes": null,
+    "anointmentSlug": null,
+    "equipmentItem": {
+     "slug": "flask-fourflasklife9",
+     "isUnique": false,
+     "isImported": true,
+     "name": "Ultimate Life Flask",
+     "itemClassSlug": "lifeflask",
+     "modifiers": null,
+     "explicitDescriptions": [
+      {
+       "description": "21% of Recovery applied Instantly",
+       "modifiers": null,
+       "mustHave": false
+      },
+      {
+       "description": "27% reduced Charges per use",
+       "modifiers": null,
+       "mustHave": false
+      }
+     ],
+     "prefixes": [
+      {
+       "mustHave": false,
+       "slug": "FlaskPartialInstantRecovery1"
+      }
+     ],
+     "suffixes": [
+      {
+       "modifiers": null,
+       "mustHave": false,
+       "slug": "FlaskChargesUsed5"
+      }
+     ],
+     "requirements": [
+      {
+       "name": "Level",
+       "value": "60"
+      }
+     ],
+     "stats": [
+      {
+       "name": "Item Level",
+       "value": "81"
+      },
+      {
+       "name": "Quality",
+       "value": "15"
+      }
+     ],
+     "poe2TradeRequest": {
+      "query": "{\"query\":{\"status\":{\"option\":\"securable\"},\"stats\":[{\"type\":\"and\",\"filters\":[{\"id\":\"explicit.stat_2503377690\",\"value\":{\"min\":20}}]}],\"filters\":{\"type_filters\":{\"filters\":{\"category\":{\"option\":\"flask.life\"}}}}},\"sort\":{\"price\":\"asc\"}}",
+      "currentLeague": "Forbidden Rites"
+     }
+    }
+   },
+   "flask2": {
+    "runes": null,
+    "anointmentSlug": null,
+    "equipmentItem": {
+     "slug": "flask-fouruniquemanaflask1-lavianga's-spirits",
+     "isUnique": true,
+     "isImported": true,
+     "name": "Lavianga's Spirits",
+     "itemClassSlug": "manaflask",
+     "modifiers": null,
+     "explicitDescriptions": [],
+     "prefixes": null,
+     "suffixes": null,
+     "requirements": [
+      {
+       "name": "Level",
+       "value": "49"
+      }
+     ],
+     "stats": [
+      {
+       "name": "Item Level",
+       "value": "79"
+      }
+     ],
+     "poe2TradeRequest": {
+      "query": "{\"query\":{\"status\":{\"option\":\"securable\"},\"name\":\"Lavianga's Spirits\",\"stats\":[{\"type\":\"and\",\"filters\":[]}],\"filters\":{\"type_filters\":{\"filters\":{\"rarity\":{\"option\":\"unique\"}}}}},\"sort\":{\"price\":\"asc\"}}",
+      "currentLeague": "Forbidden Rites"
+     }
+    }
+   },
+   "charm1": {
+    "runes": null,
+    "anointmentSlug": null,
+    "equipmentItem": {
+     "slug": "flask-fouruniquecharm1--nascent-hope",
+     "isUnique": true,
+     "isImported": true,
+     "name": "Nascent Hope",
+     "itemClassSlug": "utilityflask",
+     "modifiers": null,
+     "explicitDescriptions": [],
+     "prefixes": null,
+     "suffixes": null,
+     "requirements": [
+      {
+       "name": "Level",
+       "value": "12"
+      }
+     ],
+     "stats": [
+      {
+       "name": "Item Level",
+       "value": "58"
+      }
+     ],
+     "poe2TradeRequest": {
+      "query": "{\"query\":{\"status\":{\"option\":\"securable\"},\"name\":\"Nascent Hope\",\"stats\":[{\"type\":\"and\",\"filters\":[]}],\"filters\":{\"type_filters\":{\"filters\":{\"rarity\":{\"option\":\"unique\"}}}}},\"sort\":{\"price\":\"asc\"}}",
+      "currentLeague": "Forbidden Rites"
+     }
+    }
+   },
+   "charm2": {
+    "runes": null,
+    "anointmentSlug": null,
+    "equipmentItem": {
+     "slug": "flask-fouruniquespirit1-rite-of-passage",
+     "isUnique": true,
+     "isImported": true,
+     "name": "Rite of Passage",
+     "itemClassSlug": "utilityflask",
+     "modifiers": null,
+     "explicitDescriptions": [],
+     "prefixes": null,
+     "suffixes": null,
+     "requirements": [
+      {
+       "name": "Level",
+       "value": "50"
+      }
+     ],
+     "stats": [
+      {
+       "name": "Item Level",
+       "value": "69"
+      }
+     ],
+     "poe2TradeRequest": {
+      "query": "{\"query\":{\"status\":{\"option\":\"securable\"},\"name\":\"Rite of Passage\",\"stats\":[{\"type\":\"and\",\"filters\":[]}],\"filters\":{\"type_filters\":{\"filters\":{\"rarity\":{\"option\":\"unique\"}}}}},\"sort\":{\"price\":\"asc\"}}",
+      "currentLeague": "Forbidden Rites"
+     }
+    }
+   },
+   "charm3": {
+    "runes": null,
+    "anointmentSlug": null,
+    "equipmentItem": {
+     "slug": "flask-fourcharm4",
+     "isUnique": false,
+     "isImported": true,
+     "name": "Dousing Charm",
+     "itemClassSlug": "utilityflask",
+     "modifiers": null,
+     "explicitDescriptions": [
+      {
+       "description": "Also grants 289 Guard",
+       "modifiers": null,
+       "mustHave": false
+      },
+      {
+       "description": "35% Chance to gain a Charge when you kill an enemy",
+       "modifiers": null,
+       "mustHave": false
+      }
+     ],
+     "prefixes": [
+      {
+       "mustHave": false,
+       "slug": "CharmGuardWhileActive5"
+      }
+     ],
+     "suffixes": [
+      {
+       "modifiers": null,
+       "mustHave": false,
+       "slug": "FlaskChanceRechargeOnKill3"
+      }
+     ],
+     "requirements": [
+      {
+       "name": "Level",
+       "value": "48"
+      }
+     ],
+     "stats": [
+      {
+       "name": "Item Level",
+       "value": "74"
+      }
+     ],
+     "poe2TradeRequest": {
+      "query": "{\"query\":{\"status\":{\"option\":\"securable\"},\"type\":\"Dousing Charm\",\"stats\":[{\"type\":\"and\",\"filters\":[{\"id\":\"explicit.stat_828533480\",\"value\":{\"min\":31}},{\"id\":\"explicit.stat_2676834156\",\"value\":{\"min\":265}}]}]},\"sort\":{\"price\":\"asc\"}}",
+      "currentLeague": "Forbidden Rites"
+     }
+    }
+   },
+   "gloves": {
+    "runes": [
+     {
+      "slug": "soulcore-runelightningperfect"
+     }
+    ],
+    "anointmentSlug": null,
+    "equipmentItem": {
+     "slug": "armour-fourglovesstr4cruel",
+     "isUnique": false,
+     "isImported": null,
+     "name": "Ancient Mitts",
+     "itemClassSlug": "gloves",
+     "modifiers": null,
+     "explicitDescriptions": [
+      {
+       "description": "+226 to Armour",
+       "modifiers": [],
+       "mustHave": null
+      },
+      {
+       "description": "+120 to maximum Life",
+       "modifiers": [],
+       "mustHave": null
+      },
+      {
+       "description": "15% increased Rarity of Items found",
+       "modifiers": [],
+       "mustHave": null
+      },
+      {
+       "description": "+31% to Cold Resistance",
+       "modifiers": [],
+       "mustHave": null
+      },
+      {
+       "description": "80% increased Armour",
+       "modifiers": [],
+       "mustHave": null
+      },
+      {
+       "description": "+38% of Armour also applies to Elemental Damage",
+       "modifiers": [],
+       "mustHave": null
+      }
+     ],
+     "prefixes": [
+      {
+       "mustHave": false,
+       "slug": "IncreasedLife9"
+      },
+      {
+       "mustHave": false,
+       "slug": "IncreasedPhysicalDamageReductionRating8_"
+      },
+      {
+       "mustHave": false,
+       "slug": "LocalIncreasedPhysicalDamageReductionRatingPercent6"
+      },
+      {
+       "mustHave": false,
+       "slug": ""
+      }
+     ],
+     "suffixes": [
+      {
+       "modifiers": null,
+       "mustHave": false,
+       "slug": "ArmourAppliesToElementalDamage5"
+      },
+      {
+       "modifiers": null,
+       "mustHave": false,
+       "slug": "ColdResist6"
+      },
+      {
+       "modifiers": null,
+       "mustHave": false,
+       "slug": "ItemFoundRarityIncrease3"
+      },
+      {
+       "modifiers": null,
+       "mustHave": false,
+       "slug": ""
+      }
+     ],
+     "requirements": null,
+     "stats": [
+      {
+       "name": "Armour",
+       "value": "854"
+      }
+     ],
+     "poe2TradeRequest": {
+      "query": "{\"query\":{\"status\":{\"option\":\"securable\"},\"stats\":[{\"type\":\"and\",\"filters\":[{\"id\":\"explicit.stat_3484657501\",\"value\":{\"min\":226}},{\"id\":\"explicit.stat_3299347043\",\"value\":{\"min\":120}},{\"id\":\"explicit.stat_3917489142\",\"value\":{\"min\":15}},{\"id\":\"pseudo.pseudo_total_elemental_resistance\",\"value\":{\"min\":31}},{\"id\":\"explicit.stat_1062208444\",\"value\":{\"min\":80}},{\"id\":\"explicit.stat_3362812763\",\"value\":{\"min\":38}}]}],\"filters\":{\"type_filters\":{\"filters\":{\"category\":{\"option\":\"armour.gloves\"}}}}},\"sort\":{\"price\":\"asc\"}}",
+      "currentLeague": "Forbidden Rites"
+     }
+    }
+   },
+   "helmet": {
+    "runes": [
+     {
+      "slug": "soulcore-soulcorechaos"
+     }
+    ],
+    "anointmentSlug": null,
+    "equipmentItem": {
+     "slug": "armour-fourhelmetstr5endgame",
+     "isUnique": false,
+     "isImported": true,
+     "name": "Paragon Greathelm",
+     "itemClassSlug": "helmet",
+     "modifiers": null,
+     "explicitDescriptions": [
+      {
+       "description": "79% increased Armour",
+       "modifiers": null,
+       "mustHave": false
+      },
+      {
+       "description": "+165 to maximum Life",
+       "modifiers": null,
+       "mustHave": false
+      },
+      {
+       "description": "17% increased Rarity of Items found",
+       "modifiers": null,
+       "mustHave": false
+      },
+      {
+       "description": "+32% to Cold Resistance",
+       "modifiers": null,
+       "mustHave": false
+      },
+      {
+       "description": "+41% of Armour also applies to Elemental Damage",
+       "modifiers": null,
+       "mustHave": false
+      },
+      {
+       "description": "+17% to Cold and Chaos Resistances",
+       "modifiers": null,
+       "mustHave": false
+      }
+     ],
+     "prefixes": [
+      {
+       "mustHave": false,
+       "slug": "IncreasedLife10"
+      },
+      {
+       "mustHave": false,
+       "slug": "ItemFoundRarityIncreasePrefix3"
+      },
+      {
+       "mustHave": false,
+       "slug": "LocalIncreasedPhysicalDamageReductionRatingPercent5"
+      }
+     ],
+     "suffixes": [
+      {
+       "modifiers": null,
+       "mustHave": false,
+       "slug": "AbyssModArmourJewelleryKurgalSuffixColdChaosResistance"
+      },
+      {
+       "modifiers": null,
+       "mustHave": false,
+       "slug": "ArmourAppliesToElementalDamage5"
+      },
+      {
+       "modifiers": null,
+       "mustHave": false,
+       "slug": "ColdResist6"
+      }
+     ],
+     "requirements": [
+      {
+       "name": "Level",
+       "value": "75"
+      }
+     ],
+     "stats": [
+      {
+       "name": "Armour",
+       "value": "767"
+      },
+      {
+       "name": "Item Level",
+       "value": "77"
+      },
+      {
+       "name": "Quality",
+       "value": "20"
+      }
+     ],
+     "poe2TradeRequest": {
+      "query": "{\"query\":{\"status\":{\"option\":\"securable\"},\"stats\":[{\"type\":\"and\",\"filters\":[{\"id\":\"explicit.stat_3299347043\",\"value\":{\"min\":150}},{\"id\":\"explicit.stat_3917489142\",\"value\":{\"min\":16}},{\"id\":\"pseudo.pseudo_total_elemental_resistance\",\"value\":{\"min\":44}},{\"id\":\"explicit.stat_1062208444\",\"value\":{\"min\":68}},{\"id\":\"explicit.stat_3362812763\",\"value\":{\"min\":38}},{\"id\":\"pseudo.pseudo_total_chaos_resistance\",\"value\":{\"min\":13}}]}],\"filters\":{\"type_filters\":{\"filters\":{\"category\":{\"option\":\"armour.helmet\"}}}}},\"sort\":{\"price\":\"asc\"}}",
+      "currentLeague": "Forbidden Rites"
+     }
+    }
+   },
+   "leftRing": {
+    "runes": null,
+    "anointmentSlug": null,
+    "equipmentItem": {
+     "slug": "ring-fourring10",
+     "isUnique": false,
+     "isImported": null,
+     "name": "Gold Ring",
+     "itemClassSlug": "ring",
+     "modifiers": null,
+     "explicitDescriptions": [
+      {
+       "description": "+15% to all Elemental Resistances",
+       "modifiers": [],
+       "mustHave": null
+      },
+      {
+       "description": "+85 to maximum Life",
+       "modifiers": [],
+       "mustHave": null
+      },
+      {
+       "description": "27% increased Rarity of Items found",
+       "modifiers": [],
+       "mustHave": null
+      },
+      {
+       "description": "+16% to Chaos Resistance",
+       "modifiers": [],
+       "mustHave": null
+      },
+      {
+       "description": "25% increased Fire Damage",
+       "modifiers": [],
+       "mustHave": null
+      }
+     ],
+     "prefixes": [
+      {
+       "mustHave": false,
+       "slug": "FireDamagePrefixOnWeapon1"
+      },
+      {
+       "mustHave": false,
+       "slug": "IncreasedLife7"
+      },
+      {
+       "mustHave": false,
+       "slug": "ItemFoundRarityIncreasePrefix2"
+      },
+      {
+       "mustHave": false,
+       "slug": ""
+      }
+     ],
+     "suffixes": [
+      {
+       "modifiers": null,
+       "mustHave": false,
+       "slug": "AllResistances5"
+      },
+      {
+       "modifiers": null,
+       "mustHave": false,
+       "slug": "ChaosResist4"
+      },
+      {
+       "modifiers": null,
+       "mustHave": false,
+       "slug": "ItemFoundRarityIncrease3"
+      },
+      {
+       "modifiers": null,
+       "mustHave": false,
+       "slug": ""
+      }
+     ],
+     "requirements": null,
+     "stats": null,
+     "poe2TradeRequest": {
+      "query": "{\"query\":{\"status\":{\"option\":\"securable\"},\"stats\":[{\"type\":\"and\",\"filters\":[{\"id\":\"pseudo.pseudo_total_all_elemental_resistances\",\"value\":{\"min\":15}},{\"id\":\"explicit.stat_3299347043\",\"value\":{\"min\":85}},{\"id\":\"explicit.stat_3917489142\",\"value\":{\"min\":27}},{\"id\":\"explicit.stat_2923486259\",\"value\":{\"min\":16}},{\"id\":\"explicit.stat_3962278098\",\"value\":{\"min\":25}}]}],\"filters\":{\"type_filters\":{\"filters\":{\"category\":{\"option\":\"accessory.ring\"}}}}},\"sort\":{\"price\":\"asc\"}}",
+      "currentLeague": "Forbidden Rites"
+     }
+    }
+   },
+   "rightRing": {
+    "runes": null,
+    "anointmentSlug": null,
+    "equipmentItem": {
+     "slug": "ring-fourring10",
+     "isUnique": false,
+     "isImported": null,
+     "name": "Gold Ring",
+     "itemClassSlug": "ring",
+     "modifiers": null,
+     "explicitDescriptions": [
+      {
+       "description": "+9% to all Elemental Resistances",
+       "modifiers": [],
+       "mustHave": null
+      },
+      {
+       "description": "+85 to maximum Life",
+       "modifiers": [],
+       "mustHave": null
+      },
+      {
+       "description": "31% increased Rarity of Items found",
+       "modifiers": [],
+       "mustHave": null
+      },
+      {
+       "description": "+31% to Cold Resistance",
+       "modifiers": [],
+       "mustHave": null
+      },
+      {
+       "description": "25% increased Fire Damage",
+       "modifiers": [],
+       "mustHave": null
+      }
+     ],
+     "prefixes": [
+      {
+       "mustHave": false,
+       "slug": "FireDamagePrefixOnWeapon1"
+      },
+      {
+       "mustHave": false,
+       "slug": "IncreasedLife7"
+      },
+      {
+       "mustHave": false,
+       "slug": "ItemFoundRarityIncreasePrefix3"
+      },
+      {
+       "mustHave": false,
+       "slug": ""
+      }
+     ],
+     "suffixes": [
+      {
+       "modifiers": null,
+       "mustHave": false,
+       "slug": "AllResistances3"
+      },
+      {
+       "modifiers": null,
+       "mustHave": false,
+       "slug": "ColdResist6"
+      },
+      {
+       "modifiers": null,
+       "mustHave": false,
+       "slug": "ItemFoundRarityIncrease3"
+      },
+      {
+       "modifiers": null,
+       "mustHave": false,
+       "slug": ""
+      }
+     ],
+     "requirements": null,
+     "stats": null,
+     "poe2TradeRequest": {
+      "query": "{\"query\":{\"status\":{\"option\":\"securable\"},\"stats\":[{\"type\":\"and\",\"filters\":[{\"id\":\"pseudo.pseudo_total_all_elemental_resistances\",\"value\":{\"min\":9}},{\"id\":\"explicit.stat_3299347043\",\"value\":{\"min\":85}},{\"id\":\"explicit.stat_3917489142\",\"value\":{\"min\":31}},{\"id\":\"pseudo.pseudo_total_elemental_resistance\",\"value\":{\"min\":31}},{\"id\":\"explicit.stat_3962278098\",\"value\":{\"min\":25}}]}],\"filters\":{\"type_filters\":{\"filters\":{\"category\":{\"option\":\"accessory.ring\"}}}}},\"sort\":{\"price\":\"asc\"}}",
+      "currentLeague": "Forbidden Rites"
+     }
+    }
+   }
+  }
+ }
+}

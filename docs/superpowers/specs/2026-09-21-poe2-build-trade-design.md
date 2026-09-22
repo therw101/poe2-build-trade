@@ -30,8 +30,8 @@ search that matches the item.
 
 ### Non-goals (v1)
 
-- Build sites other than maxroll (poe.ninja, mobalytics, etc.). The site adapter
-  boundary keeps this possible later.
+- Build sites other than maxroll. mobalytics and poe.ninja were added in v0.3 (see
+  `2026-09-22-more-build-sites-design.md`).
 - Chrome Web Store or Firefox listing.
 - Pseudo stats (for example total resistance), max-value inputs, and roll-range
   filters for uniques.

@@ -48,3 +48,12 @@ export function categoryFor(itemClass: string | null): string | null {
 export function classLabel(itemClass: string): string {
   return CLASS_LABEL[itemClass] ?? itemClass;
 }
+
+const CLASS_BY_CATEGORY: Record<string, string> = Object.fromEntries(
+  Object.entries(CATEGORY_BY_CLASS).map(([cls, cat]) => [cat, cls]),
+);
+
+/** Reverse of categoryFor, for sites that give a trade category instead of an item class. */
+export function classForCategory(category: string | null): string | null {
+  return (category && CLASS_BY_CATEGORY[category]) || null;
+}

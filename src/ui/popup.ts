@@ -39,7 +39,7 @@ function parseBound(input: HTMLInputElement): number | null {
 function modRow(state: RowState): HTMLElement {
   const { row } = state;
   const mapped = row.tradeId !== null;
-  const boundIsMax = row.value < 0;
+  const boundIsMax = row.preset ? row.preset.min === null && row.preset.max !== null : row.value < 0;
   const container = h('div', { class: `row${mapped ? '' : ' unmapped'}${state.checked ? '' : ' unchecked'}` });
 
   const checkbox = h('input', {
@@ -70,7 +70,7 @@ function modRow(state: RowState): HTMLElement {
 
   container.append(
     checkbox,
-    h('span', { class: 'text' }, row.text),
+    h('span', { class: 'text' }, row.text, row.kind === 'pseudo' ? h('span', { class: 'tag' }, 'pseudo') : null),
     mapped ? (row.numeric ? bound : h('span')) : h('span', { class: 'na' }, t('notOnTrade')),
   );
   return container;
@@ -96,8 +96,9 @@ export function openPopup({ anchor, model, settings, context, onSearch }: PopupO
   style.textContent = TOKENS_CSS + POPUP_CSS;
 
   const states = defaultRowStates(model, settings.minPct);
-  const explicit = states.filter((s) => s.row.kind === 'explicit');
-  const other = states.filter((s) => s.row.kind !== 'explicit');
+  const main = (s: RowState) => s.row.kind === 'explicit' || s.row.kind === 'pseudo';
+  const explicit = states.filter(main);
+  const other = states.filter((s) => !main(s));
 
   // Base: category ("Any Wand") when the class maps to one, else exact base only.
   let baseMode: SearchSelection['baseMode'] = model.category ? 'category' : 'exact';

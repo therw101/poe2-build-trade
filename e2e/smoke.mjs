@@ -1,4 +1,5 @@
-// Manual smoke test against the live maxroll site with the built extension loaded.
+// Manual smoke test against live maxroll and poe.ninja pages with the built extension loaded.
+// mobalytics is not covered: it serves a Cloudflare challenge to automated browsers.
 //   npm run build && npm run e2e            (headless Chromium)
 //   HEADED=1 npm run e2e                    (watch it run)
 // Not part of `npm test`: it depends on live sites.
@@ -10,6 +11,10 @@ import { chromium } from 'playwright';
 
 const GUIDE = 'https://maxroll.gg/poe2/build-guides/grim-pillars-spell-totem-oracle-build-guide';
 const TRADE_PREFIX = 'https://www.pathofexile.com/trade2/search/poe2/';
+// Ladder characters come and go between leagues; override with NINJA_CHARACTER=<url>.
+const NINJA_CHARACTER =
+  process.env.NINJA_CHARACTER ??
+  'https://poe.ninja/poe2/builds/forbiddenrites/character/heygyus-0416/ResurrectForbidden?i=0';
 const ext = resolve('.output/chrome-mv3');
 const profile = mkdtempSync(join(tmpdir(), 'b2t-e2e-'));
 const results = [];
@@ -104,6 +109,27 @@ try {
   }
   const unsearchable = await page.locator('span.poe2-item[data-poe2-text="Purity of Fire"][data-b2t-link]').count();
   check('unsearchable links get no hover target', unsearchable === 0);
+
+  // poe.ninja: skill gem names in a ladder character's skill list get the hover search.
+  await page.goto(NINJA_CHARACTER, { waitUntil: 'domcontentloaded' });
+  const gem = page.locator('[data-tooltip-trigger] [data-b2t-link]').first();
+  const gemFound = await gem.waitFor({ timeout: 30000 }).then(() => true, () => false);
+  check('poe.ninja skill gems get hover targets', gemFound, page.url());
+  if (gemFound) {
+    const name = await gem.getAttribute('data-b2t-link');
+    await gem.scrollIntoViewIfNeeded();
+    await gem.hover();
+    const hoverBtn = page.locator('.b2t-btn--hover:not([hidden])');
+    const visible = await hoverBtn.waitFor({ timeout: 5000 }).then(() => true, () => false);
+    check(`poe.ninja hover shows a button on "${name}"`, visible);
+    if (visible) {
+      const url = await nextTradeTab(ctx, () => hoverBtn.click());
+      const q = url.startsWith(TRADE_PREFIX) ? decodeTradeUrl(url) : null;
+      check(`"${name}" opens a trade search`, !!q && (q.type === name || q.name === name), q ? JSON.stringify(q) : url);
+    }
+  }
+  const ninjaSlotButtons = await page.locator('[data-tooltip-trigger] .b2t-btn--slot').count();
+  check('poe.ninja equipment keeps only its own trade button', ninjaSlotButtons === 0);
 
   if (logs.length) console.log(`[b2t] console:\n  ${logs.join('\n  ')}`);
 } finally {

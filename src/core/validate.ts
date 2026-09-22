@@ -1,4 +1,4 @@
-import type { PlannerItem, StatMap, TradeItemsMap } from './types.ts';
+import type { MobaSlot, PlannerItem, StatMap, TradeItemsMap, TradeStatText } from './types.ts';
 
 const RARITIES = new Set(['normal', 'magic', 'rare', 'unique']);
 
@@ -41,4 +41,23 @@ export function isTradeItemsMap(x: unknown): x is TradeItemsMap {
   if (!isRecord(x) || typeof x.generatedAt !== 'string' || !isRecord(x.byName)) return false;
   const values = Object.values(x.byName);
   return values.length > 0 && values.every((t) => isRecord(t) && typeof t.kind === 'string' && LINK_KINDS.has(t.kind));
+}
+
+export function isTradeStatText(x: unknown): x is TradeStatText {
+  if (!isRecord(x) || typeof x.generatedAt !== 'string' || !isRecord(x.text)) return false;
+  const values = Object.values(x.text);
+  return values.length > 0 && values.every((v) => typeof v === 'string');
+}
+
+/** Shape check for a mobalytics paperdoll slot read from React props. */
+export function isMobaSlot(x: unknown): x is MobaSlot {
+  if (!isRecord(x) || !isRecord(x.equipmentItem)) return false;
+  const item = x.equipmentItem;
+  const req = item.poe2TradeRequest;
+  return (
+    (item.name === undefined || typeof item.name === 'string') &&
+    typeof item.isUnique === 'boolean' &&
+    (req === undefined || req === null || (isRecord(req) && typeof req.query === 'string')) &&
+    (x.runes === undefined || x.runes === null || Array.isArray(x.runes))
+  );
 }

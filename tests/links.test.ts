@@ -6,7 +6,7 @@ import {
   type TradeStaticResponse,
 } from '../scripts/lib/build-data-lib.ts';
 import { decodeQuery, exchangeUrl } from '../src/core/encode.ts';
-import { linkSearch } from '../src/core/links.ts';
+import { linkSearch, lookupName } from '../src/core/links.ts';
 
 const read = (p: string) => JSON.parse(readFileSync(`tests/fixtures/${p}`, 'utf8'));
 const map = buildTradeItems(
@@ -68,5 +68,13 @@ describe('exchangeUrl', () => {
     const url = await exchangeUrl('Runes of Aldur', q);
     expect(url.startsWith('https://www.pathofexile.com/trade2/exchange/poe2/Runes%20of%20Aldur/')).toBe(true);
     expect(await decodeQuery(url.split('/').pop()!)).toEqual(q);
+  });
+});
+
+describe('lookupName', () => {
+  it('finds unique variants shown with a suffix, but keeps exact names first', () => {
+    expect(lookupName(map.byName, 'Darkness Enthroned (life)')).toEqual(target('Darkness Enthroned'));
+    expect(lookupName(map.byName, 'Thaumaturgic Flux (Level 9)')).toEqual({ kind: 'exchange', id: 'thaumaturgic-flux-9' });
+    expect(lookupName(map.byName, 'Purity of Fire')).toBeUndefined();
   });
 });

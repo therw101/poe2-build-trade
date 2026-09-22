@@ -11,8 +11,10 @@ import {
 import { compareVersions, pickDefaultLeague, type League } from '../src/core/leagues.ts';
 import { indexStatMap, type StatIndex } from '../src/core/statmap.ts';
 import { toItemModel } from '../src/core/translate.ts';
-import type { BaseMap, LinkTarget, PlannerItem, StatMap, TradeItemsMap } from '../src/core/types.ts';
-import { isPlannerItem, isStatMap, isTradeItemsMap } from '../src/core/validate.ts';
+import { lookupName } from '../src/core/links.ts';
+import { mobaToModel } from '../src/core/mobalytics.ts';
+import type { BaseMap, LinkTarget, PlannerItem, StatMap, TradeItemsMap, TradeStatText } from '../src/core/types.ts';
+import { isMobaSlot, isPlannerItem, isStatMap, isTradeItemsMap, isTradeStatText } from '../src/core/validate.ts';
 import type { Context, Request, Response } from '../src/ext/messages.ts';
 import { getSettings, saveSettings } from '../src/ext/settings.ts';
 
@@ -74,44 +76,48 @@ async function getMaps(): Promise<{ maps: Maps; index: StatIndex }> {
   return loaded;
 }
 
-// ---- trade item names for inline guide links (same refresh model as the maps) ----
+// ---- single-file data (link names, stat text): same bundled/remote model as the maps ----
 
-let tradeItemsLoaded: TradeItemsMap | null = null;
+function dataFile<T extends { generatedAt: string }>(
+  file: 'trade-items.json' | 'trade-stat-text.json',
+  storageKey: string,
+  valid: (x: unknown) => x is T,
+): () => Promise<T> {
+  let loadedFile: T | null = null;
 
-async function refreshRemoteTradeItems(): Promise<void> {
-  const base = dataBaseUrl();
-  if (!base) return;
-  const { remoteTradeItems } = (await browser.storage.local.get('remoteTradeItems')) as {
-    remoteTradeItems?: Cached<TradeItemsMap>;
-  };
-  if (fresh(remoteTradeItems)) return;
-  try {
-    const value = await fetchJson<unknown>(`${base}/trade-items.json`);
-    if (!isTradeItemsMap(value)) throw new Error('remote trade items have an unexpected shape');
-    await browser.storage.local.set({ remoteTradeItems: { value, fetchedAt: Date.now() } });
-    tradeItemsLoaded = null;
-  } catch (err) {
-    console.warn('[b2t] trade items refresh failed, keeping current data', err);
+  async function refresh(): Promise<void> {
+    const base = dataBaseUrl();
+    if (!base) return;
+    const cached = ((await browser.storage.local.get(storageKey)) as Record<string, Cached<T> | undefined>)[storageKey];
+    if (fresh(cached)) return;
+    try {
+      const value = await fetchJson<unknown>(`${base}/${file}`);
+      if (!valid(value)) throw new Error(`remote ${file} has an unexpected shape`);
+      await browser.storage.local.set({ [storageKey]: { value, fetchedAt: Date.now() } });
+      loadedFile = null;
+    } catch (err) {
+      console.warn(`[b2t] ${file} refresh failed, keeping current data`, err);
+    }
   }
+
+  return async () => {
+    void refresh();
+    if (loadedFile) return loadedFile;
+    const bundled = await fetchJson<T>(browser.runtime.getURL(`/data/${file}`));
+    const remote = ((await browser.storage.local.get(storageKey)) as Record<string, Cached<T> | undefined>)[storageKey];
+    loadedFile = remote && remote.value.generatedAt > bundled.generatedAt ? remote.value : bundled;
+    return loadedFile;
+  };
 }
 
-async function getTradeItems(): Promise<TradeItemsMap> {
-  void refreshRemoteTradeItems();
-  if (tradeItemsLoaded) return tradeItemsLoaded;
-  const bundled = await fetchJson<TradeItemsMap>(browser.runtime.getURL('/data/trade-items.json'));
-  const { remoteTradeItems } = (await browser.storage.local.get('remoteTradeItems')) as {
-    remoteTradeItems?: Cached<TradeItemsMap>;
-  };
-  tradeItemsLoaded =
-    remoteTradeItems && remoteTradeItems.value.generatedAt > bundled.generatedAt ? remoteTradeItems.value : bundled;
-  return tradeItemsLoaded;
-}
+const getTradeItems = dataFile<TradeItemsMap>('trade-items.json', 'remoteTradeItems', isTradeItemsMap);
+const getStatText = dataFile<TradeStatText>('trade-stat-text.json', 'remoteStatText', isTradeStatText);
 
 async function resolveLinks(names: string[]): Promise<Response<Record<string, LinkTarget>>> {
   const { byName } = await getTradeItems();
   const out: Record<string, LinkTarget> = {};
   for (const name of names) {
-    const t = typeof name === 'string' ? byName[name] : undefined;
+    const t = typeof name === 'string' ? lookupName(byName, name) : undefined;
     if (t) out[name] = t;
   }
   return { ok: true, data: out };
@@ -216,6 +222,11 @@ async function handle(req: Request, sender: Browser.runtime.MessageSender): Prom
       if (!isPlannerItem(req.item)) return { ok: false, error: 'format' };
       const { maps, index } = await getMaps();
       return { ok: true, data: toItemModel(req.item, index, maps.baseMap) };
+    }
+    case 'mobaModel': {
+      if (!isMobaSlot(req.slot)) return { ok: false, error: 'format' };
+      const [statText, tradeItems] = await Promise.all([getStatText(), getTradeItems()]);
+      return { ok: true, data: mobaToModel(req.slot, statText, tradeItems) };
     }
     case 'context':
       return { ok: true, data: await context() };

@@ -20,3 +20,11 @@ export function linkSearch(target: LinkTarget, status: TradeStatus): LinkSearch 
   }
   return { mode: 'search', query };
 }
+
+/**
+ * Finds a guide name in the trade name map. Sites append variants to unique names
+ * ("Morior Invictus (life)"), so a trailing "(…)" is dropped when the exact name is unknown.
+ */
+export function lookupName(byName: Record<string, LinkTarget>, name: string): LinkTarget | undefined {
+  return byName[name] ?? byName[name.replace(/\s*\([^)]*\)$/, '')];
+}

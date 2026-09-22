@@ -4,6 +4,8 @@ import type { ItemModel, LinkTarget, PlannerItem } from '../core/types.ts';
 export type Request =
   | { type: 'plannerItem'; profileId: string; itemId: string }
   | { type: 'toModel'; item: PlannerItem }
+  /** A mobalytics paperdoll slot as read from the page; validated in the background. */
+  | { type: 'mobaModel'; slot: unknown }
   | { type: 'context' }
   | { type: 'openTab'; url: string }
   | { type: 'resolveLinks'; names: string[] };
@@ -22,6 +24,7 @@ export interface Context {
 export interface ResponseFor {
   plannerItem: PlannerItem;
   toModel: ItemModel;
+  mobaModel: ItemModel;
   context: Context;
   openTab: null;
   /** Only names that trade can search are present. */

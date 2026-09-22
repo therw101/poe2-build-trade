@@ -7,6 +7,7 @@ import type {
   StatMap,
   StatMapEntry,
   TradeItemsMap,
+  TradeStatText,
 } from '../../src/core/types.ts';
 
 const KINDS: readonly StatKind[] = ['explicit', 'implicit', 'enchant', 'crafted', 'fractured', 'rune'];
@@ -282,4 +283,25 @@ export function buildTradeItems(
     }
   }
   return { generatedAt, byName };
+}
+
+/**
+ * Trade stat id → display template for popup rows built from a site's own trade filters.
+ * Most ids share their wording across kinds ("explicit.stat_1" and "rune.stat_1"), so the
+ * text is stored once under "stat_1"; a full id key is added only where a kind differs.
+ */
+export function buildTradeStatText(stats: TradeStatsResponse, generatedAt: string): TradeStatText {
+  const text: Record<string, string> = {};
+  const seen = new Set<string>();
+  for (const group of stats.result) {
+    for (const e of group.entries) {
+      // A few ids are listed twice with different wording; keep the first listing.
+      if (seen.has(e.id)) continue;
+      seen.add(e.id);
+      const key = e.id.slice(e.id.indexOf('.') + 1);
+      if (!(key in text)) text[key] = e.text;
+      else if (text[key] !== e.text) text[e.id] = e.text;
+    }
+  }
+  return { generatedAt, text };
 }

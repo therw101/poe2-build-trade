@@ -1,4 +1,4 @@
-// Builds public/data/{stat-map,base-map,trade-items}.json from RePoE and the trade2 data API.
+// Builds public/data/{stat-map,base-map,trade-items,trade-stat-text}.json from RePoE and the trade2 data API.
 //   npm run build-data                 write to ./public/data
 //   npm run build-data -- --out dir    write to another directory
 //   npm run build-data -- --check      exit 1 when fixture coverage < 95%
@@ -8,6 +8,7 @@ import {
   buildBaseMap,
   buildStatMap,
   buildTradeItems,
+  buildTradeStatText,
   coverage,
   type RepoeBase,
   type RepoeTranslation,
@@ -48,6 +49,7 @@ const generatedAt = new Date().toISOString();
 const statMap = buildStatMap(translations, tradeStats, handlers, generatedAt);
 const baseMap = buildBaseMap(bases);
 const tradeItems = buildTradeItems(tradeItemList, tradeStatic, generatedAt);
+const tradeStatText = buildTradeStatText(tradeStats, generatedAt);
 
 const planner = JSON.parse(readFileSync('tests/fixtures/planner-z7coxn0y.json', 'utf8'));
 const items: PlannerItem[] = Object.values(JSON.parse(planner.data).items);
@@ -68,4 +70,5 @@ mkdirSync(outDir, { recursive: true });
 writeFileSync(join(outDir, 'stat-map.json'), JSON.stringify(statMap));
 writeFileSync(join(outDir, 'base-map.json'), JSON.stringify(baseMap));
 writeFileSync(join(outDir, 'trade-items.json'), JSON.stringify(tradeItems));
-console.log(`[b2t] wrote stat-map.json, base-map.json and trade-items.json to ${outDir}`);
+writeFileSync(join(outDir, 'trade-stat-text.json'), JSON.stringify(tradeStatText));
+console.log(`[b2t] wrote stat-map, base-map, trade-items and trade-stat-text JSON to ${outDir}`);

@@ -1,8 +1,13 @@
 # Build → Trade (PoE2)
 
-A Chromium extension that adds a search button to every equipment item on
-[maxroll.gg](https://maxroll.gg/poe2/build-guides) Path of Exile 2 build guides. One
-click opens the official trade site with a search that matches the item.
+A Chromium extension that adds a search button to items on Path of Exile 2 build sites.
+One click opens the official trade site with a search that matches the item.
+
+| Site | Equipment | Skill gems and linked items |
+|---|---|---|
+| [maxroll.gg](https://maxroll.gg/poe2/build-guides) guides | Yes | Yes (hover) |
+| [mobalytics.gg](https://mobalytics.gg/poe-2/builds) guides | Yes, using the guide's own filters | Yes (hover) |
+| [poe.ninja](https://poe.ninja/poe2/builds) characters | No (poe.ninja has its own trade search) | Yes (hover) |
 
 - **Unique items** open a trade search by name.
 - **Rare and magic items** open a picker where you choose mods and minimum values
@@ -12,6 +17,8 @@ click opens the official trade site with a search that matches the item.
   search.
 - Works on the equipment paperdoll (any set or Act tab) and on "New Item" links in the
   guide text.
+- On mobalytics, the picker starts with the filters the guide author chose, at the
+  author's minimums. League and listing status come from your settings.
 
 > Not affiliated with or endorsed by Grinding Gear Games or Maxroll.
 
@@ -28,7 +35,7 @@ extension card. The picker shows a banner when a new version is out.
 
 ## Use
 
-1. Open a maxroll PoE2 build guide.
+1. Open a maxroll or mobalytics PoE2 build guide, or a poe.ninja character.
 2. Click the magnifier on an item.
 3. For rare and magic items:
    - Untick mods you don't care about.
@@ -54,7 +61,8 @@ Right-click the extension icon, then choose **Options**.
 
 The extension collects nothing and has no analytics. The only network requests it makes are:
 
-- `planners.maxroll.gg`, to read the build you are viewing
+- `planners.maxroll.gg`, to read the maxroll build you are viewing (mobalytics and poe.ninja
+  items are read from the page itself)
 - `www.pathofexile.com/api/trade2/data/*`, for the list of leagues
 - GitHub, for daily mod-data updates and new-version checks (only when configured)
 
@@ -62,8 +70,11 @@ Settings stay in your browser's extension storage.
 
 ## ภาษาไทย
 
-Extension สำหรับ Chrome, Edge, Brave และ Opera ที่เพิ่มปุ่มค้นหาให้ไอเทมทุกชิ้นในหน้า build
-guide ของ maxroll (PoE2) กดแล้วจะเปิดเว็บเทรดอย่างเป็นทางการพร้อม filter ที่ตรงกับไอเทมนั้น
+Extension สำหรับ Chrome, Edge, Brave และ Opera ที่เพิ่มปุ่มค้นหาให้ไอเทมในเว็บ build ของ PoE2
+(maxroll, mobalytics, poe.ninja) กดแล้วจะเปิดเว็บเทรดอย่างเป็นทางการพร้อม filter ที่ตรงกับไอเทมนั้น
+
+- **mobalytics**: ไอเทมทุกช่องมีปุ่มค้นหา popup จะติ๊กม็อดที่คนเขียน guide เลือกไว้ให้แล้ว
+- **poe.ninja**: เฉพาะหินสกิล (ไอเทมที่ใส่อยู่ใช้ปุ่มเทรดของ poe.ninja เอง)
 
 - **Unique**: กดครั้งเดียวก็ค้นด้วยชื่อ
 - **Rare/Magic**: มีหน้าต่างให้เลือกม็อดกับค่าต่ำสุดก่อน (ค่าเริ่มต้น 80% ของค่าใน build)
@@ -94,9 +105,10 @@ npm run build-data   # regenerate public/data/*.json from RePoE + trade2 data AP
 
 How the pieces fit:
 
-- `entrypoints/maxroll.content.ts` injects the buttons and opens the picker.
+- `src/site/runtime.ts` injects the buttons, runs the hover search, and opens the picker.
+  Each site has a small adapter in `src/adapters/` and a one-line content script.
 - `entrypoints/item-reader.content.ts` runs in the page's main world and reads
-  paperdoll items from React props.
+  paperdoll items from React props (maxroll and mobalytics).
 - `entrypoints/background.ts` handles the planner API, the data maps, leagues, and
   opening tabs.
 - `src/core/*` is pure logic: translate an item, build the query, and encode it into a
@@ -122,6 +134,9 @@ The design is in `docs/superpowers/specs/`.
    the trade tab shows the expected filters.
 4. Hover a gem link and a currency link in the guide text, click the button, and check
    that the gem opens a search and the currency opens the exchange.
+   - On a mobalytics guide (not covered by `npm run e2e`, which Cloudflare blocks), check a
+     rare slot's popup shows the guide's filters, a unique searches by name, and a gem card
+     shows the hover button.
 5. Switch the set and the Act tab on the paperdoll, and check that the searched item
    follows the selection.
 6. Check that changes on the options page affect the next search.

@@ -29,11 +29,11 @@ function defaultBounds(row: ModRow, minPct: number): { min: number | null; max: 
 }
 
 export function defaultRowStates(model: ItemModel, minPct: number): RowState[] {
-  return model.mods.map((row) => ({
-    row,
-    checked: row.kind === 'explicit' && row.tradeId !== null,
-    ...defaultBounds(row, minPct),
-  }));
+  return model.mods.map((row) =>
+    row.preset
+      ? { row, checked: row.tradeId !== null, ...row.preset }
+      : { row, checked: row.kind === 'explicit' && row.tradeId !== null, ...defaultBounds(row, minPct) },
+  );
 }
 
 export function selectionFromRows(rows: RowState[]): ModSelection[] {
