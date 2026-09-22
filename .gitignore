@@ -2,7 +2,7 @@ node_modules
 .output
 .wxt
 web-ext.config.ts
-site
+/site
 e2e/.profile
 *.log
 .DS_Store
