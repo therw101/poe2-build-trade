@@ -20,7 +20,14 @@ jobs:
       - run: npm run typecheck
       - run: npm test
       - run: npm run zip
+      # The release body is this version's section of CHANGELOG.md; the job fails if it is missing.
+      - name: Release notes from CHANGELOG.md
+        run: |
+          v="${GITHUB_REF_NAME#v}"
+          awk -v v="$v" 'index($0, "## [" v "]") == 1 {on=1; next} /^## \[/ {on=0} /^\[[0-9.]+\]: / {on=0} on' CHANGELOG.md > release-notes.md
+          test -s release-notes.md
       - uses: softprops/action-gh-release@v2
         with:
           files: .output/*-chrome.zip
+          body_path: release-notes.md
           generate_release_notes: true

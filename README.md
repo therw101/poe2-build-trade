@@ -114,7 +114,8 @@ How the pieces fit:
 - `src/core/*` is pure logic: translate an item, build the query, and encode it into a
   trade2 URL.
 
-The design is in `docs/superpowers/specs/`.
+The design is in `docs/superpowers/specs/`. What changed in each version is in
+[CHANGELOG.md](CHANGELOG.md).
 
 ### Maintainer setup
 
@@ -123,8 +124,9 @@ The design is in `docs/superpowers/specs/`.
 2. In the repository settings, enable **Pages** with the source set to **GitHub
    Actions**. `data.yml` publishes fresh maps every day. It refuses to publish if mod
    coverage drops below 95%.
-3. To release, bump `version` in `package.json`, then tag and push:
-   `git tag v0.2.0 && git push --tags`. `release.yml` attaches the zip.
+3. To release, bump `version` in `package.json` and add a `## [x.y.z]` section to
+   `CHANGELOG.md`, then tag and push: `git tag v0.3.0 && git push --tags`. `release.yml`
+   attaches the zip and uses that changelog section as the release notes.
 
 ### Release smoke checklist
 
